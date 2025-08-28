@@ -328,7 +328,7 @@ class Tetromino {
         let success = this.canMove(translation, rotation)
         if (success) {
             scheduler.clearTimeout(lockDown)
-            matrix.drawPiece(this, hardDropped? "trail-animation" : "")
+            matrix.drawPiece(this, translation == TRANSLATION.DOWN? "trail-animation" : "")
             this.center = success.center
             if (rotation) this.facing = success.facing
             this.lastRotation = rotation

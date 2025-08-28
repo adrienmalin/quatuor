@@ -115,7 +115,7 @@ tr.matrix td:not(.mino) {
 
 @keyframes trail-animation {
     from {
-        background-color: #ceffff10;
+        background-color: #ceffff08;
         filter: saturate(50%) brightness(110%);
     }
     to {
