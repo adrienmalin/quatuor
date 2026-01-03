@@ -84,15 +84,8 @@
 
 .ghost.mino {
     margin: 1px;
-    background: transparent !important;
-    border: 2px solid var(--light-color) !important;
-    box-shadow:
-        -2px -2px 6px #FFF8,
-        -2px  2px 6px #FFF8,
-         2px -2px 6px #FFF8,
-         2px  2px 6px #FFF8;
-    opacity: 65%;
-    
+    opacity: 20%;
+    filter: brightness(180%) saturate(60%) blur(1px);
 }
 
 .moving.mino {
