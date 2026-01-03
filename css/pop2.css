@@ -1,0 +1,70 @@
+body {
+    background-image: url("pop/bg.png");
+    background-size: cover;
+}
+
+body[data-bs-theme="dark"] {
+    --bs-body-bg: #2125296b;
+}
+
+.btn-dark {
+    --bs-btn-bg: #2125296b;
+}
+
+.card {
+  background: #25292d66;
+}
+
+#matrixCard {
+  background-image: radial-gradient(#2226, #25292d66);
+}
+
+.minoes-table {
+  background: transparent;
+}
+
+.mino {
+  background: var(--color);
+  border: 3px solid var(--border);
+  box-shadow: 0 0 8px var(--border);
+}
+
+.I {
+  --color: #00eaf888;
+  --border: #00eaf5;
+}
+
+.J {
+  --color: #00a9f788;
+  --border: #00a9f7;
+}
+
+.L {
+  --color: #f9b60088;
+  --border: #f9b600;
+}
+
+.O {
+  --color: #e3e04988;
+  --border: #e3e049;
+}
+
+.S {
+  --color: #7bd59e88;
+  --border: #7bd59e;
+}
+
+.T {
+  --color: #d136e288;
+  --border: #d136e2;
+}
+
+.Z {
+  --color: #E67D8688;
+  --border: #E67D86;
+}
+
+.ghost {
+  --color: #fff4;
+  --border: #fff5;
+}
