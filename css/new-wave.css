@@ -19,6 +19,12 @@ body[data-bs-theme="dark"] {
   background-image: radial-gradient(#2226, #25292d66);
 }
 
+.card,
+#matrixCard {
+    background: repeating-linear-gradient(transparent, #111 1px);
+    backdrop-filter: blur(3px);
+}
+
 .minoes-table {
   background: transparent;
 }
