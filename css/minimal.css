@@ -76,7 +76,7 @@ tr.matrix td:not(.mino) {
 }
 
 .ghost.mino {
-    opacity: 50%;
+    opacity: 5%;
     box-shadow: none;
 }
 
