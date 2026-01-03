@@ -7,9 +7,6 @@
     src: url("retro/Early GameBoy.ttf");
 }
 
-body {
-}
-
 #screenRow {
     background-image: url("retro/bg.png");
     background-size: 10px;

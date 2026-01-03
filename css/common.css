@@ -41,8 +41,8 @@ body {
     text-align: right;
 }
 
-#timeCell {
-    min-width: 10ch;
+td#timeCell {
+  min-width: 10ch;
 }
 
 .minoes-table {

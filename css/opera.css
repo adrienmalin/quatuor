@@ -75,6 +75,10 @@ body {
     color: white;
 }
 
+td#timeCell {
+  text-align: center;
+}
+
 #matrixCard {
     background: transparent;
     border-top: none;
