@@ -10,13 +10,13 @@ body {
 }
 
 @supports (backdrop-filter: blur()) {
-    .modal {
+    /*.modal {
         backdrop-filter: blur(2px);
-    }
+    }*/
 
     .modal-content {
         background-color: #2125294d;
-        backdrop-filter: blur(15px);
+        backdrop-filter: blur(10px);
     }
 }
 
