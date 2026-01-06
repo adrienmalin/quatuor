@@ -10,9 +10,15 @@ body {
 }
 
 @supports (backdrop-filter: blur()) {
-    /*.modal {
+    .modal::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
         backdrop-filter: blur(2px);
-    }*/
+    }
 
     .modal-content {
         background-color: #2125294d;
@@ -34,6 +40,7 @@ body {
 
 .modal-title {
     text-shadow: 0 0 8px var(--bs-light);
+    font-weight: 600;
 }
 
 #statsTable td,
