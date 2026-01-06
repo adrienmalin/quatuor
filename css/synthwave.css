@@ -1,5 +1,5 @@
 body {
-    background-image: url("new-wave/bg.png");
+    background-image: url(synthwave/bg.png);
     background-size: cover;
 }
 
@@ -11,113 +11,66 @@ body[data-bs-theme="dark"] {
     --bs-btn-bg: #2125296b;
 }
 
+.card {
+  background: #25292d66;
+}
+
+#matrixCard {
+  background-image: radial-gradient(#2226, #25292d66);
+}
+
 .card,
 #matrixCard {
     background: repeating-linear-gradient(transparent, #111 1px);
     backdrop-filter: blur(3px);
 }
 
-.card-header {
-    background-color: rgba(37, 41, 45, 50%);
-}
-
-#matrixTable {
-    border-spacing: 1px;
-}
-
-tr.matrix td:not(.mino) {
-    border: 1px solid #111;
+.minoes-table {
+  background: transparent;
 }
 
 .mino {
-    background: radial-gradient(#fff3 0%, var(--color) 170%);
-    border: 2px solid var(--color);
-    border-radius: 0;
-    outline: 1px solid #0006;
-    opacity: 100%;
-    box-shadow: 0 0 12px var(--color);
+  background: var(--color);
+  border: 3px solid var(--border);
+  box-shadow: 0 0 8px var(--border);
 }
 
-.I.mino {
-    --color: #00eaf5;
+.I {
+  --color: #00eaf888;
+  --border: #00eaf5;
 }
 
-.J.mino {
-    --color: #00a9f7;
+.J {
+  --color: #00a9f788;
+  --border: #00a9f7;
 }
 
-.L.mino {
-    --color: #f9b600;
+.L {
+  --color: #f9b60088;
+  --border: #f9b600;
 }
 
-.O.mino {
-    --color: #f7f200;;
+.O {
+  --color: #e3e04988;
+  --border: #e3e049;
 }
 
-.T.mino {
-    --color: #d136e2;;
+.S {
+  --color: #7bd59e88;
+  --border: #7bd59e;
 }
 
-.S.mino {
-    --color: #35da3f;
+.T {
+  --color: #d136e288;
+  --border: #d136e2;
 }
 
-.Z.mino {
-    --color: #ee3b3a;
+.Z {
+  --color: #E67D8688;
+  --border: #E67D86;
 }
 
-.ghost.mino {
-    background: transparent;
-    opacity: 50%;
-}
-
-.moving.mino {
-    filter: brightness(120%);
-}
-
-.locking.mino {
-    --color: white;
-    box-shadow: 0 0 10px var(--color);
-}
-
-@keyframes locked-animation {
-    from {
-        background: white;
-        --color: white;
-    }
-}
-
-.locked.mino {
-    animation: locked-animation;
-    animation-duration: 0.2s;
-}
-
-.disabled.mino {
-    outline: 0px;
-    box-shadow: none;
-    filter: contrast(40%) brightness(50%);
-}
-
-tr.cleared-line-animation {
-    animation: none;
-}
-
-tr.cleared-line-animation::after {
-    content: "";
-    width: 100%;
-    height: var(--cell-side);
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    display: block;
-    background: repeating-linear-gradient(transparent, #fffb 1px);
-    opacity: 0;
-    animation: cleared-line-animation ease-out .3s;
-}
-
-@keyframes cleared-line-animation {
-    25% {
-        width: 200%;
-        opacity: 100%;
-    }
+.ghost {
+  --color: #fff4;
+  --border: #fff5;
 }
