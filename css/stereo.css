@@ -102,6 +102,7 @@ tr.matrix td:not(.mino) {
 }
 
 .mino::before,
+.mino + *::before,
 .mino::after {
     content: '';
     position: absolute;
@@ -118,7 +119,7 @@ tr.matrix td:not(.mino) {
     transform-origin: left;
 }
 
-.right .mino::before {
+.mino + *::before {
     background: var(--dark-color);
     transform: translateZ(calc(-1 * var(--cell-side))) rotateY(90deg);
     transform-origin: right;
@@ -181,7 +182,7 @@ tr.matrix td:not(.mino) {
 .ghost.mino {
     --background-color: #8886;
     --light-color: #ccc6;
-    --dark-color: #3336;
+    --dark-color: #6666;
 }
 
 .locking.mino {
