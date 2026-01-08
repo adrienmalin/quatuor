@@ -114,9 +114,19 @@ tr.matrix td:not(.mino) {
   border-radius: 2px;
 }
 
-.minoes-table .mino::before,
-.minoes-table .mino + :not(.mino)::before {
+.minoes-table :not(.mino) + .mino::before,
+.left .minoes-table .mino + .mino::before {
   background: var(--light-color);
+}
+
+.right .minoes-table .mino + .mino::before,
+.minoes-table .mino + :not(.mino)::before {
+  background: var(--dark-color);
+}
+
+.minoes-table :not(.mino) + .mino::before,
+.minoes-table .mino + .mino::before,
+.minoes-table .mino + :not(.mino)::before {
   transform: translateZ(calc(-1 * var(--cell-side))) rotateY(-90deg);
   transform-origin: left;
 }
