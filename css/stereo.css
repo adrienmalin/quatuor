@@ -103,7 +103,6 @@ tr.matrix td:not(.mino) {
 }
 
 .mino::before,
-.mino + ::before,
 .mino::after {
     content: '';
     position: absolute;
@@ -115,13 +114,13 @@ tr.matrix td:not(.mino) {
     border-radius: 2px;
 }
 
-.mino::before {
+:not(.mino) + .mino::before {
     background: var(--light-color);
     transform: translateZ(calc(-1 * var(--cell-side))) rotateY(-90deg);
     transform-origin: left;
 }
 
-.mino + *::before {
+.mino::before {
     background: var(--dark-color);
     transform: translateZ(calc(-1 * var(--cell-side))) rotateY(90deg);
     transform-origin: right;
