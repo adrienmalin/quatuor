@@ -1,278 +1,306 @@
 body {
-    background-image: url(stereo/bg.jpg),
-        radial-gradient(
-            circle at center,
-            #39444f 0%,
-            #2c323b 25%,
-            #293036 28%,
-            #252b32 34%,
-            #242930 38%,
-            #1a1d22 52%,
-            #191c22 53%,
-            #151519 63%,
-            #141418 65%,
-            #0f0f12 74%,
-            #0a0c0d 100%
-        );
-    background-repeat: round;
+  background-image: url(stereo/bg.jpg),
+    radial-gradient(circle at center,
+      #39444f 0%,
+      #2c323b 25%,
+      #293036 28%,
+      #252b32 34%,
+      #242930 38%,
+      #1a1d22 52%,
+      #191c22 53%,
+      #151519 63%,
+      #141418 65%,
+      #0f0f12 74%,
+      #0a0c0d 100%);
+  background-repeat: round;
 }
 
 #sceneDiv {
-    perspective: 500px;
-    cursor: grab;
+  perspective: 500px;
+  cursor: grab;
 }
 
 #sceneDiv:active {
-    cursor: grabbing;
+  cursor: grabbing;
 }
 
 #sceneDiv * {
-    transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
 
 #screenRow {
-    display: block;
-    transform: translateZ(var(--tZ)) rotateX(var(--rX)) rotateY(var(--rY));
+  display: block;
+  transform: translateZ(var(--tZ)) rotateX(var(--rX)) rotateY(var(--rY));
 }
 
 #screenRow * {
-    display: block;
+  display: block;
 }
 
 #screenRow .col {
-    display: inline-block !important;
-    width: max-content;
-    height: 100%;
-    vertical-align: top;
+  display: inline-block !important;
+  width: max-content;
+  height: 100%;
+  vertical-align: top;
 }
 
 .card {
-    background: #36394180;
+  background: #36394180;
 }
 
 #matrixCard {
-    background-image: none;
+  background-image: none;
 }
 
-#screenRow .card > * {
-    transform: translateZ(var(--cell-side));
+#screenRow .card>* {
+  transform: translateZ(var(--cell-side));
 }
 
 #screenRow .card-header {
-    background-color: transparent;
-    border: none;
+  background-color: transparent;
+  border: none;
 }
 
 .minoes-table th,
 .minoes-table td {
-    display: inline-block !important;
-    width: max-content;
+  display: inline-block !important;
+  width: max-content;
 }
 
 .minoes-table tr {
-    width: max-content;
-    height: var(--cell-side);
+  width: max-content;
+  height: var(--cell-side);
 }
 
 #statsTable tr {
-    display: table;
-    width: 100%;
+  display: table;
+  width: 100%;
 }
 
 #statsTable th,
 #statsTable td {
-    display: table-cell;
-    border: 0;
+  display: table-cell;
+  border: 0;
 }
 
 tr.matrix td:not(.mino) {
-    border: 0;
-    will-change: transform;
-    transform: translateZ(0);
+  border: 0;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .minoes-table td {
-    width: var(--cell-side) !important;
-    height: var(--cell-side);
+  width: var(--cell-side) !important;
+  height: var(--cell-side);
+  overflow: visible;
 }
 
 .minoes-table .mino {
-    background: radial-gradient(circle at -150% -200%, #fffb 0%, var(--background-color) 100%);
-    overflow: visible;
-    border-radius: 2px;
+  background: radial-gradient(circle at -150% -200%, #fffb 0%, var(--background-color) 100%);
+
+  border-radius: 2px;
 }
 
-.mino::before,
-.mino::after {
-    content: '';
-    position: absolute;
-    display: block;
-    top: 0;
-    left: 0;
-    width: inherit;
-    height: inherit;
-    border-radius: 2px;
+.minoes-table .mino::before,
+.minoes-table .mino + :not(.mino)::before,
+.minoes-table .mino::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: inherit;
+  height: inherit;
+  border-radius: 2px;
 }
 
-:not(.mino) + .mino::before {
-    background: var(--light-color);
-    transform: translateZ(calc(-1 * var(--cell-side))) rotateY(-90deg);
-    transform-origin: left;
+.minoes-table .mino::before,
+.minoes-table .mino + :not(.mino)::before {
+  background: var(--light-color);
+  transform: translateZ(calc(-1 * var(--cell-side))) rotateY(-90deg);
+  transform-origin: left;
 }
 
-.mino::before {
-    background: var(--dark-color);
-    transform: translateZ(calc(-1 * var(--cell-side))) rotateY(90deg);
-    transform-origin: right;
+.minoes-table .mino::after {
+  background: var(--light-color);
+  transform: translateZ(calc(-1 * var(--cell-side))) rotateX(90deg);
+  transform-origin: top;
 }
 
-.mino::after {
-    background: var(--light-color);
-    transform: translateZ(calc(-1 * var(--cell-side))) rotateX(90deg);
-    transform-origin: top;
+.bottom .minoes-table .mino::after {
+  background: var(--dark-color);
+  transform: translateZ(calc(-1 * var(--cell-side))) rotateX(-90deg);
+  transform-origin: bottom;
 }
 
-.bottom .mino::after {
-    background: var(--dark-color);
-    transform: translateZ(calc(-1 * var(--cell-side))) rotateX(-90deg);
-    transform-origin: bottom;
+.I.mino,
+.I.mino + :not(.mino) {
+  --background-color: #42afe1b0;
+  --light-color: #6ceaff80;
+  --dark-color: #00a4b0b0;
 }
 
-.I.mino {
-    --background-color: #42afe1b0;
-    --light-color: #6ceaff80;
-    --dark-color: #00a4b0b0;
+.J.mino,
+.J.mino + :not(.mino) {
+  --background-color: #1165b5b0;
+  --light-color: #339bff80;
+  --dark-color: #00009db0;
 }
 
-.J.mino {
-    --background-color: #1165b5b0;
-    --light-color: #339bff80;
-    --dark-color: #00009db0;
+.L.mino,
+.L.mino + :not(.mino) {
+  --background-color: #f38927b0;
+  --light-color: #ffba5980;
+  --dark-color: #c54800b0;
 }
 
-.L.mino {
-    --background-color: #f38927b0;
-    --light-color: #ffba5980;
-    --dark-color: #c54800b0;
+.O.mino,
+.O.mino + :not(.mino) {
+  --background-color: #f6d03cb0;
+  --light-color: #ffff7f80;
+  --dark-color: #ca9501b0;
 }
 
-.O.mino {
-    --background-color: #f6d03cb0;
-    --light-color: #ffff7f80;
-    --dark-color: #ca9501b0;
+.S.mino,
+.S.mino + :not(.mino) {
+  --background-color: #51b84db0;
+  --light-color: #84f88080;
+  --dark-color: #1cbc02b0;
 }
 
-.S.mino {
-    --background-color: #51b84db0;
-    --light-color: #84f88080;
-    --dark-color: #1cbc02b0;
+.T.mino,
+.T.mino + :not(.mino) {
+  --background-color: #9739a2b0;
+  --light-color: #d958e980;
+  --dark-color: #6e019ab0;
 }
 
-.T.mino {
-    --background-color: #9739a2b0;
-    --light-color: #d958e980;
-    --dark-color: #6e019ab0;
+.Z.mino,
+.Z.mino + :not(.mino) {
+  --background-color: #eb4f65b0;
+  --light-color: #ff7f7980;
+  --dark-color: #ad1936b0;
 }
 
-.Z.mino {
-    --background-color: #eb4f65b0;
-    --light-color: #ff7f7980;
-    --dark-color: #ad1936b0;
+.ghost.mino,
+.ghost.mino + :not(.mino) {
+  --background-color: #8886;
+  --light-color: #ccc6;
+  --dark-color: #6666;
 }
 
-.ghost.mino {
-    --background-color: #8886;
-    --light-color: #ccc6;
-    --dark-color: #6666;
+.locking.mino,
+.locking.mino + :not(.mino) {
+  --background-color: #eeeb;
+  --light-color: #fffb;
+  --dark-color: #dddb;
 }
 
-.locking.mino {
-    --background-color: #eeeb;
-    --light-color: #fffb;
-    --dark-color: #dddb;
+.disabled.mino,
+.disabled.mino + :not(.mino) {
+  --background-color: #888b;
+  --light-color: #cccb;
+  --dark-color: #6666;
 }
 
-.disabled.mino {
-    --background-color: #888b;
-    --light-color: #cccb;
-    --dark-color: #333b;
+#holdTable .J + :not(.mino),
+#holdTable .L + :not(.mino),
+#holdTable .S + :not(.mino),
+#holdTable .T + :not(.mino),
+#holdTable .Z + :not(.mino),
+#nextTable .J + :not(.mino),
+#nextTable .L + :not(.mino),
+#nextTable .S + :not(.mino),
+#nextTable .T + :not(.mino),
+#nextTable .Z + :not(.mino) {
+  transform: translateX(50%);
 }
 
 @keyframes cleared-line-animation {
-    from {
-        background-color: #ceffff66;
-        box-shadow: -200px 0 5px white, 200px 0 5px white;
-    }
-    to {
-        background-color: transparent;
-    }
+  from {
+    background-color: #ceffff66;
+    box-shadow: -200px 0 5px white, 200px 0 5px white;
+  }
+
+  to {
+    background-color: transparent;
+  }
 }
 
 @keyframes show-level-animation {
-    from {
-        opacity: 1;
-        transform: translateY(200%);
-    }
-    50% {
-        transform: translateY(0) scaleY(1);
-        line-height: var(--bs-body-line-height);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(-100%) scaleY(0);
-        line-height: 0;
-    }
+  from {
+    opacity: 1;
+    transform: translateY(200%);
+  }
+
+  50% {
+    transform: translateY(0) scaleY(1);
+    line-height: var(--bs-body-line-height);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(-100%) scaleY(0);
+    line-height: 0;
+  }
 }
 
 @keyframes zoom-in-animation {
-    from {
-        opacity: 1;
-        transform: scale3d(0.3, 0.3, 0.3);
-        line-height: var(--bs-body-line-height);
-    }
-    30% {
-        transform: scale3d(1, 1, 1);
-    }
-    80% {
-        transform: scale3d(1, 1, 1);
-        line-height: var(--bs-body-line-height);
-    }
-    to {
-        opacity: 1;
-        transform: scale3d(1.5, 0, 1);
-        line-height: 0;
-    }
+  from {
+    opacity: 1;
+    transform: scale3d(0.3, 0.3, 0.3);
+    line-height: var(--bs-body-line-height);
+  }
+
+  30% {
+    transform: scale3d(1, 1, 1);
+  }
+
+  80% {
+    transform: scale3d(1, 1, 1);
+    line-height: var(--bs-body-line-height);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale3d(1.5, 0, 1);
+    line-height: 0;
+  }
 }
 
 @keyframes rotate-in-animation {
-    0% {
-        opacity: 1;
-        transform: rotate(200deg);
-        line-height: var(--bs-body-line-height);
-    }
-    30% {
-        transform: translateZ(0);
-        transform: scale3d(1, 1, 1);
-    }
-    80% {
-        transform: scale3d(1, 1, 1);
-        line-height: var(--bs-body-line-height);
-    }
-    to {
-        opacity: 1;
-        transform: scale3d(1.5, 0, 1);
-        line-height: 0;
-    }
+  0% {
+    opacity: 1;
+    transform: rotate(200deg);
+    line-height: var(--bs-body-line-height);
+  }
+
+  30% {
+    transform: translateZ(0);
+    transform: scale3d(1, 1, 1);
+  }
+
+  80% {
+    transform: scale3d(1, 1, 1);
+    line-height: var(--bs-body-line-height);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale3d(1.5, 0, 1);
+    line-height: 0;
+  }
 }
 
 @keyframes game-over-animation {
-    from {
-        opacity: 1;
-        transform: translateY(200%);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scaleY(1);
-        line-height: var(--bs-body-line-height);
-    }
+  from {
+    opacity: 1;
+    transform: translateY(200%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+    line-height: var(--bs-body-line-height);
+  }
 }
