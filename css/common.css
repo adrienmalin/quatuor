@@ -2,7 +2,7 @@
     --cell-side: 24px;
     --rX: -15deg;
     --rY: 0;
-    --tZ: 0;
+    --tZ: 25px;
 }
 
 body {
