@@ -103,14 +103,18 @@ tr.matrix td:not(.mino) {
 .minoes-table .mino + :not(.mino)::before,
 .minoes-table .mino::after {
   --light: calc(
-    0.9
+    1
     + (var(--light-y) * 0.3)
     + (var(--light-x) * 0.2)
   );
   --center-color: hsla(var(--h), var(--s), calc(var(--l) * var(--light)), var(--a));
   --edge-color: hsla(var(--h), var(--s), calc(var(--l) * (var(--light) * 0.8)), var(--a));
+  --highlight: hsla(60deg, 100%, 95%, 0.3);
+  --shadow:    hsla(0deg, 0%, 0%, 0.15);
+  --center-x:  calc(35% + var(--light-x) * 10%);
+  --center-y:  calc(35% + var(--light-y) * 10%);
   background: radial-gradient(
-    circle at calc(35% + var(--light-x) * 10%) calc(35% + var(--light-y) * 10%),
+    circle at var(--center-x) var(--center-y),
     var(--center-color) 0%,
     var(--edge-color) 100%
   );
@@ -147,6 +151,8 @@ tr.matrix td:not(.mino) {
     + (var(--light-x) * -0.5)
     + (var(--light-y) * -0.1)
   );
+  --center-x:  calc(65% + var(--light-x) * 10%);
+  --center-y:  calc(35% + var(--light-y) * 10%);
   filter: saturate(0.95);
   transform: translateZ(calc(-1 * var(--cell-side))) rotateY(-90deg);
   transform-origin: left;
@@ -171,170 +177,26 @@ tr.matrix td:not(.mino) {
     0.75
     + (var(--light-y) * -0.6)
   );
+  --center-x:  calc(65% + var(--light-x) * 10%);
+  --center-y:  calc(65% + var(--light-y) * 10%);
   filter: saturate(0.95);
   transform: translateZ(calc(-1 * var(--cell-side))) rotateX(-90deg);
   transform-origin: bottom;
 }
 
-.I.mino,
-.I.mino + :not(.mino) {
-  --h: 200deg;
-  --s: 70%;
-  --l: 52%;
-  --a: 0.85;
-}
+.I.mino, .I.mino + :not(.mino) { --h: 200deg; --s: 70%; --l: 52%; --a: 0.85; }
+.J.mino, .J.mino + :not(.mino) { --h: 210deg; --s: 78%; --l: 52%; --a: 0.85; }
+.L.mino, .L.mino + :not(.mino) { --h: 28deg;  --s: 85%; --l: 52%; --a: 0.85; }
+.O.mino, .O.mino + :not(.mino) { --h: 48deg;  --s: 88%; --l: 52%; --a: 0.85; }
+.S.mino, .S.mino + :not(.mino) { --h: 118deg; --s: 45%; --l: 52%; --a: 0.85; }
+.T.mino, .T.mino + :not(.mino) { --h: 293deg; --s: 48%; --l: 52%; --a: 0.85; }
+.Z.mino, .Z.mino + :not(.mino) { --h: 352deg; --s: 75%; --l: 52%; --a: 0.85; }
 
-.J.mino,
-.J.mino + :not(.mino) {
-  --h: 210deg;
-  --s: 78%;
-  --l: 52%;
-  --a: 0.85;
-}
+.ghost.mino, .ghost.mino + :not(.mino) { --h: 0deg; --s: 0%; --l: 55%; --a: 0.40; }
+.locking.mino, .locking.mino + :not(.mino) { --h: 0deg; --s: 0%; --l: 92%; --a: 0.72; }
+.disabled.mino, .disabled.mino + :not(.mino) { --h: 0deg; --s: 0%; --l: 45%; --a: 0.72; }
 
-.L.mino,
-.L.mino + :not(.mino) {
-  --h: 28deg;
-  --s: 85%;
-  --l: 52%;
-  --a: 0.85;
-}
 
-.O.mino,
-.O.mino + :not(.mino) {
-  --h: 48deg;
-  --s: 88%;
-  --l: 52%;
-  --a: 0.85;
-}
-
-.S.mino,
-.S.mino + :not(.mino) {
-  --h: 118deg;
-  --s: 45%;
-  --l: 52%;
-  --a: 0.85;
-}
-
-.T.mino,
-.T.mino + :not(.mino) {
-  --h: 293deg;
-  --s: 48%;
-  --l: 52%;
-  --a: 0.85;
-}
-
-.Z.mino,
-.Z.mino + :not(.mino) {
-  --h: 352deg;
-  --s: 75%;
-  --l: 52%;
-  --a: 0.85;
-}
-
-.ghost.mino,
-.ghost.mino + :not(.mino) {
-  --h: 0deg;
-  --s: 0%;
-  --l: 55%;
-  --a: 0.40;
-}
-
-.locking.mino,
-.locking.mino + :not(.mino) {
-  --h: 0deg;
-  --s: 0%;
-  --l: 92%;
-  --a: 0.72;
-}
-
-.disabled.mino,
-.disabled.mino + :not(.mino) {
-  --h: 0deg;
-  --s: 0%;
-  --l: 45%;
-  --a: 0.72;
-}
-
-.I.mino,
-.I.mino + :not(.mino) {
-  --h: 200deg;
-  --s: 70%;
-  --l: 52%;
-  --a: 0.85;
-}
-
-.J.mino,
-.J.mino + :not(.mino) {
-  --h: 210deg;
-  --s: 78%;
-  --l: 52%;
-  --a: 0.85;
-}
-
-.L.mino,
-.L.mino + :not(.mino) {
-  --h: 28deg;
-  --s: 85%;
-  --l: 52%;
-  --a: 0.85;
-}
-
-.O.mino,
-.O.mino + :not(.mino) {
-  --h: 48deg;
-  --s: 88%;
-  --l: 52%;
-  --a: 0.85;
-}
-
-.S.mino,
-.S.mino + :not(.mino) {
-  --h: 118deg;
-  --s: 45%;
-  --l: 52%;
-  --a: 0.85;
-}
-
-.T.mino,
-.T.mino + :not(.mino) {
-  --h: 293deg;
-  --s: 48%;
-  --l: 52%;
-  --a: 0.85;
-}
-
-.Z.mino,
-.Z.mino + :not(.mino) {
-  --h: 352deg;
-  --s: 75%;
-  --l: 52%;
-  --a: 0.85;
-}
-
-.ghost.mino,
-.ghost.mino + :not(.mino) {
-  --h: 0deg;
-  --s: 0%;
-  --l: 55%;
-  --a: 0.40;
-}
-
-.locking.mino,
-.locking.mino + :not(.mino) {
-  --h: 0deg;
-  --s: 0%;
-  --l: 92%;
-  --a: 0.72;
-}
-
-.disabled.mino,
-.disabled.mino + :not(.mino) {
-  --h: 0deg;
-  --s: 0%;
-  --l: 45%;
-  --a: 0.72;
-}
 
 #holdTable .J + :not(.mino),
 #holdTable .L + :not(.mino),
