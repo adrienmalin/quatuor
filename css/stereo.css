@@ -29,8 +29,11 @@ body {
 }
 
 #screenRow {
+  --light-x: calc(0.5 - var(--rY) / 90);
+  --light-y: calc(0.5 - var(--rX) / 90);
+  --light-z: 1;
   display: block;
-  transform: translateZ(var(--tZ)) rotateX(var(--rX)) rotateY(var(--rY));
+  transform: translateZ(var(--tZ)) rotateX(calc((var(--rX)) * 1deg)) rotateY(calc((var(--rY)) * 1deg));
 }
 
 #screenRow * {
@@ -95,9 +98,22 @@ tr.matrix td:not(.mino) {
   overflow: visible;
 }
 
-.minoes-table .mino {
-  background: radial-gradient(circle at -150% -200%, #fffb 0%, var(--background-color) 100%);
-
+.minoes-table .mino,
+.minoes-table .mino::before,
+.minoes-table .mino + :not(.mino)::before,
+.minoes-table .mino::after {
+  --light: calc(
+    0.9
+    + (var(--light-y) * 0.3)
+    + (var(--light-x) * 0.2)
+  );
+  --center-color: hsla(var(--h), var(--s), calc(var(--l) * var(--light)), var(--a));
+  --edge-color: hsla(var(--h), var(--s), calc(var(--l) * (var(--light) * 0.8)), var(--a));
+  background: radial-gradient(
+    circle at calc(35% + var(--light-x) * 10%) calc(35% + var(--light-y) * 10%),
+    var(--center-color) 0%,
+    var(--edge-color) 100%
+  );
   border-radius: 2px;
 }
 
@@ -109,108 +125,215 @@ tr.matrix td:not(.mino) {
   top: 0;
   left: 0;
   display: block;
-  width: inherit;
-  height: inherit;
-  border-radius: 2px;
+  width: var(--cell-side);
+  height: var(--cell-side);
 }
 
-.minoes-table :not(.mino) + .mino::before,
-.left .minoes-table .mino + .mino::before {
-  background: var(--light-color);
-}
-
-.right .minoes-table .mino + .mino::before,
+.minoes-table .mino::before,
 .minoes-table .mino + :not(.mino)::before {
-  background: var(--dark-color);
-}
-
-.minoes-table :not(.mino) + .mino::before,
-.minoes-table .mino + .mino::before,
-.minoes-table .mino + :not(.mino)::before {
+  --light: calc(
+    1.1
+    + (var(--light-x) * 0.5)
+    + (var(--light-y) * 0.1)
+  );
   transform: translateZ(calc(-1 * var(--cell-side))) rotateY(-90deg);
   transform-origin: left;
 }
 
+.right .minoes-table .mino::before,
+.right .minoes-table .mino + :not(.mino)::before {
+  --light: calc(
+    0.85
+    + (var(--light-x) * -0.5)
+    + (var(--light-y) * -0.1)
+  );
+  filter: saturate(0.95);
+  transform: translateZ(calc(-1 * var(--cell-side))) rotateY(-90deg);
+  transform-origin: left;
+}
+
+.right .minoes-table .mino:last-child::before {
+  transform: translateZ(calc(-1 * var(--cell-side))) rotateY(90deg) !important;
+  transform-origin: right !important;
+}
+
 .minoes-table .mino::after {
-  background: var(--light-color);
+  --light: calc(
+    0.9
+    + (var(--light-y) * 0.6)
+  );
   transform: translateZ(calc(-1 * var(--cell-side))) rotateX(90deg);
   transform-origin: top;
 }
 
 .bottom .minoes-table .mino::after {
-  background: var(--dark-color);
+  --light: calc(
+    0.75
+    + (var(--light-y) * -0.6)
+  );
+  filter: saturate(0.95);
   transform: translateZ(calc(-1 * var(--cell-side))) rotateX(-90deg);
   transform-origin: bottom;
 }
 
 .I.mino,
 .I.mino + :not(.mino) {
-  --background-color: #42afe1b0;
-  --light-color: #6ceaff80;
-  --dark-color: #00a4b0b0;
+  --h: 200deg;
+  --s: 70%;
+  --l: 52%;
+  --a: 0.85;
 }
 
 .J.mino,
 .J.mino + :not(.mino) {
-  --background-color: #1165b5b0;
-  --light-color: #339bff80;
-  --dark-color: #00009db0;
+  --h: 210deg;
+  --s: 78%;
+  --l: 52%;
+  --a: 0.85;
 }
 
 .L.mino,
 .L.mino + :not(.mino) {
-  --background-color: #f38927b0;
-  --light-color: #ffba5980;
-  --dark-color: #c54800b0;
+  --h: 28deg;
+  --s: 85%;
+  --l: 52%;
+  --a: 0.85;
 }
 
 .O.mino,
 .O.mino + :not(.mino) {
-  --background-color: #f6d03cb0;
-  --light-color: #ffff7f80;
-  --dark-color: #ca9501b0;
+  --h: 48deg;
+  --s: 88%;
+  --l: 52%;
+  --a: 0.85;
 }
 
 .S.mino,
 .S.mino + :not(.mino) {
-  --background-color: #51b84db0;
-  --light-color: #84f88080;
-  --dark-color: #1cbc02b0;
+  --h: 118deg;
+  --s: 45%;
+  --l: 52%;
+  --a: 0.85;
 }
 
 .T.mino,
 .T.mino + :not(.mino) {
-  --background-color: #9739a2b0;
-  --light-color: #d958e980;
-  --dark-color: #6e019ab0;
+  --h: 293deg;
+  --s: 48%;
+  --l: 52%;
+  --a: 0.85;
 }
 
 .Z.mino,
 .Z.mino + :not(.mino) {
-  --background-color: #eb4f65b0;
-  --light-color: #ff7f7980;
-  --dark-color: #ad1936b0;
+  --h: 352deg;
+  --s: 75%;
+  --l: 52%;
+  --a: 0.85;
 }
 
 .ghost.mino,
 .ghost.mino + :not(.mino) {
-  --background-color: #8886;
-  --light-color: #ccc6;
-  --dark-color: #6666;
+  --h: 0deg;
+  --s: 0%;
+  --l: 55%;
+  --a: 0.40;
 }
 
 .locking.mino,
 .locking.mino + :not(.mino) {
-  --background-color: #eeeb;
-  --light-color: #fffb;
-  --dark-color: #dddb;
+  --h: 0deg;
+  --s: 0%;
+  --l: 92%;
+  --a: 0.72;
 }
 
 .disabled.mino,
 .disabled.mino + :not(.mino) {
-  --background-color: #888b;
-  --light-color: #cccb;
-  --dark-color: #6666;
+  --h: 0deg;
+  --s: 0%;
+  --l: 45%;
+  --a: 0.72;
+}
+
+.I.mino,
+.I.mino + :not(.mino) {
+  --h: 200deg;
+  --s: 70%;
+  --l: 52%;
+  --a: 0.85;
+}
+
+.J.mino,
+.J.mino + :not(.mino) {
+  --h: 210deg;
+  --s: 78%;
+  --l: 52%;
+  --a: 0.85;
+}
+
+.L.mino,
+.L.mino + :not(.mino) {
+  --h: 28deg;
+  --s: 85%;
+  --l: 52%;
+  --a: 0.85;
+}
+
+.O.mino,
+.O.mino + :not(.mino) {
+  --h: 48deg;
+  --s: 88%;
+  --l: 52%;
+  --a: 0.85;
+}
+
+.S.mino,
+.S.mino + :not(.mino) {
+  --h: 118deg;
+  --s: 45%;
+  --l: 52%;
+  --a: 0.85;
+}
+
+.T.mino,
+.T.mino + :not(.mino) {
+  --h: 293deg;
+  --s: 48%;
+  --l: 52%;
+  --a: 0.85;
+}
+
+.Z.mino,
+.Z.mino + :not(.mino) {
+  --h: 352deg;
+  --s: 75%;
+  --l: 52%;
+  --a: 0.85;
+}
+
+.ghost.mino,
+.ghost.mino + :not(.mino) {
+  --h: 0deg;
+  --s: 0%;
+  --l: 55%;
+  --a: 0.40;
+}
+
+.locking.mino,
+.locking.mino + :not(.mino) {
+  --h: 0deg;
+  --s: 0%;
+  --l: 92%;
+  --a: 0.72;
+}
+
+.disabled.mino,
+.disabled.mino + :not(.mino) {
+  --h: 0deg;
+  --s: 0%;
+  --l: 45%;
+  --a: 0.72;
 }
 
 #holdTable .J + :not(.mino),

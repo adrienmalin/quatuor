@@ -263,7 +263,7 @@ window.onbeforeunload = function(event) {
 
 // Play with 3D
 let mousedown = false
-let rX0 = 0
+let rX0 = -15
 let rY0 = 0
 let clientX0 = 0
 let clientY0 = 0
@@ -280,18 +280,18 @@ sceneDiv.onmousemove = function(event) {
 	if (mousedown) {
         event.preventDefault()
         event.stopPropagation()
-        rX = (rX0 - event.clientY + clientY0 + 360) % 360
-        screenRow.style.setProperty("--rX", rX + "deg")
-        if (rX <= 180) {
+        rX = (rX0 - event.clientY + clientY0) % 360
+        screenRow.style.setProperty("--rX", rX)
+        if (rX >= 0) {
             screenRow.classList.remove("top")
             screenRow.classList.add("bottom")
         } else {
             screenRow.classList.add("top")
             screenRow.classList.remove("bottom")
         }
-        rY = (rY0 + event.clientX - clientX0 + 360) % 360
-        screenRow.style.setProperty("--rY", rY + "deg")
-        if (rY >= 180) {
+        rY = (rY0 + event.clientX - clientX0) % 360
+        screenRow.style.setProperty("--rY", rY)
+        if (rY <= 0) {
             screenRow.classList.remove("left")
             screenRow.classList.add("right")
         } else {

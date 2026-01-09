@@ -1,6 +1,6 @@
 :root {
     --cell-side: 24px;
-    --rX: -15deg;
+    --rX: -15;
     --rY: 0;
     --tZ: 25px;
 }
