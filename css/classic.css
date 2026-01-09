@@ -84,8 +84,8 @@
 
 .ghost.mino {
     margin: 1px;
-    opacity: 20%;
-    filter: brightness(180%) saturate(60%) blur(1px);
+    opacity: 30%;
+    filter: brightness(300%) saturate(10%) blur(1px);
 }
 
 .moving.mino {
