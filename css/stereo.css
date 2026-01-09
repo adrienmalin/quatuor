@@ -133,8 +133,8 @@ tr.matrix td:not(.mino) {
   height: var(--cell-side);
 }
 
-.minoes-table .mino::before,
-.minoes-table .mino + :not(.mino)::before {
+.minoes-table :not(.mino) + .mino::before,
+.left .minoes-table .mino + .mino::before {
   --light: calc(
     1.1
     + (var(--light-x) * 0.5)
@@ -144,8 +144,9 @@ tr.matrix td:not(.mino) {
   transform-origin: left;
 }
 
-.right .minoes-table .mino::before,
-.right .minoes-table .mino + :not(.mino)::before {
+.right .minoes-table .mino + .mino::before,
+.minoes-table .mino + :not(.mino)::before,
+.right .minoes-table .mino:last-child::before {
   --light: calc(
     0.85
     + (var(--light-x) * -0.5)
