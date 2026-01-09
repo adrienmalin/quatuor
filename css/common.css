@@ -21,8 +21,8 @@ body {
     }
 
     .modal-content {
-        background-color: #2125294d;
-        backdrop-filter: blur(15px);
+        background-color: #212529b3;
+        backdrop-filter: blur(10px);
     }
 }
 
