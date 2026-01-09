@@ -78,6 +78,7 @@ tr.matrix td:not(.mino) {
 .ghost.mino {
     opacity: 5%;
     box-shadow: none;
+    transform: translateY(-6px);
 }
 
 .moving.mino {
