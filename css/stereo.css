@@ -134,11 +134,17 @@ tr.matrix td:not(.mino) {
   border-radius: 2px;
 }
 
-#holdTable {
+#holdTable .mino,
+#holdTable .mino::before,
+#holdTable .mino + :not(.mino)::before,
+#holdTable .mino::after {
   --light-x: calc(-0.5 - var(--rY) / 30 - (var(--column) + -10) / 10 + 1);
 }
 
-#nextTable {
+#nextTable .mino,
+#nextTable .mino::before,
+#nextTable .mino + :not(.mino)::before,
+#nextTable .mino::after {
   --light-x: calc(-0.5 - var(--rY) / 30 - (var(--column) + 10) / 10 + 1);
 }
 
