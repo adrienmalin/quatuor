@@ -64,9 +64,9 @@ body {
 .card,
 .card-header {
   text-shadow:
-    calc(-0.02px * var(--rY)) calc(0.05px * var(--rX)) #555,
-    calc(-0.04px * var(--rY)) calc(0.10px * var(--rX)) #555,
-    calc(-0.08px * var(--rY)) calc(0.15px * var(--rX)) #555;
+    calc(-0.02px * var(--rY)) calc(0.03px * var(--rX)) #444,
+    calc(-0.04px * var(--rY)) calc(0.06px * var(--rX)) #444,
+    calc(-0.08px * var(--rY)) calc(0.09px * var(--rX)) #444;
 }
 
 #holdTable .mino {
@@ -132,6 +132,14 @@ tr.matrix td:not(.mino) {
     var(--edge-color) 100%
   );
   border-radius: 2px;
+}
+
+#holdTable {
+  --light-x: calc(-0.5 - var(--rY) / 30 - (var(--column) + -10) / 10 + 1);
+}
+
+#nextTable {
+  --light-x: calc(-0.5 - var(--rY) / 30 - (var(--column) + 10) / 10 + 1);
 }
 
 .minoes-table .mino::before,
