@@ -248,3 +248,28 @@ tr.cleared-line-animation {
     animation-timing-function: (0.4, 0, 0.6, 1);
     animation-duration: 2s;
 }
+
+#statsModal table {
+    border-collapse: collapse;
+}
+
+#statsModal th {
+    padding-left: 0;
+    padding-right: 0.5rem;
+    padding-bottom: 0.2rem;
+    border-left: 0.5rem solid transparent;
+    border-right: 0;
+}
+
+#statsModal td {
+    padding-left: 0.5rem;
+    padding-right: 0;
+    padding-bottom: 0.2rem;
+    border-left: 0;
+    border-right: 0.5rem solid transparent;
+}
+
+#statsModal tr:last-child th,
+#statsModal tr:last-child td {
+    border-bottom: none;
+}
