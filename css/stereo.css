@@ -63,20 +63,10 @@ body {
 
 .card,
 .card-header {
-  text-shadow: .12rem -.12rem #666;
-}
-
-.bottom .card,
-.bottom .card-header {
-  text-shadow: .12rem .12rem #666;
-}
-
-.col:last-child .card-header {
-  text-shadow: -.12rem -.12rem #666;
-}
-
-.bottom .col:last-child .card-header {
-  text-shadow: -.12rem .12rem #666;
+  text-shadow:
+    calc(-0.02px * var(--rY)) calc(0.05px * var(--rX)) #555,
+    calc(-0.04px * var(--rY)) calc(0.10px * var(--rX)) #555,
+    calc(-0.08px * var(--rY)) calc(0.15px * var(--rX)) #555;
 }
 
 #holdTable .mino {
