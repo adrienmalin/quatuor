@@ -61,6 +61,24 @@ body {
   border: none;
 }
 
+.card,
+.card-header {
+  text-shadow: .12rem -.12rem #666;
+}
+
+.bottom .card,
+.bottom .card-header {
+  text-shadow: .12rem .12rem #666;
+}
+
+.col:last-child .card-header {
+  text-shadow: -.12rem -.12rem #666;
+}
+
+.bottom .col:last-child .card-header {
+  text-shadow: -.12rem .12rem #666;
+}
+
 #holdTable .mino {
   --row: 10;
   --column: -5;
