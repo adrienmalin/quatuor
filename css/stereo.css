@@ -183,8 +183,8 @@ tr.matrix td:not(.mino) {
 /* Top face */
 .minoes-table .mino::after {
   --light: calc(
-    1.1
-    + (var(--light-y) * -0.3)
+    1.5
+    + (var(--light-y) * 0.2)
   );
   transform: translateZ(calc(-1 * var(--cell-side))) rotateX(90deg);
   transform-origin: top;
