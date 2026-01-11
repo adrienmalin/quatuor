@@ -134,6 +134,7 @@ tr.matrix td:not(.mino) {
     var(--edge-color) 100%
   );
   border-radius: 2px;
+  border: 1px outset var(--center-color)
 }
 
 #holdTable .mino,
@@ -184,7 +185,7 @@ tr.matrix td:not(.mino) {
 }
 
 /* Right face */
-.right .minoes-table .mino::before,
+.right .minoes-table .mino + .mino::before,
 .minoes-table .mino + :not(.mino)::before,
 .right .minoes-table .mino:last-child::before {
   --light: calc(
@@ -227,13 +228,13 @@ tr.matrix td:not(.mino) {
   transform-origin: bottom;
 }
 
-.J.mino, .J.mino + :not(.mino) { --h: 210deg; --s: 78%; --l: 52%; --a: 0.85; }
-.L.mino, .L.mino + :not(.mino) { --h: 28deg;  --s: 85%; --l: 52%; --a: 0.85; }
-.O.mino, .O.mino + :not(.mino) { --h: 48deg;  --s: 88%; --l: 52%; --a: 0.85; }
-.I.mino, .I.mino + :not(.mino) { --h: 200deg; --s: 70%; --l: 52%; --a: 0.85; }
-.S.mino, .S.mino + :not(.mino) { --h: 118deg; --s: 45%; --l: 52%; --a: 0.85; }
-.T.mino, .T.mino + :not(.mino) { --h: 293deg; --s: 48%; --l: 52%; --a: 0.85; }
-.Z.mino, .Z.mino + :not(.mino) { --h: 352deg; --s: 75%; --l: 52%; --a: 0.85; }
+.J.mino, .J.mino + :not(.mino) { --h: 210deg; --s: 78%; --l: 52%; --a: 0.8; }
+.L.mino, .L.mino + :not(.mino) { --h: 28deg;  --s: 85%; --l: 52%; --a: 0.8; }
+.O.mino, .O.mino + :not(.mino) { --h: 48deg;  --s: 88%; --l: 52%; --a: 0.8; }
+.I.mino, .I.mino + :not(.mino) { --h: 200deg; --s: 70%; --l: 52%; --a: 0.8; }
+.S.mino, .S.mino + :not(.mino) { --h: 118deg; --s: 45%; --l: 52%; --a: 0.8; }
+.T.mino, .T.mino + :not(.mino) { --h: 293deg; --s: 48%; --l: 52%; --a: 0.8; }
+.Z.mino, .Z.mino + :not(.mino) { --h: 352deg; --s: 75%; --l: 52%; --a: 0.8; }
 
 .ghost.mino, .ghost.mino + :not(.mino) { --h: 0deg; --s: 0%; --l: 55%; --a: 0.40; }
 .locking.mino, .locking.mino + :not(.mino) { --h: 0deg; --s: 0%; --l: 92%; --a: 0.72; }
