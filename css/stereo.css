@@ -126,11 +126,11 @@ tr.matrix td:not(.mino) {
   --light-z: 1;
   --center-x:  calc(35% + var(--light-x) * 10%);
   --center-y:  calc(35% + var(--light-y) * 10%);
-  --center-color: hsla(var(--h), var(--s), calc(var(--l) * var(--light)), var(--a));
+  --center-color: hsla(var(--h), var(--s), calc(var(--l) * var(--light) * 1.1), var(--a));
   --edge-color: hsla(var(--h), var(--s), calc(var(--l) * (var(--light) * 0.8)), var(--a));
   background: radial-gradient(
     circle at var(--center-x) var(--center-y),
-    var(--center-color) 0%,
+    var(--center-color) 10%,
     var(--edge-color) 100%
   );
   border-radius: 2px;
