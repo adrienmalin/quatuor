@@ -64,9 +64,10 @@ body {
 .card,
 .card-header {
   text-shadow:
-    calc(-0.02px * var(--rY)) calc(0.03px * var(--rX)) #444,
-    calc(-0.04px * var(--rY)) calc(0.06px * var(--rX)) #444,
-    calc(-0.08px * var(--rY)) calc(0.09px * var(--rX)) #444;
+    calc(-0.02px * var(--rY) - 1px) calc(0.02px * var(--rX) - 1px) #ccc,
+    calc(-0.04px * var(--rY) - 1px) calc(0.04px * var(--rX) - 1px) #ccc,
+    calc(-0.02px * var(--rY) + 1px) calc(0.02px * var(--rX) + 1px) #222,
+    calc(-0.04px * var(--rY) + 1px) calc(0.04px * var(--rX) + 1px) #222;
 }
 
 #holdTable .mino {
