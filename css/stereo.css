@@ -68,7 +68,7 @@ body {
     calc(-0.02px * var(--rY) - 1px) calc(0.04px * var(--rX) - 1px) #ccc,
     calc(-0.01px * var(--rY) + 1px) calc(0.02px * var(--rX) + 1px) #222,
     calc(-0.02px * var(--rY) + 1px) calc(0.04px * var(--rX) + 1px) #222,
-    calc(-0.3px * var(--rY)) calc(0.6px * var(--rX)) 5px #000;
+    calc(-0.3px * var(--rY)) calc(0.4px * var(--rX)) 5px #0008;
 }
 
 #holdTable .mino {
@@ -134,7 +134,7 @@ tr.matrix td:not(.mino) {
     var(--edge-color) 100%
   );
   border-radius: 2px;
-  border: 1px outset var(--center-color)
+  border: 2px outset var(--center-color);
 }
 
 #holdTable .mino,
