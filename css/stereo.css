@@ -181,7 +181,7 @@ tr.matrix td:not(.mino) {
     + (var(--light-x) * -0.2)
     + (var(--light-y) * 0.15)
   );
-  transform: translate3d(-1px, -1px, calc(-1 * var(--cell-side))) rotateY(-90deg);
+  transform: translate3d(-2px, -2px, calc(-1 * var(--cell-side))) rotateY(-90deg);
   transform-origin: left;
 }
 
@@ -197,12 +197,12 @@ tr.matrix td:not(.mino) {
   --center-x:  calc(65% + var(--light-x) * 10%);
   --center-y:  calc(35% + var(--light-y) * 10%);
   filter: saturate(0.95);
-  transform: translate3d(0, 1px, calc(-1 * var(--cell-side))) rotateY(-90deg);
+  transform: translate3d(0, 0, calc(-1 * var(--cell-side))) rotateY(-90deg);
   transform-origin: left;
 }
 
 .right .minoes-table .mino:last-child::before {
-  transform: translate3d(-1px, -1px, calc(-1 * var(--cell-side))) rotateY(90deg) !important;
+  transform: translate3d(-2px, -2px, calc(-1 * var(--cell-side))) rotateY(90deg) !important;
   transform-origin: right !important;
 }
 
@@ -212,7 +212,7 @@ tr.matrix td:not(.mino) {
     1.5
     + (var(--light-y) * 0.2)
   );
-  transform: translate3d(-1px, -1px, calc(-1 * var(--cell-side))) rotateX(90deg);
+  transform: translate3d(-2px, -2px, calc(-1 * var(--cell-side))) rotateX(90deg);
   transform-origin: top;
 }
 
@@ -225,7 +225,7 @@ tr.matrix td:not(.mino) {
   --center-x:  calc(65% + var(--light-x) * 10%);
   --center-y:  calc(65% + var(--light-y) * 10%);
   filter: saturate(0.95);
-  transform: translate3d(-1px, -1px, calc(-1 * var(--cell-side))) rotateX(-90deg);
+  transform: translate3d(-2px, -2px, calc(-1 * var(--cell-side))) rotateX(-90deg);
   transform-origin: bottom;
 }
 
