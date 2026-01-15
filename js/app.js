@@ -309,6 +309,6 @@ sceneDiv.onwheel = function(event) {
     event.preventDefault()
     event.stopPropagation()
     let tZ = parseInt(getComputedStyle(screenRow).getPropertyValue("--tZ"))
-    tZ += event.deltaY
+    tZ -= event.deltaY
     screenRow.style.setProperty("--tZ", tZ + "px")
 }
