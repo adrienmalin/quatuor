@@ -281,16 +281,8 @@ td.trail-animation::after {
   transform-origin: right !important;
 }
 
-
-@keyframes cleared-line-animation {
-  from {
-    background-color: #ceffff66;
-    box-shadow: -200px 0 5px white, 200px 0 5px white;
-  }
-
-  to {
-    background-color: transparent;
-  }
+tr.cleared-line-animation {
+    animation: none;
 }
 
 @keyframes show-level-animation {
