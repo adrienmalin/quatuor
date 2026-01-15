@@ -119,11 +119,8 @@ tr.matrix td:not(.mino) {
 .minoes-table .mino::before,
 .minoes-table .mino + :not(.mino)::before,
 .minoes-table .mino::after {
-  --highlight: hsla(60deg, 100%, 95%, 0.3);
-  --shadow:    hsla(0deg, 0%, 0%, 0.15);
   --light-x: calc(-0.5 - var(--rY) / 30 - var(--column) / 10 + 1);
   --light-y: calc(-0.5 + var(--rX) / 20 - var(--row) / 6 + 4);
-  --light-z: 1;
   --center-x:  calc(35% + var(--light-x) * 10%);
   --center-y:  calc(35% + var(--light-y) * 10%);
   --center-color: hsla(var(--h), var(--s), calc(var(--l) * var(--light) * 1.1), var(--a));

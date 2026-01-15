@@ -280,7 +280,7 @@ sceneDiv.onmousemove = function(event) {
 	if (mousedown) {
         event.preventDefault()
         event.stopPropagation()
-        rX = (rX0 - event.clientY + clientY0) % 360
+        rX = (rX0 - 0.5 * (event.clientY - clientY0)) % 360
         screenRow.style.setProperty("--rX", rX)
         if (rX >= 0) {
             screenRow.classList.remove("top")
@@ -289,7 +289,7 @@ sceneDiv.onmousemove = function(event) {
             screenRow.classList.add("top")
             screenRow.classList.remove("bottom")
         }
-        rY = (rY0 + event.clientX - clientX0) % 360
+        rY = (rY0 + 0.5 * (event.clientX - clientX0)) % 360
         screenRow.style.setProperty("--rY", rY)
         if (rY <= 0) {
             screenRow.classList.remove("left")
