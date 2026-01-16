@@ -278,7 +278,7 @@ td.trail-animation { --h: 180deg; --s: 50%; --l: 90%; --a: 0.4; }
   }
   to {
     background-color: #fff0;
-    box-shadow: 0 0 50px transparent;
+    box-shadow: 0 0 100px transparent;
   }
 }
 
