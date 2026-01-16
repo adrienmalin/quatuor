@@ -72,13 +72,13 @@ body {
 }
 
 #holdTable .mino {
-  --row: 10;
+  --row: 7;
   --column: -5;
 }
 
 #nextTable .mino {
   --row: 15;
-  --column: 20;
+  --column: 15;
 }
 
 .minoes-table th,
@@ -133,20 +133,6 @@ tr.matrix td:not(.mino) {
   border-radius: 2px;
   border: 2px outset var(--center-color);
   box-shadow: 0 0 7px hsla(var(--h), var(--s), calc(var(--l) * var(--light) * 1.3), 20%);
-}
-
-#holdTable .mino,
-#holdTable .mino::before,
-#holdTable .mino + :not(.mino)::before,
-#holdTable .mino::after {
-  --light-x: calc(-0.5 - var(--rY) / 30 - (var(--column) + -10) / 10 + 1);
-}
-
-#nextTable .mino,
-#nextTable .mino::before,
-#nextTable .mino + :not(.mino)::before,
-#nextTable .mino::after {
-  --light-x: calc(-0.5 - var(--rY) / 30 - (var(--column) + 10) / 10 + 1);
 }
 
 .minoes-table .mino::before,
