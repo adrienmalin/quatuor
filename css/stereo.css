@@ -257,6 +257,19 @@ td.trail-animation { --h: 180deg; --s: 50%; --l: 90%; --a: 0.4; }
     }
 }
 
+@keyframes locked-animation {
+    from {
+        --h: 0deg; --s: 0%; --l: 100%; --a: 1;
+        box-shadow: 0 0 10px  hsla(180, 100%, 100%, 0.2);
+    }
+}
+
+.locked.mino::before,
+.locked.mino::after {
+    animation: locked-animation;
+    animation-duration: .2s;
+}
+
 @keyframes cleared-line-animation {
   from {
     background-color: white !important;

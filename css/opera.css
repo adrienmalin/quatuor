@@ -146,14 +146,3 @@ td#timeCell {
     filter: brightness(50%) contrast(80%);
     opacity: 70%;
 }
-
-@keyframes locked-animation {
-    from {
-        filter: saturate(50%) brightness(400%);
-    }
-}
-
-.locked.mino {
-    animation: locked-animation;
-    animation-duration: 0.2s;
-}

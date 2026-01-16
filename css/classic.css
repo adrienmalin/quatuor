@@ -116,8 +116,3 @@
              1px  1px 4px #FFF2;
     }
 }
-
-.locked.mino {
-    animation: locked-animation;
-    animation-duration: 0.2s;
-}

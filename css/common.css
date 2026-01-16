@@ -101,6 +101,17 @@ td {
     }
 }
 
+@keyframes locked-animation {
+    from {
+        filter: saturate(50%) brightness(400%);
+    }
+}
+
+.locked.mino {
+    animation: locked-animation;
+    animation-duration: 0.2s;
+}
+
 td.trail-animation {
     animation: trail-animation ease-out .3s;
 }

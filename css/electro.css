@@ -92,8 +92,3 @@ tr.matrix td:not(.mino) {
         border-color: white;
     }
 }
-
-.locked.mino {
-    animation: locked-animation;
-    animation-duration: 0.2s;
-}
