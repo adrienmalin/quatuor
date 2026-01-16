@@ -123,7 +123,9 @@ let playerActions = {
         scheduler.clearTimeout(lockDown)
         playSound(hardDropSound)
         while (matrix.piece.move(TRANSLATION.DOWN, ROTATION.NONE, true)) stats.score += 2
-        matrixCard.classList.add("hard-dropped-table-animation")
+        matrixCard.classList.remove("hard-dropped-table-animation")
+        matrixCard.offsetHeight;
+        matrixCard.classList.add("hard-dropped-table-animation") // restart animation
         lockDown()
         return true
     },
