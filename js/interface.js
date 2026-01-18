@@ -21,6 +21,7 @@ const KEY_NAMES = new Proxy({
     }
 })
 
+
 class Settings {
     constructor() {
         this.form = settingsForm
