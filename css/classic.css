@@ -109,10 +109,24 @@
 @keyframes locked-animation {
     from {
         filter: saturate(50%) brightness(400%);
+    box-shadow:
+        -1px -1px 4px #FFF2,
+        -1px  1px 4px #FFF2,
+         1px -1px 4px #FFF2,
+         1px  1px 4px #FFF2;
+    }
+    50% {
         box-shadow:
-            -1px -1px 4px #FFF2,
-            -1px  1px 4px #FFF2,
-             1px -1px 4px #FFF2,
-             1px  1px 4px #FFF2;
+            -1px -1px 6px #FFF4,
+            -1px  1px 6px #FFF4,
+             1px -1px 6px #FFF4,
+             1px  1px 6px #FFF4;
+    }
+    to {
+        box-shadow:
+            -1px -1px 0 #FFF2,
+            -1px  1px 0 #FFF2,
+             1px -1px 0 #FFF2,
+             1px  1px 0 #FFF2;
     }
 }
