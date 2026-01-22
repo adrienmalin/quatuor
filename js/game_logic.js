@@ -255,6 +255,10 @@ class Matrix extends MinoesTable {
         matrix.table.style.setProperty('--piece-row',    this.piece.center.y)
     }
 
+    clearPiece(piece=this.piece, className="") {
+        super.drawPiece(piece, className)
+    }
+
     redraw() {
         for (let y=0; y<this.rows; y++) {
             for (let x=0; x<this.columns; x++) {
@@ -328,7 +332,7 @@ class Tetromino {
         let success = this.canMove(translation, rotation)
         if (success) {
             scheduler.clearTimeout(lockDown)
-            matrix.drawPiece(this, translation == TRANSLATION.DOWN? "trail-animation" : "")
+            matrix.clearPiece(this, hardDropped? "trail-animation" : "")
             this.center = success.center
             if (rotation) this.facing = success.facing
             this.lastRotation = rotation
