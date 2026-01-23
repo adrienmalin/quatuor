@@ -79,7 +79,7 @@
     text-shadow: -2px -2px #808302, -2px 2px #808302, 2px -2px #808302, 2px 2px #808302;
 }
 
-td {
+.minoes-table td {
     border: 0 !important;
 }
 
