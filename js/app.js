@@ -13,7 +13,26 @@ window.onload = function(event) {
     selectedStyleSheet.href = stylesheetSelect.value
     favicon = document.querySelector("link[rel~='icon']")
 
+    fullscreenCheckbox.onchange = function() {
+        if (this.checked) {
+            document.documentElement.requestFullscreen()
+        } else {
+            document.exitFullscreen()
+        }
+    }
+
     restart()
+}
+
+document.onfullscreenchange = function() {
+    if (document.fullscreenElement) {
+        fullscreenCheckbox.checked = true
+    } else {
+        fullscreenCheckbox.checked = false
+    }
+}
+document.onfullscreenerror = function() {
+    fullscreenCheckbox.checked = false
 }
 
 function restart() {
