@@ -1,0 +1,64 @@
+.mino {
+  background-color: var(--color);
+  background-image: radial-gradient(
+    ellipse 140% 150% at 50% 140%,
+    var(--light),
+    var(--color) 70%,
+    var(--light) 250%
+  );
+  border: 3px outset var(--color);
+  border-top-color: var(--light);
+  border-radius: 3px;
+}
+.mino {
+  background-color: var(--color);
+  background-image: radial-gradient(
+    ellipse 130% 150% at 50% 150%,
+    var(--light),
+    var(--color) 75%,
+    var(--light) 250%
+  );
+  border: 3px outset var(--color);
+  border-top-color: var(--light);
+  border-radius: 3px;
+}
+
+.I {
+  --color: #009fcf;
+  --light: #cfeaf1;
+}
+
+.J {
+  --color: #0048a8;
+  --light: #cfdcf0;
+}
+
+.L {
+  --color: #f96700;
+  --light: #f8d3b8;
+}
+
+.O {
+  --color: #fdba00;
+  --light: #f6e0b8;
+}
+
+.S {
+  --color: #59b616;
+  --light: #dceecf;
+}
+
+.T {
+  --color: #852687;
+  --light: #e3c7e3;
+}
+
+.Z {
+  --color: #a90f16;
+  --light: #ebc6c8;
+}
+
+.ghost {
+  opacity: 35%;
+  filter: saturate(30%) brightness(150%);
+}

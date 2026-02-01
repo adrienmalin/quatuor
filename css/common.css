@@ -89,6 +89,7 @@ td {
     overflow: hidden;
     width: var(--cell-side);
     height: var(--cell-side);
+    box-sizing: border-box;
 }
 
 @keyframes trail-animation {
