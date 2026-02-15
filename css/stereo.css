@@ -14,6 +14,7 @@ body {
       #0a0c0d 100%);
   background-repeat: space;
   background-position: center;
+  background-size: cover;
 }
 
 #sceneDiv {
