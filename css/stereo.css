@@ -12,7 +12,8 @@ body {
       #141418 65%,
       #0f0f12 74%,
       #0a0c0d 100%);
-  background-repeat: round;
+  background-repeat: space;
+  background-position: center;
 }
 
 #sceneDiv {
