@@ -78,6 +78,7 @@ tr.matrix td:not(.mino) {
 
 .disabled.mino {
     opacity: 60%;
+    position: relative;
 }
 
 .disabled.mino:before {
