@@ -1,23 +1,23 @@
 .mino {
   background-color: var(--color);
-  background-image: radial-gradient(
-    ellipse 140% 150% at 50% 140%,
-    var(--light),
-    var(--color) 70%,
-    var(--light) 250%
-  );
-  border: 3px outset var(--color);
-  border-top-color: var(--light);
-  border-radius: 3px;
-}
-.mino {
-  background-color: var(--color);
-  background-image: radial-gradient(
-    ellipse 130% 150% at 50% 150%,
-    var(--light),
-    var(--color) 75%,
-    var(--light) 250%
-  );
+  background-image:
+    radial-gradient(
+      ellipse 20% 15% at 25% 25%,
+      #fff2,
+      transparent
+    ),
+    radial-gradient(
+      ellipse 150% 60% at 50% 0%,
+      transparent,
+      #fff5 50%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 120% 190% at 50% 110%,
+      var(--light),
+      var(--color) 55%,
+      black 90%
+    );
   border: 3px outset var(--color);
   border-top-color: var(--light);
   border-radius: 3px;
@@ -25,40 +25,40 @@
 
 .I {
   --color: #009fcf;
-  --light: #cfeaf1;
+  --light: #74e2ff;
 }
 
 .J {
   --color: #0048a8;
-  --light: #cfdcf0;
+  --light: #5497ff;
 }
 
 .L {
   --color: #f96700;
-  --light: #f8d3b8;
+  --light: #ffb987;
 }
 
 .O {
-  --color: #fdba00;
+  --color: #fdba00A0;
   --light: #f6e0b8;
 }
 
 .S {
   --color: #59b616;
-  --light: #dceecf;
+  --light: #b1dd90;
 }
 
 .T {
   --color: #852687;
-  --light: #e3c7e3;
+  --light: #d57bd5;
 }
 
 .Z {
   --color: #a90f16;
-  --light: #ebc6c8;
+  --light: #db686e;
 }
 
 .ghost {
   opacity: 35%;
-  filter: saturate(30%) brightness(150%);
+  filter: saturate(50%) brightness(80%);
 }
