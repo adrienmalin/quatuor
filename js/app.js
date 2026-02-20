@@ -29,6 +29,7 @@ document.onfullscreenchange = function() {
         fullscreenCheckbox.checked = true
     } else {
         fullscreenCheckbox.checked = false
+        pauseSettings()
     }
 }
 document.onfullscreenerror = function() {
