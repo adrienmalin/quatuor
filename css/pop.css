@@ -1,61 +1,72 @@
 .mino {
   background-color: var(--color);
   background-image:
+
+    /* ✨ Éclat spéculaire */
     radial-gradient(
-      ellipse 20% 15% at 25% 25%,
-      #fff2,
-      transparent
+      ellipse 20% 8% at 25% 20%,
+      #ffffff66,
+      #ffffff33 40%,
+      transparent 70%
     ),
+
     radial-gradient(
-      ellipse 150% 60% at 50% 0%,
-      transparent,
-      #fff5 50%,
-      transparent 50%
+      ellipse 140% 85% at 50% -15%,
+      var(--light) 0%,
+      #ffffff77 35%,
+      #00000005 60%
     ),
+
+    /* 🌑 Assombrissement global (bords + bas) */
     radial-gradient(
-      ellipse 120% 190% at 50% 110%,
-      var(--light),
+      ellipse 120% 200% at 50% 140%,
+      var(--light) 0%,
       var(--color) 55%,
-      black 90%
+      #00000066 95%
     );
+
   border: 3px outset var(--color);
   border-top-color: var(--light);
   border-radius: 3px;
+  box-shadow:
+    inset 2px 0 4px rgba(0,0,0,.06),
+    inset -2px 0 4px rgba(0,0,0,.12);
+  filter: saturate(1.1) contrast(1.05);
 }
 
 .I {
   --color: #009fcf;
-  --light: #74e2ff;
+  --light: #cfeaf1;
 }
 
 .J {
   --color: #0048a8;
-  --light: #5497ff;
+  --light: #adcdff;
 }
 
 .L {
   --color: #f96700;
-  --light: #ffb987;
+  --light: #f8d3b8;
 }
 
 .O {
-  --color: #fdba00A0;
+  --color: #fdba00;
   --light: #f6e0b8;
 }
 
 .S {
   --color: #59b616;
-  --light: #b1dd90;
+  --light: #dceecf;
 }
 
 .T {
   --color: #852687;
-  --light: #d57bd5;
+  --light: #e3c7e3;
 }
 
 .Z {
   --color: #a90f16;
-  --light: #db686e;
+  --light: #ebc6c8;
 }
 
 .ghost {
