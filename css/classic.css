@@ -19,7 +19,7 @@
       var(--color) 55%,
       #00000066 95%
     );
-  border: 2px outset var(--color);
+  border: 3px ridge var(--color);
   border-top-color: var(--light);
   border-radius: 3px;
   box-shadow:
