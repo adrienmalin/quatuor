@@ -1,9 +1,11 @@
 .mino {
+  --color: hsl(var(--hue), var(--saturation), 40%);
+  --light: hsl(var(--hue), calc(0.66 * var(--saturation)), 84%);
   background-color: var(--color);
   background-image:
     radial-gradient(
-      ellipse 20% 8% at 25% 20%,
-      #ffffff55,
+      ellipse 22% 8% at 25% 22%,
+      #ffffff66,
       #ffffff33 40%,
       transparent 70%
     ),
@@ -29,41 +31,42 @@
 }
 
 .I {
-  --color: #009fcf;
-  --light: #cfeaf1;
+  --hue: 193;
+  --saturation: 100%;
 }
 
 .J {
-  --color: #0048a8;
-  --light: #adcdff;
+  --hue: 215;
+  --saturation: 100%;
 }
 
 .L {
-  --color: #f96700;
-  --light: #f8d3b8;
+  --hue: 25;
+  --saturation: 100%;
 }
 
 .O {
-  --color: #fdba00;
-  --light: #f6e0b8;
+  --hue: 42;
+  --saturation: 100%;
 }
 
 .S {
-  --color: #59b616;
-  --light: #dceecf;
+  --hue: 95;
+  --saturation: 100%;
 }
 
 .T {
-  --color: #852687;
-  --light: #e3c7e3;
+  --hue: 300;
+  --saturation: 56%;
 }
 
 .Z {
-  --color: #a90f16;
-  --light: #ebc6c8;
+  --hue: 357;
+  --saturation: 84%;
 }
 
 .ghost {
+  --color: hsl(var(--hue), calc(0.50 * var(--saturation)), 32%);
+  --light: hsl(var(--hue), calc(0.33 * var(--saturation)), 64%);
   opacity: 35%;
-  filter: saturate(50%) brightness(80%);
 }
