@@ -1,132 +1,69 @@
 .mino {
-    background: radial-gradient(
-        ellipse 140% 66% at 122% 88%,
-        var(--background-color) 100%,
-        var(--frontier-color) 105%,
-        var(--light-color) 130%
+  background-color: var(--color);
+  background-image:
+    radial-gradient(
+      ellipse 20% 8% at 25% 20%,
+      #ffffff55,
+      #ffffff33 40%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 140% 85% at 50% -15%,
+      var(--light) 0%,
+      #ffffff77 40%,
+      #00000005 55%
+    ),
+    radial-gradient(
+      ellipse 120% 220% at 50% 140%,
+      var(--light) 0%,
+      var(--color) 55%,
+      #00000066 95%
     );
-    border: 4px solid;
-    padding: 0;
-    opacity: 100%;
-    border-radius: 1px;
-    box-shadow: 2px 2px 4px #000a;
+  border: 2px outset var(--color);
+  border-top-color: var(--light);
+  border-radius: 3px;
+  box-shadow:
+    inset 2px 0 4px rgba(0,0,0,.06),
+    inset -2px 0 4px rgba(0,0,0,.12);
+  filter: saturate(1.1) contrast(1.05);
 }
 
-.I.mino {
-    --background-color : #00d6fb;
-    --frontier-color   : #43e7fd;
-    --light-color      : #afeff9;
-    border-top-color   : #7cf2fd;
-    border-left-color  : #2ed5e5;
-    border-right-color : #01b8ca;
-    border-bottom-color: #00a4b0;
+.I {
+  --color: #009fcf;
+  --light: #cfeaf1;
 }
 
-.J.mino {
-    --background-color : #2E00FB;
-    --frontier-color   : #7054fb;
-    --light-color      : #b8b4ff;
-    border-top-color   : #4985fd;
-    border-left-color  : #2f36ea;
-    border-right-color : #0006ca;
-    border-bottom-color: #00009d;
+.J {
+  --color: #0048a8;
+  --light: #adcdff;
 }
 
-.L.mino {
-    --background-color : #FF7900;
-    --frontier-color   : #fe9551;
-    --light-color      : #fdd0b7;
-    border-top-color   : #fd9f6b;
-    border-left-color  : #e76d28;
-    border-right-color : #e74f00;
-    border-bottom-color: #c54800;
+.L {
+  --color: #f96700;
+  --light: #f8d3b8;
 }
 
-.O.mino {
-    --background-color : #FeCB00;
-    --frontier-color   : #fce15c;
-    --light-color      : #ffedac;;
-    border-top-color   : #ffe364;
-    border-left-color  : #e7ba23;
-    border-right-color : #e3a707;
-    border-bottom-color: #ca9501;
+.O {
+  --color: #fdba00;
+  --light: #f6e0b8;
 }
 
-.S.mino {
-    --background-color : #67EE12;
-    --frontier-color   : #93f85a;
-    --light-color      : #C8FBA8;
-    border-top-color   : #a4fc6d;
-    border-left-color  : #5ee82b;
-    border-right-color : #35db00;
-    border-bottom-color: #1cbc02;
+.S {
+  --color: #59b616;
+  --light: #dceecf;
 }
 
-.T.mino {
-    --background-color : #B000FE;
-    --frontier-color   : #c541fc;
-    --light-color      : #edb2ff;
-    border-top-color   : #d380ff;
-    border-left-color  : #b42deb;
-    border-right-color : #8000cd;
-    border-bottom-color: #6e019a;
+.T {
+  --color: #852687;
+  --light: #e3c7e3;
 }
 
-.Z.mino {
-    --background-color : #ed2939;
-    --frontier-color   : #fe6483;
-    --light-color      : #ffb8c5;
-    border-top-color   : #fd718d;
-    border-left-color  : #e62250;
-    border-right-color : #e20332;
-    border-bottom-color: #ad1936;
+.Z {
+  --color: #a90f16;
+  --light: #ebc6c8;
 }
 
-.ghost.mino {
-    margin: 1px;
-    opacity: 30%;
-    filter: brightness(300%) saturate(10%) blur(1px);
-}
-
-.moving.mino {
-    filter: saturate(80%) brightness(150%);
-}
-
-.locking.mino {
-    filter: saturate(50%) brightness(200%);
-    box-shadow:
-        -1px -1px 4px #FFF2,
-        -1px  1px 4px #FFF2,
-         1px -1px 4px #FFF2,
-         1px  1px 4px #FFF2;
-}
-
-.disabled.mino {
-    filter: brightness(50%) contrast(80%);
-    opacity: 70%;
-}
-
-@keyframes locked-animation {
-    from {
-        filter: saturate(50%) brightness(400%);
-    box-shadow:
-        -1px -1px 4px #FFF2,
-        -1px  1px 4px #FFF2,
-         1px -1px 4px #FFF2,
-         1px  1px 4px #FFF2;
-    }
-    50% {
-        box-shadow:
-            -1px -1px 6px #FFF4,
-            -1px  1px 6px #FFF4,
-             1px -1px 6px #FFF4,
-             1px  1px 6px #FFF4;
-    }
-    to {
-        box-shadow:
-            -1px -1px 0 #FFF2,
-            -1px  1px 0 #FFF2,
-             1px -1px 0 #FFF2,
-             1px  1px 0 #FFF2;
-    }
+.ghost {
+  opacity: 35%;
+  filter: saturate(50%) brightness(80%);
 }

@@ -29,7 +29,7 @@ document.onfullscreenchange = function() {
         fullscreenCheckbox.checked = true
     } else {
         fullscreenCheckbox.checked = false
-        pauseSettings()
+        if (playing) pauseSettings()
     }
 }
 document.onfullscreenerror = function() {
