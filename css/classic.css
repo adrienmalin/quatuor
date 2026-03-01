@@ -1,3 +1,15 @@
+.minoes-table tr {
+  z-index: calc(100 - var(--row));
+  position: sticky;
+}
+
+tr.matrix td:not(.mino) {
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
+  border-top: 2px solid #303030;
+  border-bottom: none;
+}
+
 .mino {
   --color: hsl(var(--hue), var(--saturation), 40%);
   --light: hsl(var(--hue), calc(0.66 * var(--saturation)), 84%);
@@ -26,7 +38,8 @@
   border-radius: 3px;
   box-shadow:
     inset 2px 0 4px rgba(0,0,0,.06),
-    inset -2px 0 4px rgba(0,0,0,.12);
+    inset -2px 0 4px rgba(0,0,0,.12),
+    0 -2px 0 var(--light);
   filter: saturate(1.1) contrast(1.05);
 }
 
@@ -71,4 +84,5 @@
   background-color: #fff2;
   background-clip: content-box;
   background-image: none;
+  box-shadow: none;
 }
