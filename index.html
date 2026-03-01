@@ -60,7 +60,7 @@
                 <div class="col-4"><input name="pause" id="pauseInput" type="text" class="form-control text-center" value="Échap." onfocus="changeKey(this)" placeholder="Touche ?" title="Modifier la touche" required></div>
                 <label for="pauseInput" title="Pause" class="col-2 col-form-label d-flex align-items-center justify-content-center"><i class="bi bi-pause"></i></label>
               </fieldset>
-              <fieldset id="autorepeatFieldset" class="row g-2 mb-3 align-items-center text-center"><legend class="text-start">Répétition automatique</legend>
+              <fieldset id="autorepeatFieldset" class="row g-2 mb-3 align-items-center text-center"><!--<legend class="text-start">Répétition automatique</legend>-->
                 <label for="arrInput" class="col-2 col-form-label"><abbr title="Automatic Repeat Rate : période de répétition de l'action">ARR</abbr></label>
                 <div class="col-4"><div class="input-group"><input name="arr" id="arrInput" type="number" class="form-control text-center" value="50" min="2" max="200" step="1"><div class="input-group-text">ms</div></div></div>
                 <div class="col-4"><div class="input-group"><input name="das" id="dasInput" type="number" class="form-control text-center" value="300" min="100" max="500" step="5"><div class="input-group-text">ms</div></div></div>
@@ -77,13 +77,15 @@
                   <option value="css/opera.css">Opéra</option>
                   <option value="css/stereo.css">Stéréo</option>
                 </select></div>
-                <div class="col-4 d-flex align-items-baseline"><input name="sfxVolumeRange" id="sfxVolumeRange" class="form-range" type="range" min="0" max="1" step="any" value="0.7"></div>
-                <label for="sfxVolumeRange" class="col-2 col-form-label">Volume</label>
-                <div class="col-2"></div>
-                <div class="col-4 form-check form-switch text-start">
-                  <input id="fullscreenCheckbox" type="checkbox" role="switch" class="form-check-input" tabindex="0">
-                  <label for="fullscreenCheckbox" class="form-check-label">Plein écran</label>
+                <div class="col-4">
+                  <div class="form-check form-switch text-start">
+                    <input id="fullscreenCheckbox" type="checkbox" role="switch" class="form-check-input" tabindex="0">
+                    <label for="fullscreenCheckbox" class="form-check-label">Plein écran</label>
+                  </div>
                 </div>
+                <div class="col-2"></div>
+                <label for="sfxVolumeRange" class="col-2 col-form-label">Volume</label>
+                <div class="col-4 d-flex align-items-baseline"><input name="sfxVolumeRange" id="sfxVolumeRange" class="form-range" type="range" min="0" max="1" step="any" value="0.7"></div>
               </fieldset>
               <fieldset class="row g-2 mb-3 align-items-center text-center"><legend class="text-start">Partie</legend>
                 <label for="levelInput" class="col-2 col-form-label text-center">Niveau</label>
