@@ -4,15 +4,15 @@
 }
 
 tr.matrix td:not(.mino) {
-  border-left: 1px solid #333;
-  border-right: 1px solid #333;
-  border-top: 2px solid #303030;
+  border-left: none;
   border-bottom: none;
 }
 
 .mino {
   --color: hsl(var(--hue), var(--saturation), 40%);
   --light: hsl(var(--hue), calc(0.66 * var(--saturation)), 84%);
+  --top: hsl(var(--hue), calc(0.6 * var(--saturation)), 68%);
+  --right: hsl(var(--hue), calc(0.4 * var(--saturation)), 20%);
   background-color: var(--color);
   background-image:
     radial-gradient(
@@ -39,7 +39,9 @@ tr.matrix td:not(.mino) {
   box-shadow:
     inset 2px 0 4px rgba(0,0,0,.06),
     inset -2px 0 4px rgba(0,0,0,.12),
-    0 -2px 0 var(--light);
+    0 -4px 0 var(--top),
+    2px -3px 0 var(--right),
+    3px 2px 6px #0004;
   filter: saturate(1.1) contrast(1.05);
 }
 
