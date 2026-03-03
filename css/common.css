@@ -67,7 +67,7 @@ td#timeCell {
 
 @keyframes hard-dropped-table-animation {
     25% {
-        transform: translateY(2px);
+        transform: translateY(3px);
     }
 }
 .hard-dropped-table-animation {
