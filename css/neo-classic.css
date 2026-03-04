@@ -85,4 +85,5 @@ tr.matrix td:not(.mino) {
 .ghost {
   --hue: 0;
   --saturation: 0%;
+  opacity: 30%;
 }
