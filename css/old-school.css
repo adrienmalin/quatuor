@@ -4,11 +4,11 @@
 
 @font-face {
     font-family: "Early GameBoy";
-    src: url("retro/Early GameBoy.ttf");
+    src: url("old-school/Early GameBoy.ttf");
 }
 
 #screenRow {
-    background-image: url("retro/bg.png");
+    background-image: url("old-school/bg.png");
     background-size: 10px;
     padding: 40px 20px;
     border: 3px inset black;
@@ -22,7 +22,7 @@
 .card {
     background: #8D8E04;
     border-radius: 0;
-    border-image-source: url("retro/border-sm.png");
+    border-image-source: url("old-school/border-sm.png");
     border-image-slice: 25;
     border-image-width: 13px;
     border-image-repeat: repeat;
@@ -37,7 +37,7 @@
 
 #matrixCard {
     background: #808302;
-    border-image-source: url("retro/border-lg.png");
+    border-image-source: url("old-school/border-lg.png");
     border-image-slice: 30;
     border-image-width: 15px;
     border-image-outset: 15px;
@@ -89,31 +89,31 @@
 }
 
 .I.mino {
-    background-image: url("retro/I-mino.png")
+    background-image: url("old-school/I-mino.png")
 }
 
 .J.mino {
-    background-image: url("retro/J-mino.png")
+    background-image: url("old-school/J-mino.png")
 }
 
 .L.mino {
-    background-image: url("retro/L-mino.png")
+    background-image: url("old-school/L-mino.png")
 }
 
 .O.mino {
-    background-image: url("retro/O-mino.png")
+    background-image: url("old-school/O-mino.png")
 }
 
 .S.mino {
-    background-image: url("retro/S-mino.png")
+    background-image: url("old-school/S-mino.png")
 }
 
 .T.mino {
-    background-image: url("retro/T-mino.png")
+    background-image: url("old-school/T-mino.png")
 }
 
 .Z.mino {
-    background-image: url("retro/Z-mino.png")
+    background-image: url("old-school/Z-mino.png")
 }
 
 @keyframes blinker {

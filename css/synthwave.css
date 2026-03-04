@@ -31,7 +31,7 @@ body[data-bs-theme="dark"] {
 
 .mino {
   background: var(--color);
-  border: 3px solid var(--border);
+  border: 1px solid var(--border);
   box-shadow: 0 0 8px var(--border);
 }
 
