@@ -19,7 +19,6 @@ body {
     border: none;
     border-radius: 0;
     margin-bottom: 0.5em !important;
-    width: min-content !important;
 }
 
 .card:first-of-type {
@@ -57,11 +56,11 @@ body {
 }
 
 #holdTable {
-    margin: 0 0 0 auto !important;
+    margin: 0 !important;
 }
 
 #statsTable {
-    margin-right: 1.5em;
+    width: 10rem;
 }
 
 #statsTable tr {
@@ -172,10 +171,10 @@ tr.matrix td:not(.mino) {
 
 .ghost.mino {
     background-color: #fff4;
-    border-color: #fff8;
+    border: none;
     opacity: 5%;
     box-shadow: none;
-    transform: translateY(-6px);
+    transform: translateY(-3px);
 }
 
 .moving.mino {

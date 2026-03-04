@@ -1,0 +1,88 @@
+.minoes-table tr {
+  z-index: calc(100 - var(--row));
+  position: sticky;
+}
+
+tr.matrix td:not(.mino) {
+  border-left: none;
+  border-bottom: none;
+}
+
+.mino {
+  --color: hsl(var(--hue), var(--saturation), 60%);
+  --dark: hsl(var(--hue), var(--saturation), 25%);
+  --light: hsl(var(--hue), calc(0.66 * var(--saturation)), 84%);
+  --border: hsl(var(--hue), var(--saturation), 40%);
+  --top: hsl(var(--hue), calc(0.6 * var(--saturation)), 68%);
+  position: relative;
+  background-color: var(--dark);
+  background-image: radial-gradient(
+    ellipse 200% 120% at 50% 75%,
+    #fff8 10%,
+    var(--dark) 28%,
+    #fff8 38%,
+    var(--dark) 48%
+  );
+  border: 1px outset var(--border);
+  border-radius: 3px;
+  box-shadow:
+    inset 3px 0 4px rgba(0,0,0,.06),
+    inset -3px 0 4px rgba(0,0,0,.12),
+    0 -3px 0 var(--top),
+    0 2px 2px #0004;
+}
+
+.mino:after {
+  --size: calc(var(--cell-side) - 12px);
+  position: absolute;
+  content: "";
+  box-sizing: content-box;
+  width: var(--size);
+  height: var(--size);
+  opacity: 40%;
+  background: var(--color);
+  left: 3px;
+  top: 3px;
+  border: 3px solid var(--border);
+  border-top-color: white;
+}
+
+.I {
+  --hue: 193;
+  --saturation: 100%;
+}
+
+.J {
+  --hue: 215;
+  --saturation: 100%;
+}
+
+.L {
+  --hue: 25;
+  --saturation: 100%;
+}
+
+.O {
+  --hue: 42;
+  --saturation: 100%;
+}
+
+.S {
+  --hue: 95;
+  --saturation: 100%;
+}
+
+.T {
+  --hue: 300;
+  --saturation: 56%;
+}
+
+.Z {
+  --hue: 357;
+  --saturation: 84%;
+}
+
+.ghost {
+  --hue: 0;
+  --saturation: 0%;
+}

@@ -80,7 +80,7 @@ tr.matrix td:not(.mino) {
 
 .ghost {
   border: 3px solid #fff2;
-  padding: 2px;
+  padding: 3px;
   background-color: #fff2;
   background-clip: content-box;
   background-image: none;
