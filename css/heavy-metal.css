@@ -1,0 +1,65 @@
+#sceneDiv {
+  perspective: 500px;
+}
+#screenRow {
+  transform: rotateX(20deg);
+}
+
+#screenRow .card {
+  box-shadow:
+    0 10px 3px #25292d,
+    0 15px 0 var(--bs-card-border-color) !important;;
+}
+
+tr.matrix td:not(.mino) {
+  border-left: none;
+  border-bottom: none;
+}
+
+.mino {
+  background-color: hsl(var(--hue), 55%, 55%);
+  background-image: linear-gradient(30deg, #fff4, transparent);
+  border: 1px outset hsl(var(--hue), 55%, 45%);
+  border-radius: 2px;
+  box-shadow:
+    0 10px 3px hsl(var(--hue), 70%, 10%),
+    0 15px 0 hsla(var(--hue), 90%, 40%, 70%);
+  opacity: 80%;
+  backdrop-filter: blur(6px);
+}
+
+tr:last-of-type .mino {
+  boxd-shadow: none;
+}
+
+.I {
+  --hue: 197;
+}
+
+.J {
+  --hue: 217;
+}
+
+.L {
+  --hue: 36;
+}
+
+.O {
+  --hue: 60;
+}
+
+.S {
+  --hue: 113;
+}
+
+.T {
+  --hue: 268;
+}
+
+.Z {
+  --hue: 0;
+}
+
+.ghost {
+  opacity: 30%;
+}

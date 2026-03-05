@@ -10,10 +10,10 @@ tr.matrix td:not(.mino) {
 
 .mino {
   --color: hsl(var(--hue), var(--saturation), 60%);
-  --dark: hsl(var(--hue), var(--saturation), 25%);
-  --light: hsl(var(--hue), calc(0.66 * var(--saturation)), 84%);
+  --dark: hsl(var(--hue), var(--saturation), 28%);
+  --light: hsl(var(--hue), calc(0.66 * var(--saturation)), 90%);
   --border: hsl(var(--hue), var(--saturation), 40%);
-  --top: hsl(var(--hue), calc(0.6 * var(--saturation)), 68%);
+  --top: hsl(var(--hue), calc(0.6 * var(--saturation)), 75%);
   position: relative;
   background-color: var(--dark);
   background-image: radial-gradient(
@@ -43,7 +43,7 @@ tr.matrix td:not(.mino) {
   background: var(--color);
   left: 3px;
   top: 3px;
-  border: 3px solid var(--border);
+  border: 2px solid var(--border);
   border-top-color: white;
 }
 
