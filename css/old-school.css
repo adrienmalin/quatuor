@@ -1,5 +1,6 @@
 :root {
     --cell-side: 20px;
+    --sprite-size: 40px;
 }
 
 @font-face {
@@ -85,35 +86,37 @@
 
 .mino {
     box-shadow: -2px -2px 5px rgba(0, 0, 0, 40%), 1px 1px 2px rgba(0, 0, 0, 40%);
-    background-size: 100%;
+    background-size: cover;
+    background-image: url("old-school/sprites.png");
+    background-position: calc(var(--sprite-pos) * var(--sprite-size)) 0px;
 }
 
 .I.mino {
-    background-image: url("old-school/I-mino.png")
+    --sprite-pos: 0;
 }
 
 .J.mino {
-    background-image: url("old-school/J-mino.png")
+    --sprite-pos: 1;
 }
 
 .L.mino {
-    background-image: url("old-school/L-mino.png")
+    --sprite-pos: 2;
 }
 
 .O.mino {
-    background-image: url("old-school/O-mino.png")
+    --sprite-pos: 3;
 }
 
 .S.mino {
-    background-image: url("old-school/S-mino.png")
+    --sprite-pos: 4;
 }
 
 .T.mino {
-    background-image: url("old-school/T-mino.png")
+    --sprite-pos: 5;
 }
 
 .Z.mino {
-    background-image: url("old-school/Z-mino.png")
+    --sprite-pos: 6;
 }
 
 @keyframes blinker {
