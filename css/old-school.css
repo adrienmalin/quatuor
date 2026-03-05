@@ -46,7 +46,7 @@
 #statsTable,
 .card,
 .card-header,
-#messagesSpan {
+#messagesSpan div {
     font-family: "Early GameBoy", monospace;
     font-smooth: never;
     -webkit-font-smoothing: none;
@@ -123,7 +123,7 @@
 }
 
 .locking.mino {
-    animation: blinker 0.08s step-start infinite;
+    filter: brightness(135%) contrast(70%);
 }
 
 .ghost.mino,
