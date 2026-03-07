@@ -2,7 +2,7 @@
   perspective: 500px;
 }
 #screenRow {
-  transform: rotateX(20deg);
+  transform: rotateX(15deg);
 }
 
 #screenRow .card {
@@ -26,10 +26,6 @@ tr.matrix td:not(.mino) {
     0 15px 0 hsla(var(--hue), 90%, 40%, 70%);
   opacity: 80%;
   backdrop-filter: blur(6px);
-}
-
-tr:last-of-type .mino {
-  boxd-shadow: none;
 }
 
 .I {

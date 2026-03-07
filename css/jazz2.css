@@ -1,16 +1,7 @@
-.card {
-    background-color: #363941;
-}
-
 .minoes-table {
     display: flex;
     flex-direction: column;
-    filter: 
-        drop-shadow(-2px 0 0 white)
-        drop-shadow(2px 0 0 white)
-        drop-shadow(0 -2px 0 white)
-        drop-shadow(0 2px 0 white)
-        drop-shadow(5px 8px 0 rgba(9, 9, 9, 22%));
+    filter: drop-shadow(0 8px 1px #0008);
 }
 
 .minoes-table tr {
@@ -21,7 +12,8 @@
 }
 
 tr.matrix td:not(.mino) {
-    border: 0;
+    border: none;
+    border-right: 1px solid #8884;
 }
 
 .minoes-table td {
@@ -33,61 +25,62 @@ tr.matrix td:not(.mino) {
 }
 
 .mino {
-    background: var(--background-color);
     width: inherit;
     height: inherit;
     display: block;
+    padding: 0;
+    opacity: 100%;
+    border: none;
     box-shadow: 0 -6px 0 var(--box-shadow-color);
 }
 
 .I.mino {
-    --background-color: #42AFE1;
-    --box-shadow-color: #6CEAFF;
+    background-color: #0293b0;
+    --box-shadow-color: #05d2f2;
 }
 
 .J.mino {
-    --background-color: #1165B5;
-    --box-shadow-color: #339BFF;
+    background-color: #2c69c2;
+    --box-shadow-color: #7bb7f6;
 }
 
 .L.mino {
-    --background-color: #F38927;
+    background-color: #fa9b23;
     --box-shadow-color: #FFBA59;
 }
 
 .O.mino {
-    --background-color: #F6D03C;
-    --box-shadow-color: #FFFF7F;
+    background-color: #f9d92c;
+    --box-shadow-color: #fff194;
 }
 
 .S.mino {
-    --background-color: #51B84D;
-    --box-shadow-color: #84F880;
+    background-color: #01a493;
+    --box-shadow-color: #03e7d3;;
 }
 
 .T.mino {
-    --background-color: #9739A2;
-    --box-shadow-color: #D958E9;
+    background-color: #6830d1;
+    --box-shadow-color: #bb88fc;
 }
 
 .Z.mino {
-    --background-color: #EB4F65;
-    --box-shadow-color: #FF7F79;
+    background-color: #ee2b58;
+    --box-shadow-color: #fd4487;;
 }
 
 .ghost.mino {
-    opacity: 5%;
+    background-color: #fff8;
     box-shadow: none;
-    transform: translateY(-6px);
+    transform: blue(4px);
 }
 
 .moving.mino {
-    filter: saturate(80%) brightness(110%);
+    filter: saturate(80%) brightness(130%);
 }
 
 .locking.mino {
-    --background-color: white;
-    --box-shadow-color: #DDD;
+    filter: saturate(20%) brightness(300%);
 }
 
 .locked.mino {
@@ -96,7 +89,7 @@ tr.matrix td:not(.mino) {
 }
 
 .disabled.mino {
-    filter: brightness(50%) contrast(50%);
+    filter: brightness(50%) contrast(65%);
 }
 
 @keyframes locked-animation {
@@ -116,7 +109,7 @@ tr.matrix td:not(.mino) {
 
 @keyframes trail-animation {
     from {
-        background-color: #ceffff10;
+        background-color: #ceffff05;
         filter: saturate(50%) brightness(110%);
     }
     to {

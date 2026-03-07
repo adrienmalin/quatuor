@@ -1,5 +1,5 @@
 :root {
-    --cell-side: 25px;
+    --cell-size: 25px;
     --rX: -15;
     --rY: 0;
     --tZ: 25px;
@@ -62,7 +62,7 @@ td#timeCell {
 }
 
 #matrixTable {
-    margin-top: calc(-1 * var(--buffer-zone-rows) * var(--cell-side));
+    margin-top: calc(-1 * var(--buffer-zone-rows) * var(--cell-size));
 }
 
 @keyframes hard-dropped-table-animation {
@@ -87,8 +87,8 @@ tr.matrix td:not(.mino) {
 
 td {
     overflow: hidden;
-    width: var(--cell-side);
-    height: var(--cell-side);
+    width: var(--cell-size);
+    height: var(--cell-size);
     box-sizing: border-box;
 }
 
@@ -157,6 +157,7 @@ tr.cleared-line-animation {
     text-shadow: 1px 1px #000c;
     font-size: 3vmin;
     text-align: center;
+    z-index: 200;
 }
 
 #messagesSpan div {

@@ -33,7 +33,7 @@ tr.matrix td:not(.mino) {
 }
 
 .mino:after {
-  --size: calc(var(--cell-side) - 12px);
+  --size: calc(var(--cell-size) - 12px);
   position: absolute;
   content: "";
   box-sizing: content-box;

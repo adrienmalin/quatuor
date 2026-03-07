@@ -18,6 +18,7 @@
     <link rel="alternate stylesheet" href="css/jazz.css"     title="Jazz">
     <link rel="alternate stylesheet" href="css/old-school.css"     title="Old School">
     <link rel="alternate stylesheet" href="css/stereo.css"    title="Stéréo (3D)">
+    <link rel="alternate stylesheet" href="css/custom.css"    title="Personnalisé">
     <link rel="apple-touch-icon"      sizes="180x180" href="favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32"   href="favicons/T-2.png">
     <link rel="icon" type="image/png" sizes="16x16"   href="favicons/favicon-16x16.png">
@@ -68,17 +69,8 @@
                 <label for="dasInput" class="col-2 col-form-label"><abbr title="Delayed AutoShift : délai initial avant répétition">DAS</abbr></label>
               </fieldset>
               <fieldset class="row g-2 mb-3 align-items-center text-center"><legend class="text-start">Interface</legend>
-                <label for="stylesheetSelect" class="col-2 col-form-label">Thème</label>
-                <div class="col-4"><select name="stylesheet" id="stylesheetSelect" class="form-select" oninput="selectedStyleSheet.href = this.value">
-                  <option value="css/classic.css" selected>Classique</option>
-                  <option value="css/neo-classic.css" selected>Néo-classique</option>
-                  <option value="css/synthwave.css">Synthwave</option>
-                  <option value="css/electro.css">Électro</option>
-                  <option value="css/heavy-metal.css">Heavy metal</option>
-                  <option value="css/jazz.css">Jazz</option>
-                  <option value="css/old-school.css">Old School</option>
-                  <option value="css/stereo.css">Stéréo (3D)</option>
-                </select></div>
+                <label for="sfxVolumeRange" class="col-2 col-form-label">Volume</label>
+                <div class="col-4 d-flex align-items-baseline"><input name="sfxVolumeRange" id="sfxVolumeRange" class="form-range" type="range" min="0" max="1" step="any" value="0.7"></div>
                 <div class="col-4">
                   <div class="form-check form-switch text-start">
                     <input id="fullscreenCheckbox" type="checkbox" role="switch" class="form-check-input" tabindex="0">
@@ -86,8 +78,30 @@
                   </div>
                 </div>
                 <div class="col-2"></div>
-                <label for="sfxVolumeRange" class="col-2 col-form-label">Volume</label>
-                <div class="col-4 d-flex align-items-baseline"><input name="sfxVolumeRange" id="sfxVolumeRange" class="form-range" type="range" min="0" max="1" step="any" value="0.7"></div>
+                <label for="stylesheetSelect" class="col-2 col-form-label">Thème</label>
+                <div class="col-4">
+                  <select name="stylesheet" id="stylesheetSelect" class="form-select"
+                    oninput="selectedStyleSheet.href = this.value; skinURLdiv.style.setProperty('display', this.value === 'css/custom.css' ? 'flex' : 'none')">
+                    <option value="css/classic.css" selected>Classique</option>
+                    <option value="css/neo-classic.css" selected>Néo-classique</option>
+                    <option value="css/synthwave.css">Synthwave</option>
+                    <option value="css/electro.css">Électro</option>
+                    <option value="css/heavy-metal.css">Heavy metal</option>
+                    <option value="css/jazz.css">Jazz</option>
+                    <option value="css/old-school.css">Old School</option>
+                    <option value="css/stereo.css">Stéréo (3D)</option>
+                    <option value="css/custom.css">Personnalisé</option>
+                  </select>
+                </div>
+                <div id="skinURLdiv" class="col-6" style="display: none;">
+                  <div class="col-8">
+                    <input name="skinURL" id="skinURLInput" type="text" class="col-8 form-control text-center" 
+                    value="https://tetrio.team2xh.net/images/skins/ppt/ppt.svg" placeholder="Adresse du skin"
+                    title="Adresse d'une image de skin compatible avec Tetr.io Plus"
+                    oninput="document.documentElement.style.setProperty('--skin-url', `url(${this.value})`)">
+                  </div>
+                  <label for="skinURLInput" class="col-4 col-form-label">URL</label>
+                </div>
               </fieldset>
               <fieldset class="row g-2 mb-3 align-items-center text-center"><legend class="text-start">Partie</legend>
                 <label for="levelInput" class="col-2 col-form-label text-center">Niveau</label>
@@ -124,9 +138,9 @@
             <table id="statsTable" class="table mb-0">
               <tr class="card-header fw-bold text-uppercase"><th>Score</th><td id="scoreCell">0</td>                                                                          </tr>
               <tr><th>Meilleur<br/>score</th><td id="highScoreCell"><script>document.write(Number(localStorage["highScore"]) || 0)</script></td></tr>
-              <tr><th>Niveau</th>                           <td id="levelCell">0</td>                                                                          </tr>
-              <tr><th>But</th>                              <td id="goalCell">0</td>                                                                           </tr>
-              <tr><th>Temps</th>                            <td id="timeCell">00:00:00</td>                                                                       </tr>
+              <tr><th>Niveau</th><td id="levelCell">0</td>      </tr>
+              <tr><th>But</th>   <td id="goalCell">0</td>       </tr>
+              <tr><th>Temps</th> <td id="timeCell">00:00:00</td></tr>
             </table>
           </div>
         </div>
@@ -206,7 +220,7 @@
             <div class="modal-body p-0">
               <table class="table mb-0">
                 <tr><th>Score</th>         <td id="statsModalScoreCell"></td>        <th>Quatuors</th>             <td id="statsModalNbQuatuors"></td>         </tr>
-                <tr><th>Meilleur score</th><td id="statsModalHighScoreCell"></td>    <th>Pirouettes</th>           <td id="statsModalNbTSpin"></td></td>       </tr>
+                <tr><th>Meilleur score</th><td id="statsModalHighScoreCell"></td>    <th>Pirouettes</th>           <td id="statsModalNbTSpin"></td>            </tr>
                 <tr><th>Temps</th>         <td id="statsModalTimeCell"></td>         <th>Plus long combo</th>      <td id="statsModalMaxCombo"></td>           </tr>
                 <tr><th>Niveau</th>        <td id="statsModalLevelCell"></td>        <th>Plus long bout à bout</th><td id="statsModalMaxB2B"></td>             </tr>
                 <tr><th>Lignes</th>        <td id="statsModaltotalClearedLines"></td><th>Lignes par minute</th>    <td id="statsModaltotalClearedLinesPM"></td></tr>

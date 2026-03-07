@@ -1,5 +1,5 @@
 body {
-    background-image: url(synthwave/bg.png);
+    background-image: url(synthwave/wtCSusF.jpeg);
     background-size: cover;
 }
 
@@ -21,7 +21,7 @@ body[data-bs-theme="dark"] {
 
 .card,
 #matrixCard {
-    background: repeating-linear-gradient(transparent, #111 1px);
+    background: repeating-linear-gradient(transparent, transparent 1px, #1114 2px, #1114 4px);
     backdrop-filter: blur(3px);
 }
 

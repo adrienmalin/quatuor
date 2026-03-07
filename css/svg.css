@@ -1,0 +1,43 @@
+tr.matrix td:not(.mino),
+tr.matrix td.mino {
+  border-left: none;
+  border-right: 1px solid #333;
+  border-top: 1px solid #333;
+  border-bottom: none;
+}
+
+.mino {
+  background-size: cover
+}
+
+.I {
+  background-image: url(https://www.svgrepo.com/show/395902/blue-square.svg)
+}
+
+.J {
+  background-image: url(https://www.svgrepo.com/show/395944/brown-square.svg);
+}
+
+.L {
+  background-image: url(https://www.svgrepo.com/show/397681/orange-square.svg);
+}
+
+.O {
+  background-image: url(https://www.svgrepo.com/show/398716/yellow-square.svg);
+}
+
+.S {
+  background-image: url(https://www.svgrepo.com/show/396582/green-square.svg);
+}
+
+.T {
+ background-image: url(https://www.svgrepo.com/show/398143/purple-square.svg);
+}
+
+.Z {
+  background-image: url(https://www.svgrepo.com/show/397699/red-square.svg);
+}
+
+.ghost {
+  background-image: url(https://www.svgrepo.com/show/398610/white-large-square.svg);
+}

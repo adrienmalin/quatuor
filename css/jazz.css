@@ -110,8 +110,8 @@ tr.matrix td:not(.mino) {
 
 .minoes-table td {
     display: inline-block;
-    width: var(--cell-side);
-    height: var(--cell-side);
+    width: var(--cell-size);
+    height: var(--cell-size);
     padding: 0 !important;
     z-index: calc(200 - var(--row));
 }

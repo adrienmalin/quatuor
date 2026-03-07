@@ -1,8 +1,8 @@
 :root {
   --rbw: 4px;
   --tl: calc(-1 * var(--rbw));
-  --cell-side-opposite: calc(-1 * var(--cell-side));
-  --t3d: translate3d(var(--tl), var(--tl), var(--cell-side-opposite));
+  --cell-size-opposite: calc(-1 * var(--cell-size));
+  --t3d: translate3d(var(--tl), var(--tl), var(--cell-size-opposite));
 }
 
 body {
@@ -69,7 +69,7 @@ body {
 }
 
 #screenRow .card>* {
-  transform: translateZ(var(--cell-side));
+  transform: translateZ(var(--cell-size));
 }
 
 #screenRow .card-header {
@@ -101,7 +101,7 @@ body {
 
 .minoes-table tr {
   width: max-content;
-  height: var(--cell-side);
+  height: var(--cell-size);
 }
 
 #statsTable tr {
@@ -120,8 +120,8 @@ tr.matrix td:not(.mino) {
 }
 
 .minoes-table td {
-  width: var(--cell-side);
-  height: var(--cell-side);
+  width: var(--cell-size);
+  height: var(--cell-size);
   overflow: visible;
   position: relative;
 }
@@ -153,8 +153,8 @@ tr.cleared-line-animation td::after {
   top: 0;
   left: 0;
   display: block;
-  width: var(--cell-side);
-  height: var(--cell-side);
+  width: var(--cell-size);
+  height: var(--cell-size);
 }
 
 /* Front face */
@@ -204,7 +204,7 @@ tr.cleared-line-animation td::before,
   --center-x:  calc(65% + var(--light-x) * 10%);
   --center-y:  calc(35% + var(--light-y) * 10%);
   filter: saturate(0.95);
-  transform: translate3d(0, 0, var(--cell-side-opposite)) rotateY(-90deg);
+  transform: translate3d(0, 0, var(--cell-size-opposite)) rotateY(-90deg);
   transform-origin: left;
 }
 

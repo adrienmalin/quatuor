@@ -36,6 +36,12 @@ class Settings {
                 element.value = localStorage[element.name]
         })
         window.document.selectedStyleSheetSet = stylesheetSelect.value
+        if (stylesheetSelect.value === "css/custom.css") {
+            skinURLdiv.style.setProperty('display', 'flex')
+            document.documentElement.style.setProperty('--skin-url', `url(${skinURLInput.value})`)
+        } else {
+            skinURLdiv.style.setProperty('display', 'none')
+        }
     }
 
     save() {

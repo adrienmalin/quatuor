@@ -1,0 +1,79 @@
+:root {
+  --cell-size: 30px;
+  --sprite-size: calc(100% / 11);
+  --skin-url: url(https://tetrio.team2xh.net/images/skins/tf/tf.svg);
+  --bg-url: url();
+}
+
+body {
+  background-image: var(--bg-url) fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+.mino {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  background-image: var(--skin-url);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: calc(var(--mino-sprite) * var(--sprite-size));
+}
+
+.I {
+    --mino-sprite: 4;
+}
+
+.J {
+    --mino-sprite: 5;
+}
+
+.L {
+    --mino-sprite: 1;
+}
+
+.O {
+    --mino-sprite: 2;
+}
+
+.S {
+    --mino-sprite: 3;
+}
+
+.T {
+    --mino-sprite: 6;
+}
+
+.Z {
+    --mino-sprite: 0;
+}
+
+.ghost,
+.disabled,
+.locking {
+  background-image:
+    var(--skin-url),
+    var(--skin-url);
+  background-size:
+    cover,
+    cover;
+  background-repeat:
+    no-repeat,
+    no-repeat;
+  background-position-x:
+    calc(var(--mino-sprite) * var(--sprite-size)),
+    calc(var(--overlay-sprite) * var(--sprite-size));
+  background-blend-mode: overlay;
+}
+
+.ghost {
+  --overlay-sprite: 7;
+}
+
+.disabled {
+  --overlay-sprite: 8;
+}
+
+.locking {
+  --overlay-sprite: 9;
+}
