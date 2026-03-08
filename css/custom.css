@@ -1,7 +1,7 @@
 :root {
   --cell-size: 30px;
   --sprite-size: calc(100% / 11);
-  --skin-url: url(https://tetrio.team2xh.net/images/skins/tf/tf.svg);
+  --skin-url: url(https://you.have.fail/ed/at/tetrioplus/data/content/skin/Haley%20Halcyon/tetrio_gameboy_plus.svg);
   --bg-url: url();
 }
 
@@ -11,69 +11,70 @@ body {
   background-position: center;
 }
 
+#matrixTable tr:last-child td {
+    position: relative;
+    overflow: visible;
+}
+
+#matrixTable tr:last-child td:after {
+    position: absolute;
+    content: "";
+    width: inherit;
+    height: inherit;
+    top: var(--cell-size);
+    left: 0;
+    background-image: var(--skin-url);
+    background-size: repeat;
+    background-position-x: calc(var(--sprite-pos) * var(--sprite-size));
+    --sprite-pos: 10;
+}
+
 .mino {
   width: var(--cell-size);
   height: var(--cell-size);
   background-image: var(--skin-url);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position-x: calc(var(--mino-sprite) * var(--sprite-size));
+  background-position-x: calc(var(--sprite-pos) * var(--sprite-size));
 }
 
 .I {
-    --mino-sprite: 4;
+    --sprite-pos: 4;
 }
 
 .J {
-    --mino-sprite: 5;
+    --sprite-pos: 5;
 }
 
 .L {
-    --mino-sprite: 1;
+    --sprite-pos: 1;
 }
 
 .O {
-    --mino-sprite: 2;
+    --sprite-pos: 2;
 }
 
 .S {
-    --mino-sprite: 3;
+    --sprite-pos: 3;
 }
 
 .T {
-    --mino-sprite: 6;
+    --sprite-pos: 6;
 }
 
 .Z {
-    --mino-sprite: 0;
-}
-
-.ghost,
-.disabled,
-.locking {
-  background-image:
-    var(--skin-url),
-    var(--skin-url);
-  background-size:
-    cover,
-    cover;
-  background-repeat:
-    no-repeat,
-    no-repeat;
-  background-position-x:
-    calc(var(--mino-sprite) * var(--sprite-size)),
-    calc(var(--overlay-sprite) * var(--sprite-size));
-  background-blend-mode: overlay;
+    --sprite-pos: 0;
 }
 
 .ghost {
-  --overlay-sprite: 7;
+  --sprite-pos: 7;
+  opacity: 50%;
 }
 
 .disabled {
-  --overlay-sprite: 8;
+  --sprite-pos: 8;
 }
 
-.locking {
-  --overlay-sprite: 9;
+.locking.mino {
+    filter: saturate(60%) brightness(180%);
 }

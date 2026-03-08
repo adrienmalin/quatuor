@@ -96,9 +96,10 @@
                 <div id="skinURLdiv" class="col-6" style="display: none;">
                   <div class="col-8">
                     <input name="skinURL" id="skinURLInput" type="text" class="col-8 form-control text-center" 
-                    value="https://tetrio.team2xh.net/images/skins/ppt/ppt.svg" placeholder="Adresse du skin"
+                    value="https://you.have.fail/ed/at/tetrioplus/data/content/skin/Haley%20Halcyon/tetrio_gameboy_plus.svg" placeholder="Adresse du skin"
                     title="Adresse d'une image de skin compatible avec Tetr.io Plus"
-                    oninput="document.documentElement.style.setProperty('--skin-url', `url(${this.value})`)">
+                    oninput="document.documentElement.style.setProperty('--skin-url', `url(${this.value})`)"
+                    onfocus="this.select()">
                   </div>
                   <label for="skinURLInput" class="col-4 col-form-label">URL</label>
                 </div>
