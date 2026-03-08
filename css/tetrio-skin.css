@@ -43,7 +43,7 @@
 
 .ghost {
   --sprite-pos: 7;
-  opacity: 50%;
+  opacity: 40%;
 }
 
 .disabled {
