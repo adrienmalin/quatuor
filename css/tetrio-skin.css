@@ -2,31 +2,6 @@
   --cell-size: 30px;
   --sprite-size: calc(100% / 11);
   --skin-url: url(https://you.have.fail/ed/at/tetrioplus/data/content/skin/Haley%20Halcyon/tetrio_gameboy_plus.svg);
-  --bg-url: url();
-}
-
-body {
-  background-image: var(--bg-url) fixed;
-  background-size: cover;
-  background-position: center;
-}
-
-#matrixTable tr:last-child td {
-    position: relative;
-    overflow: visible;
-}
-
-#matrixTable tr:last-child td:after {
-    position: absolute;
-    content: "";
-    width: inherit;
-    height: inherit;
-    top: var(--cell-size);
-    left: 0;
-    background-image: var(--skin-url);
-    background-size: repeat;
-    background-position-x: calc(var(--sprite-pos) * var(--sprite-size));
-    --sprite-pos: 10;
 }
 
 .mino {

@@ -36,7 +36,7 @@ class Settings {
                 element.value = localStorage[element.name]
         })
         window.document.selectedStyleSheetSet = stylesheetSelect.value
-        if (stylesheetSelect.value === "css/custom.css") {
+        if (stylesheetSelect.value === "css/tetrio-skin.css" || stylesheetSelect.value === "css/jstris-skin.css") {
             skinURLdiv.style.setProperty('display', 'flex')
             document.documentElement.style.setProperty('--skin-url', `url(${skinURLInput.value})`)
         } else {

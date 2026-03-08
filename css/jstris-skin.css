@@ -1,0 +1,55 @@
+:root {
+  --cell-size: 24px;
+  --sprite-size: calc(100% / 8);
+  --skin-url: url(https://i.imgur.com/HqGYC5G.png);
+}
+
+.mino {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  background-image: var(--skin-url);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: calc(var(--sprite-pos) * var(--sprite-size));
+}
+
+.I {
+    --sprite-pos: 6;
+}
+
+.J {
+    --sprite-pos: 7;
+}
+
+.L {
+    --sprite-pos: 3;
+}
+
+.O {
+    --sprite-pos: 4;
+}
+
+.S {
+    --sprite-pos: 5;
+}
+
+.T {
+    --sprite-pos: 8;
+}
+
+.Z {
+    --sprite-pos: 2;
+}
+
+.ghost {
+  --sprite-pos: 0;
+  opacity: 50%;
+}
+
+.disabled {
+  --sprite-pos: 1;
+}
+
+.locking.mino {
+    filter: saturate(60%) brightness(180%);
+}
