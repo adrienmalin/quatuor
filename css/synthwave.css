@@ -21,18 +21,31 @@ body[data-bs-theme="dark"] {
 
 .card,
 #matrixCard {
-    background: repeating-linear-gradient(transparent, transparent 1px, #1114 2px, #1114 4px);
+    background: repeating-linear-gradient(transparent, transparent 2px, #1114 2px, #1114 5px);
     backdrop-filter: blur(3px);
 }
 
 .minoes-table {
   background: transparent;
+  border-spacing: 2px;
+}
+
+#matrixTable {
+    margin-top: calc(-1 * var(--buffer-zone-rows) * var(--cell-size) - 8px);
+}
+
+#matrixTable td:not(.mino) {
+  border-color: #8881;
+  border-top: none;
+  border-bottom: none;
 }
 
 .mino {
   background: var(--color);
-  border: 1px solid var(--border);
+  border: 3px solid var(--border);
+  border-radius: 6px;
   box-shadow: 0 0 8px var(--border);
+  filter: blur(0.5px);
 }
 
 .I {

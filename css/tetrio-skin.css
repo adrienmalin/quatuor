@@ -4,6 +4,10 @@
   --skin-url: url(https://you.have.fail/ed/at/tetrioplus/data/content/skin/Haley%20Halcyon/tetrio_gameboy_plus.svg);
 }
 
+.minoes-table {
+    border-collapse: collapse;
+}
+
 .mino {
   width: var(--cell-size);
   height: var(--cell-size);

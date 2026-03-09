@@ -4,6 +4,10 @@
   --skin-url: url(https://i.imgur.com/HqGYC5G.png);
 }
 
+.minoes-table {
+    border-collapse: collapse;
+}
+
 .mino {
   width: var(--cell-size);
   height: var(--cell-size);
