@@ -76,19 +76,10 @@
                 <label for="dasInput" class="col-2 col-form-label"><abbr title="Delayed AutoShift : délai initial avant répétition">DAS</abbr></label>
               </fieldset>
               <fieldset class="row g-2 mb-3 align-items-center text-center"><legend class="text-start">Interface</legend>
-                <label for="sfxVolumeRange" class="col-2 col-form-label">Volume</label>
-                <div class="col-4 d-flex align-items-baseline"><input name="sfxVolumeRange" id="sfxVolumeRange" class="form-range" type="range" min="0" max="1" step="any" value="0.7"></div>
-                <div class="col-4">
-                  <div class="form-check form-switch text-start">
-                    <input id="fullscreenCheckbox" type="checkbox" role="switch" class="form-check-input" tabindex="0">
-                    <label for="fullscreenCheckbox" class="form-check-label">Plein écran</label>
-                  </div>
-                </div>
-                <div class="col-2"></div>
                 <label for="stylesheetSelect" class="col-2 col-form-label">Thème</label>
                 <div class="col-4">
                   <select name="stylesheet" id="stylesheetSelect" class="form-select"
-                    oninput="selectedStyleSheet.href = this.value; skinURLdiv.style.setProperty('display', this.value === 'css/tetrio-skin.css' || this.value === 'css/jstris-skin.css' ? 'flex' : 'none')">
+                    oninput="selectedStyleSheet.href = this.value; skinURLSelect.disabled = this.value !== 'css/jstris-skin.css';">
                     <option value="css/classic.css" selected>Classique</option>
                     <option value="css/neo-classic.css" selected>Néo-classique</option>
                     <option value="css/synthwave.css">Synthwave</option>
@@ -100,15 +91,21 @@
                     <option value="css/jstris-skin.css">Sample...</option>
                   </select>
                 </div>
-                <div id="skinURLdiv" class="col-6" style="display: none;">
-                  <div class="col-8">
-                    <select name="skinURL" id="skinURLInput" class="form-select" value="https://i.imgur.com/0l7LFMT.png"
-                    oninput="document.documentElement.style.setProperty('--skin-url', `url(${this.value})`)">
-                    </select>
-                    </script>
-                  </div>
-                  <label for="skinURLInput" class="col-4 col-form-label">Sample</label>
+                <div class="col-4">
+                  <select name="skinURL" id="skinURLSelect" class="form-select" disabled
+                  oninput="document.documentElement.style.setProperty('--skin-url', `url(${this.value})`)">
+                  </select>
                 </div>
+                <label for="skinURLSelect" class="col-2 col-form-label">Sample</label>
+                <label for="sfxVolumeRange" class="col-2 col-form-label">Volume</label>
+                <div class="col-4 d-flex align-items-baseline"><input name="sfxVolumeRange" id="sfxVolumeRange" class="form-range" type="range" min="0" max="1" step="any" value="0.7"></div>
+                <div class="col-4">
+                  <div class="form-check form-switch text-start">
+                    <input id="fullscreenCheckbox" type="checkbox" role="switch" class="form-check-input" tabindex="0">
+                    <label for="fullscreenCheckbox" class="form-check-label">Plein écran</label>
+                  </div>
+                </div>
+                <div class="col-2"></div>
               </fieldset>
               <fieldset class="row g-2 mb-3 align-items-center text-center"><legend class="text-start">Partie</legend>
                 <label for="levelInput" class="col-2 col-form-label text-center">Niveau</label>
