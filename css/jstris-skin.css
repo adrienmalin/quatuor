@@ -4,17 +4,47 @@
   --skin-url: url(https://i.imgur.com/HqGYC5G.png);
 }
 
+.option {
+    display: inline-block;
+    width: calc(var(--nb-sprites) * var(--cell-size));
+    height: var(--cell-size);
+    background-image: var(--skin-url);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.result {
+    --nb-sprites: 9;
+}
+
+.selection {
+    background-position-x: calc(-1 * var(--sprite-pos) * var(--cell-size));
+    --nb-sprites: 4;
+    --sprite-pos: 3;
+}
+
 .minoes-table {
     border-collapse: collapse;
 }
 
+#matrixCard {
+    background-image: url(jstris-skin/jstris-grid.png);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-blend-mode: screen;
+}
+
+tr.matrix td:not(.mino) {
+    border: none;
+}
+
 .mino {
-  width: var(--cell-size);
-  height: var(--cell-size);
-  background-image: var(--skin-url);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position-x: calc(var(--sprite-pos) * var(--sprite-size));
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-image: var(--skin-url);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: calc(var(--sprite-pos) * var(--sprite-size));
 }
 
 .I {
@@ -46,11 +76,11 @@
 }
 
 .ghost {
-  --sprite-pos: 0;
+    --sprite-pos: 0;
 }
 
 .disabled {
-  --sprite-pos: 1;
+    --sprite-pos: 1;
 }
 
 .locking.mino {

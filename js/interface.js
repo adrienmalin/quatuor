@@ -35,13 +35,56 @@ class Settings {
             if (element.name in localStorage)
                 element.value = localStorage[element.name]
         })
-        window.document.selectedStyleSheetSet = stylesheetSelect.value
+        selectedStyleSheet.href = stylesheetSelect.value
         if (stylesheetSelect.value === "css/tetrio-skin.css" || stylesheetSelect.value === "css/jstris-skin.css") {
             skinURLdiv.style.setProperty('display', 'flex')
-            document.documentElement.style.setProperty('--skin-url', `url(${skinURLInput.value})`)
         } else {
             skinURLdiv.style.setProperty('display', 'none')
         }
+        
+        fetch('https://konsola5.github.io/jstris-customization-database/jstrisCustomizationDatabase.json')
+        .then(response => response.json())
+        .then(json => {
+            for (const group in json) {
+                const optgroup = document.createElement('optgroup');
+                optgroup.label = group;
+                json[group].forEach(skin => {
+                    const option = document.createElement('option');
+                    option.value = skin.link;
+                    option.textContent = `${skin.name} (${skin.author})`;
+                    optgroup.appendChild(option);
+                });
+                skinURLInput.appendChild(optgroup);
+            }
+            
+            $('#skinURLInput').select2({
+                templateResult: state => state.id ? $(`<span class="option result" style="--skin-url: url(${state.id})" title="${state.text}"></span>`): state.text,
+                templateSelection: state => state.id ? $(`<span class="option selection" style="--skin-url: url(${state.id})" title="${state.text}"></span>`): state.text,
+                theme: 'bootstrap-5',
+                width: '100%',
+                selectionCssClass: 'form-select',
+                dropdownAutoWidth: true,
+                dropdownParent: $('#settingsModal'),
+                placeholder: "URL de l'image",
+                tags: true,
+                createTag: function(params) {
+                    return {
+                        id: params.term,
+                        text: "Ajouté manuellement",
+                        newTag: true
+                    };
+                },
+            })
+            if (localStorage["skinURL"]) {
+                if ($('#skinURLInput').find("option[value='" + localStorage["skinURL"] + "']").length) {
+                    $('#skinURLInput').val(localStorage["skinURL"]).trigger('change');
+                } else {
+                    var option = new Option(localStorage["skinURL"], "Ajouté manuellement", localStorage["skinURL"], true, true);
+                    $('#skinURLInput').append(option).trigger('change');
+                }
+                document.documentElement.style.setProperty('--skin-url', `url(${localStorage["skinURL"]})`)
+            }
+        });
     }
 
     save() {
