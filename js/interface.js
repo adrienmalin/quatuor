@@ -59,11 +59,15 @@ class Settings {
                 $('#skinURLSelect').select2({
                     templateResult: state =>
                         state.id
-                            ? $(`<img class="option result" src="${state.id}" title="${state.text}" loading="lazy"/>`)
+                            ? $(
+                                  `<img class="option result" src="${state.id}" title="${state.text}" loading="lazy"/>`,
+                              )
                             : state.text,
                     templateSelection: state =>
                         state.id
-                            ? $(`<span class="option selection" style="--skin-url: url(${state.id})" title="${state.text}" loading="lazy"></span>`)
+                            ? $(
+                                  `<span class="option selection" style="--skin-url: url(${state.id})" title="${state.text}" loading="lazy"></span>`,
+                              )
                             : state.text,
                     theme: 'bootstrap-5',
                     width: '100%',
@@ -72,6 +76,13 @@ class Settings {
                     dropdownParent: $('#settingsModal'),
                     placeholder: "URL de l'image",
                     tags: true,
+                    createTag: function (params) {
+                        return {
+                            id:  $.fn.select2.defaults.defaults.escapeMarkup(params.term),
+                            text: 'Ajouté manuellement',
+                            newTag: true,
+                        };
+                    },
                 });
                 if (localStorage['skinURL']) {
                     if (
