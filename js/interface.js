@@ -76,11 +76,14 @@ class Settings {
                     placeholder: "URL de l'image",
                     tags: true,
                     createTag: function (params) {
-                        return {
-                            id:  $.fn.select2.defaults.defaults.escapeMarkup(params.term),
-                            text: 'Ajouté manuellement',
-                            newTag: true,
-                        };
+                        const url = encodeURI(params.term);
+                        if (/^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|webp|svg))$/i.test(url)) {
+                            return {
+                                id: url,
+                                text: 'Source externe',
+                                newTag: true,
+                            };
+                        }
                     },
                 });
                 if (localStorage['skinURL']) {
@@ -91,8 +94,7 @@ class Settings {
                         $('#skinURLSelect').val(localStorage['skinURL']).trigger('change');
                     } else {
                         var option = new Option(
-                            localStorage['skinURL'],
-                            'Ajouté manuellement',
+                            'Source externe',
                             localStorage['skinURL'],
                             true,
                             true,
