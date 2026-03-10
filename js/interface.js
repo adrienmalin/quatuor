@@ -66,14 +66,13 @@ class Settings {
                     templateSelection: state =>
                         state.id
                             ? $(
-                                  `<span class="option selection" style="--skin-url: url(${state.id})" title="${state.text}" loading="lazy"></span>`,
+                                  `<span class="option selection" style="--skin-url: url(${state.id})" title="${state.text}" alt="${state.id}" loading="lazy"></span>`,
                               )
                             : state.text,
                     theme: 'bootstrap-5',
-                    width: '100%',
                     selectionCssClass: 'form-select',
-                    dropdownAutoWidth: true,
                     dropdownParent: $('#settingsModal'),
+                    dropdownAutoWidth: true,
                     placeholder: "URL de l'image",
                     tags: true,
                     createTag: function (params) {

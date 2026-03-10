@@ -4,14 +4,18 @@
   --skin-url: url(https://i.imgur.com/HqGYC5G.png);
 }
 
+.select2-dropdown {
+    width: min-content !important;
+}
+
+.select2-results__group {
+    display: inline-block;
+}
+
 .option {
     display: inline-block;
     width: calc(var(--nb-sprites) * var(--cell-size));
     height: var(--cell-size);
-    background-image: var(--skin-url);
-    background-size: cover;
-    background-repeat: no-repeat;
-    vertical-align: middle;
 }
 
 .result {
@@ -22,10 +26,14 @@
     background-position-x: calc(-1 * var(--sprite-pos) * var(--cell-size));
     --nb-sprites: 4;
     --sprite-pos: 4;
+    background-image: var(--skin-url);
+    background-size: cover;
+    background-repeat: no-repeat;
+    vertical-align: middle;
 }
 
-.minoes-table {
-    border-collapse: collapse;
+.card {
+  background-color: #1c1c1c;
 }
 
 #matrixCard {
