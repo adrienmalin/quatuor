@@ -1,27 +1,3 @@
-let scheduler = new Scheduler();
-let settings = new Settings();
-let stats = new Stats();
-let holdQueue = new HoldQueue();
-let matrix = new Matrix();
-let nextQueue = new NextQueue();
-let playing = false;
-//let lastActionSucceded = true
-let favicon;
-
-window.onload = function (event) {
-    favicon = document.querySelector("link[rel~='icon']");
-    
-    fullscreenCheckbox.onchange = function () {
-        if (this.checked) {
-            document.documentElement.requestFullscreen();
-        } else {
-            document.exitFullscreen();
-        }
-    };
-
-    restart();
-};
-
 document.onfullscreenchange = function () {
     if (document.fullscreenElement) {
         fullscreenCheckbox.checked = true;
@@ -326,10 +302,135 @@ sceneDiv.onmouseup = document.onmouseleave = function (event) {
     mousedown = false;
 };
 
+fullscreenCheckbox.onchange = function () {
+    if (this.checked) {
+        document.documentElement.requestFullscreen();
+    } else {
+        document.exitFullscreen();
+    }
+};
+
 sceneDiv.onwheel = function (event) {
     event.preventDefault();
     event.stopPropagation();
     let tZ = parseInt(getComputedStyle(screenRow).getPropertyValue('--tZ'));
     tZ -= event.deltaY;
     screenRow.style.setProperty('--tZ', tZ + 'px');
+};
+
+const ImageURLPattern = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|webp|svg))$/i;
+stylesheetSelect.oninput = function (event) {
+    selectedStyleSheet.href = this.value;
+
+    $("#skinURLSelect").empty();
+    switch (this.value) {
+        case 'css/jstris-skin.css':
+            skinURLSelect.disabled = false;
+
+            fetch('https://konsola5.github.io/jstris-customization-database/jstrisCustomizationDatabase.json')
+                .then(response => response.json())
+                .then(json => {
+                    const data = [];
+                    for (const group in json) {
+                        const groupData = {
+                            text: group,
+                            children: json[group].map(skin => ({
+                                id: skin.link,
+                                text: `${skin.name} (${skin.author})`,
+                            })),
+                        };
+                        data.push(groupData);
+                    }
+
+                    $('#skinURLSelect').select2({
+                        data: data,
+                        templateResult: state =>
+                            state.id
+                                ? $(`<img class="option result" src="${state.id}" title="${state.text}" loading="lazy"/>`)
+                                : state.text,
+                        templateSelection: state =>
+                            state.id
+                                ? $(`<span class="option selection" style="--skin-url: url(${state.id})" title="${state.text}" alt="${state.id}" loading="lazy"></span>`)
+                                : state.text,
+                        theme: 'bootstrap-5',
+                        selectionCssClass: 'form-select',
+                        dropdownParent: $('#settingsModal'),
+                        dropdownAutoWidth: true,
+                        placeholder: "URL de l'image",
+                        tags: true,
+                        createTag: function (params) {
+                            const url = encodeURI(params.term);
+                            if (ImageURLPattern.test(url)) {
+                                return {
+                                    id: url,
+                                    text: 'Source externe',
+                                    newTag: true,
+                                };
+                            }
+                        },
+                    });
+                });
+            break;
+        case 'css/tetrio-skin.css':
+            skinURLSelect.disabled = false;
+
+            fetch("https://you.have.fail/tetrioplus/data/data.json")
+                .then((resp) => resp.json())
+                .then((json) => {
+                    const data = json
+                        .filter((item) => (item.type == "skin" && item.format == "tetrioraster"))
+                        .map((skin) => {
+                            return {
+                                id: `https://you.have.fail/tetrioplus/data/${skin.path}`,
+                                text:`${skin.name} (${skin.author})`
+                            }
+                        })
+                    $('#skinURLSelect').select2({
+                        data: data,
+                        templateResult: state =>
+                            state.id
+                                ? $(`<img class="option result" src="${state.id}" title="${state.text}" loading="lazy"/>`)
+                                : state.text,
+                        templateSelection: state =>
+                            state.id
+                                ? $(`<span class="option selection" style="--skin-url: url(${state.id})" title="${state.text}" alt="${state.id}" loading="lazy"></span>`)
+                                : state.text,
+                        theme: 'bootstrap-5',
+                        selectionCssClass: 'form-select',
+                        dropdownParent: $('#settingsModal'),
+                        dropdownAutoWidth: true,
+                        placeholder: "URL de l'image",
+                        tags: true,
+                        createTag: function (params) {
+                            const url = encodeURI(params.term);
+                            if (ImageURLPattern.test(url)) {
+                                return {
+                                    id: url,
+                                    text: 'Source externe',
+                                    newTag: true,
+                                };
+                            }
+                        },
+                    });
+                })
+            break;
+
+        default:
+            skinURLSelect.disabled = true;
+            break;
+    }
+}
+
+let scheduler = new Scheduler();
+let settings = new Settings();
+let stats = new Stats();
+let holdQueue = new HoldQueue();
+let matrix = new Matrix();
+let nextQueue = new NextQueue();
+let playing = false;
+//let lastActionSucceded = true
+let favicon = document.querySelector("link[rel~='icon']");
+
+window.onload = function (event) {
+    restart();
 };

@@ -289,3 +289,11 @@ tr.cleared-line-animation {
 #statsModal tr:last-child td {
     border-bottom: none;
 }
+
+.select2-dropdown {
+    width: min-content !important;
+}
+
+.select2-results__group {
+    display: inline-block;
+}

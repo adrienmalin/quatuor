@@ -1,7 +1,7 @@
 :root {
-  --cell-size: 30px;
-  --sprite-size: calc(100% / 11);
-  --skin-url: url(https://you.have.fail/ed/at/tetrioplus/data/content/skin/Haley%20Halcyon/tetrio_gameboy_plus.svg);
+    --cell-size: 30px;
+    --sprite-size: calc(100% / 11);
+    --skin-url: url(https://you.have.fail/ed/at/tetrioplus/data/content/skin/Haley%20Halcyon/tetrio_gameboy_plus.svg);
 }
 
 .minoes-table {
@@ -9,12 +9,12 @@
 }
 
 .mino {
-  width: var(--cell-size);
-  height: var(--cell-size);
-  background-image: var(--skin-url);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position-x: calc(var(--sprite-pos) * var(--sprite-size));
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-image: var(--skin-url);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: calc(var(--sprite-pos) * var(--sprite-size));
 }
 
 .I {
@@ -46,14 +46,39 @@
 }
 
 .ghost {
-  --sprite-pos: 7;
-  opacity: 40%;
+    --sprite-pos: 7;
+    opacity: 40%;
 }
 
 .disabled {
-  --sprite-pos: 8;
+    --sprite-pos: 8;
 }
 
 .locking.mino {
     filter: saturate(60%) brightness(180%);
+}
+
+#holdTable .mino,
+#nextTable .mino {
+    box-shadow: 4px 4px 10px #0002;
+}
+
+.option {
+    display: inline-block;
+    height: var(--cell-size);
+}
+
+.result {
+    --nb-sprites: 9;
+}
+
+.select2-container:not(.select2-container--disabled) .selection {
+    --padded-cell-size: calc(var(--cell-size) + 1px);
+    width: calc(var(--nb-sprites) * var(--padded-cell-size));
+    background-position-x: calc(-1 * var(--sprite-pos) * var(--padded-cell-size));
+    --nb-sprites: 3;
+    --sprite-pos: 4;
+    background-image: var(--skin-url);
+    background-size: cover;
+    background-repeat: no-repeat;
 }

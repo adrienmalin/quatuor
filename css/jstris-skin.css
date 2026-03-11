@@ -4,36 +4,12 @@
   --skin-url: url(https://i.imgur.com/HqGYC5G.png);
 }
 
-.select2-dropdown {
-    width: min-content !important;
-}
-
-.select2-results__group {
-    display: inline-block;
-}
-
-.option {
-    display: inline-block;
-    width: calc(var(--nb-sprites) * var(--cell-size));
-    height: var(--cell-size);
-}
-
-.result {
-    --nb-sprites: 9;
-}
-
-.selection {
-    background-position-x: calc(-1 * var(--sprite-pos) * var(--cell-size));
-    --nb-sprites: 4;
-    --sprite-pos: 4;
-    background-image: var(--skin-url);
-    background-size: cover;
-    background-repeat: no-repeat;
-    vertical-align: middle;
-}
-
 .card {
   background-color: #1c1c1c;
+}
+
+.card-body {
+    background-color: black;
 }
 
 #matrixCard {
@@ -99,4 +75,23 @@ tr.matrix td:not(.mino) {
 #holdTable .mino,
 #nextTable .mino {
     box-shadow: 4px 4px 10px #0002;
+}
+
+.option {
+    display: inline-block;
+    height: var(--cell-size);
+}
+
+.result {
+    --nb-sprites: 9;
+}
+
+.select2-container:not(.select2-container--disabled) .selection {
+    width: calc(var(--nb-sprites) * var(--cell-size));
+    background-position-x: calc(-1 * var(--sprite-pos) * var(--cell-size));
+    --nb-sprites: 4;
+    --sprite-pos: 4;
+    background-image: var(--skin-url);
+    background-size: cover;
+    background-repeat: no-repeat;
 }

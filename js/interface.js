@@ -36,77 +36,24 @@ class Settings {
         this.form.querySelectorAll('[name]').forEach(element => {
             if (element.name in localStorage) element.value = localStorage[element.name];
         });
-        selectedStyleSheet.href = stylesheetSelect.value;
-        skinURLSelect.disabled = stylesheetSelect.value !== 'css/jstris-skin.css';
-
-        fetch(
-            'https://konsola5.github.io/jstris-customization-database/jstrisCustomizationDatabase.json',
-        )
-            .then(response => response.json())
-            .then(json => {
-                for (const group in json) {
-                    const optgroup = document.createElement('optgroup');
-                    optgroup.label = group;
-                    json[group].forEach(skin => {
-                        const option = document.createElement('option');
-                        option.value = skin.link;
-                        option.textContent = `${skin.name} (${skin.author})`;
-                        optgroup.appendChild(option);
-                    });
-                    skinURLSelect.appendChild(optgroup);
-                }
-
-                $('#skinURLSelect').select2({
-                    templateResult: state =>
-                        state.id
-                            ? $(
-                                  `<img class="option result" src="${state.id}" title="${state.text}" loading="lazy"/>`,
-                              )
-                            : state.text,
-                    templateSelection: state =>
-                        state.id
-                            ? $(
-                                  `<span class="option selection" style="--skin-url: url(${state.id})" title="${state.text}" alt="${state.id}" loading="lazy"></span>`,
-                              )
-                            : state.text,
-                    theme: 'bootstrap-5',
-                    selectionCssClass: 'form-select',
-                    dropdownParent: $('#settingsModal'),
-                    dropdownAutoWidth: true,
-                    placeholder: "URL de l'image",
-                    tags: true,
-                    createTag: function (params) {
-                        const url = encodeURI(params.term);
-                        if (/^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|webp|svg))$/i.test(url)) {
-                            return {
-                                id: url,
-                                text: 'Source externe',
-                                newTag: true,
-                            };
-                        }
-                    },
-                });
-                if (localStorage['skinURL']) {
-                    if (
-                        $('#skinURLSelect').find("option[value='" + localStorage['skinURL'] + "']")
-                            .length
-                    ) {
-                        $('#skinURLSelect').val(localStorage['skinURL']).trigger('change');
-                    } else {
-                        var option = new Option(
-                            'Source externe',
-                            localStorage['skinURL'],
-                            true,
-                            true,
-                        );
-                        $('#skinURLSelect').append(option).trigger('change');
-                    }
-                    document.documentElement.style.setProperty(
-                        '--skin-url',
-                        `url(${localStorage['skinURL']})`,
-                    );
-                }
-            });
+        if (localStorage['skinURL']) {
+            if ($('#skinURLSelect').find("option[value='" + localStorage['skinURL'] + "']").length) {
+                $('#skinURLSelect').val(localStorage['skinURL']).trigger('change');
+            } else {
+                var option = new Option(
+                    'Source externe',
+                    localStorage['skinURL'],
+                    true,
+                    true,
+                );
+                $('#skinURLSelect').append(option).trigger('change');
+            }
+            document.documentElement.style.setProperty(
+                '--skin-url',
+                `url(${localStorage['skinURL']})`,
+            );
+        }
+        stylesheetSelect.oninput();
     }
 
     save() {
