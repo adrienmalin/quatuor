@@ -1,7 +1,7 @@
 :root {
-    --cell-size: 30px;
-    --sprite-size: round(100% / 11, 1px);
-    --skin-url: url(https://you.have.fail/ed/at/tetrioplus/data/content/skin/Haley%20Halcyon/tetrio_gameboy_plus.svg);
+  --cell-size: 30px;
+  --sprite-size: round(100% / 11, 1px);
+  --skin-url: url(https://you.have.fail/ed/at/tetrioplus/data/content/skin/Haley%20Halcyon/tetrio_gameboy_plus.svg);
 }
 
 tr.matrix td:not(.mino) {
@@ -17,40 +17,40 @@ tr.matrix td:not(.mino) {
 }
 
 .I {
-    --sprite-pos: 4;
+  --sprite-pos: 4;
 }
 
 .J {
-    --sprite-pos: 5;
+  --sprite-pos: 5;
 }
 
 .L {
-    --sprite-pos: 1;
+  --sprite-pos: 1;
 }
 
 .O {
-    --sprite-pos: 2;
+  --sprite-pos: 2;
 }
 
 .S {
-    --sprite-pos: 3;
+  --sprite-pos: 3;
 }
 
 .T {
-    --sprite-pos: 6;
+  --sprite-pos: 6;
 }
 
 .Z {
-    --sprite-pos: 0;
+  --sprite-pos: 0;
 }
 
 .ghost {
-    --sprite-pos: 7;
+  --sprite-pos: 7;
     opacity: 40%;
 }
 
 .disabled {
-    --sprite-pos: 8;
+  --sprite-pos: 8;
 }
 
 .locking.mino {
@@ -62,23 +62,7 @@ tr.matrix td:not(.mino) {
     box-shadow: 4px 4px 10px #0002;
 }
 
-.option {
-    --cell-size: 24px;
-    display: inline-block;
+.preview {
+  --cell-size: 24px;
     height: var(--cell-size);
-}
-
-.result {
-    --nb-sprites: 9;
-}
-
-.select2-container:not(.select2-container--disabled) .selection {
-    --padded-cell-size: calc(var(--cell-size) + 1px);
-    --nb-sprites: 4;
-    --sprite-pos: 2;
-    width: calc(var(--nb-sprites) * var(--padded-cell-size) - 1px);
-    background-position-x: calc(-1 * var(--sprite-pos) * var(--padded-cell-size));
-    background-image: var(--skin-url);
-    background-size: cover;
-    background-repeat: no-repeat;
 }

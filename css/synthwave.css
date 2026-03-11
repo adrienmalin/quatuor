@@ -3,20 +3,20 @@ body {
     background-size: cover;
 }
 
-body[data-bs-theme="dark"] {
-    --bs-body-bg: #2125296b;
+body[data-bs-theme='dark'] {
+  --bs-body-bg: #2125296b;
 }
 
 .btn-dark {
-    --bs-btn-bg: #2125296b;
+  --bs-btn-bg: #2125296b;
 }
 
 .card {
-  background: #25292d66;
+    background: #25292d66;
 }
 
 #matrixCard {
-  background-image: radial-gradient(#2226, #25292d66);
+    background-image: radial-gradient(#2226, #25292d66);
 }
 
 .card,
@@ -26,8 +26,8 @@ body[data-bs-theme="dark"] {
 }
 
 .minoes-table {
-  background: transparent;
-  border-spacing: 2px;
+    background: transparent;
+    border-spacing: 2px;
 }
 
 #matrixTable {
@@ -35,17 +35,17 @@ body[data-bs-theme="dark"] {
 }
 
 #matrixTable td:not(.mino) {
-  border-color: #8881;
-  border-top: none;
-  border-bottom: none;
+    border-color: #8881;
+    border-top: none;
+    border-bottom: none;
 }
 
 .mino {
-  background: var(--color);
-  border: 3px solid var(--border);
-  border-radius: 6px;
-  box-shadow: 0 0 8px var(--border);
-  filter: blur(0.5px);
+    background: var(--color);
+    border: 3px solid var(--border);
+    border-radius: 6px;
+    box-shadow: 0 0 8px var(--border);
+    filter: blur(0.5px);
 }
 
 .I {
@@ -79,8 +79,8 @@ body[data-bs-theme="dark"] {
 }
 
 .Z {
-  --color: #E67D8666;
-  --border: #E67D86;
+  --color: #e67d8666;
+  --border: #e67d86;
 }
 
 .ghost {

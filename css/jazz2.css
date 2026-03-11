@@ -36,37 +36,37 @@ tr.matrix td:not(.mino) {
 
 .I.mino {
     background-color: #0293b0;
-    --box-shadow-color: #05d2f2;
+  --box-shadow-color: #05d2f2;
 }
 
 .J.mino {
     background-color: #2c69c2;
-    --box-shadow-color: #7bb7f6;
+  --box-shadow-color: #7bb7f6;
 }
 
 .L.mino {
     background-color: #fa9b23;
-    --box-shadow-color: #FFBA59;
+  --box-shadow-color: #ffba59;
 }
 
 .O.mino {
     background-color: #f9d92c;
-    --box-shadow-color: #fff194;
+  --box-shadow-color: #fff194;
 }
 
 .S.mino {
     background-color: #01a493;
-    --box-shadow-color: #03e7d3;;
+  --box-shadow-color: #03e7d3;
 }
 
 .T.mino {
     background-color: #6830d1;
-    --box-shadow-color: #bb88fc;
+  --box-shadow-color: #bb88fc;
 }
 
 .Z.mino {
     background-color: #ee2b58;
-    --box-shadow-color: #fd4487;;
+  --box-shadow-color: #fd4487;
 }
 
 .ghost.mino {

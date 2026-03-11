@@ -1,11 +1,11 @@
 :root {
   --cell-size: 24px;
-  --sprite-size: calc(100% / 8);
+  --sprite-size: round(100% / 8, 1px);
   --skin-url: url(https://i.imgur.com/HqGYC5G.png);
 }
 
 .card {
-  background-color: #1c1c1c;
+    background-color: #1c1c1c;
 }
 
 .card-body {
@@ -15,7 +15,7 @@
 #matrixCard {
     background-image: url(jstris-skin/jstris-grid.png);
     background-position: bottom;
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
 }
 
 tr.matrix td:not(.mino) {
@@ -30,40 +30,40 @@ tr.matrix td:not(.mino) {
 }
 
 .I {
-    --sprite-pos: 6;
+  --sprite-pos: 6;
 }
 
 .J {
-    --sprite-pos: 7;
+  --sprite-pos: 7;
 }
 
 .L {
-    --sprite-pos: 3;
+  --sprite-pos: 3;
 }
 
 .O {
-    --sprite-pos: 4;
+  --sprite-pos: 4;
 }
 
 .S {
-    --sprite-pos: 5;
+  --sprite-pos: 5;
 }
 
 .T {
-    --sprite-pos: 8;
+  --sprite-pos: 8;
 }
 
 .Z {
-    --sprite-pos: 2;
+  --sprite-pos: 2;
 }
 
 .ghost {
-    --sprite-pos: 1;
+  --sprite-pos: 1;
     opacity: 50%;
 }
 
 .disabled {
-    --sprite-pos: 0;
+  --sprite-pos: 0;
 }
 
 .locking.mino {
@@ -75,21 +75,7 @@ tr.matrix td:not(.mino) {
     box-shadow: 4px 4px 10px #0002;
 }
 
-.option {
-    display: inline-block;
+.preview {
+  --cell-size: 24px;
     height: var(--cell-size);
-}
-
-.result {
-    --nb-sprites: 9;
-}
-
-.select2-container:not(.select2-container--disabled) .selection {
-    --nb-sprites: 4;
-    --sprite-pos: 4;
-    width: calc(var(--nb-sprites) * var(--cell-size));
-    background-position-x: calc(-1 * var(--sprite-pos) * var(--cell-size));
-    background-image: var(--skin-url);
-    background-size: cover;
-    background-repeat: no-repeat;
 }

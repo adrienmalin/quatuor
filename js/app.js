@@ -318,14 +318,19 @@ sceneDiv.onwheel = function (event) {
     screenRow.style.setProperty('--tZ', tZ + 'px');
 };
 
+const ImageURLPattern = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|webp|svg))$/i
 $.fn.select2.defaults.set("templateResult", (state) =>
     state.id
-    ? $(`<img class="option result" src="${state.id}" title="${state.text}" loading="lazy"/>`)
+    ? $(`<img class="preview" src="${state.id}" title="${state.text}" loading="lazy"/>`)
     : state.text
 )
 $.fn.select2.defaults.set("templateSelection", (state) =>
     state.id
-        ? $(`<span class="option selection" style="--skin-url: url(${state.id})" title="${state.text}" alt="${state.id}" loading="lazy"></span>`)
+        ? $(`
+<table class="minoes-table preview" style="--skin-url: url(${state.id});">
+    <tr><td class="Z mino"></td><td class="O mino"></td><td class="T mino"></td><td class="I mino"></td></tr>
+</table>
+`)
         : state.text
 )
 $.fn.select2.defaults.set("theme", "bootstrap-5")
@@ -336,7 +341,7 @@ $.fn.select2.defaults.set("placeholder", "URL de l'image")
 $.fn.select2.defaults.set("tags", true)
 $.fn.select2.defaults.set("createTag", function (params) {
     const url = encodeURI(params.term);
-    if (/^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|webp|svg))$/i.test(url)) {
+    if (ImageURLPattern.test(url)) {
         return {
             id: url,
             text: 'Source externe',
@@ -349,6 +354,7 @@ stylesheetSelect.oninput = function (event) {
     selectedStyleSheet.href = this.value;
 
     $("#skinURLSelect").empty();
+
     switch (this.value) {
         case 'css/jstris-skin.css':
             skinURLSelect.disabled = false;
@@ -362,7 +368,7 @@ stylesheetSelect.oninput = function (event) {
                             text: group,
                             children: json[group].map(skin => ({
                                 id: skin.link,
-                                text: `${skin.name} (${skin.author})\n${skin.description}`,
+                                text: `${skin.name} (${skin.author})`,
                             })),
                         };
                         data.push(groupData);
@@ -371,6 +377,7 @@ stylesheetSelect.oninput = function (event) {
                     $('#skinURLSelect').select2({data: data});
                 });
             break;
+
         case 'css/tetrio-skin.css':
             skinURLSelect.disabled = false;
 
@@ -381,10 +388,11 @@ stylesheetSelect.oninput = function (event) {
                         .filter((item) => (item.type == "skin" && item.format == "tetrioraster"))
                         .map((skin) => {
                             return {
-                                id: `https://you.have.fail/tetrioplus/data/${skin.path}`,
-                                text:`${skin.name} (${skin.author})`
+                                id: encodeURI(`https://you.have.fail/tetrioplus/data/${skin.path}`),
+                                text:`${skin.name} (${skin.author})\n${skin.description}`
                             }
                         })
+                        .filter((option) => ImageURLPattern.test(option.id))
                     $('#skinURLSelect').select2({data: data});
                 })
             break;

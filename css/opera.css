@@ -1,5 +1,5 @@
 body {
-    --bs-gutter-x: 0;
+  --bs-gutter-x: 0;
     background: black !important;
 }
 
@@ -7,11 +7,11 @@ body {
     gap: 0 !important;
     margin: 0;
     text-transform: uppercase;
-    letter-spacing: .1em;
+    letter-spacing: 0.1em;
 }
 
 #screenRow {
-    --bs-gutter-x: 0;
+  --bs-gutter-x: 0;
 }
 
 .card {
@@ -22,7 +22,7 @@ body {
 }
 
 .card-header,
-.card-header th{
+.card-header th {
     background: transparent;
     font-weight: 400 !important;
     font-size: 1.3em;
@@ -30,7 +30,7 @@ body {
 }
 
 #screenRow .table {
-    --bs-border-width: 0;
+  --bs-border-width: 0;
 }
 
 #holdTable {
@@ -76,7 +76,7 @@ body {
 }
 
 td#timeCell {
-  text-align: center;
+    text-align: center;
 }
 
 #matrixCard {
@@ -95,38 +95,38 @@ td#timeCell {
 }
 
 .I.mino {
-    background-color: #42AFE1;
-    border-color: #6CEAFF;
+    background-color: #42afe1;
+    border-color: #6ceaff;
 }
 
 .J.mino {
-    background-color: #1165B5;
-    border-color: #339BFF;
+    background-color: #1165b5;
+    border-color: #339bff;
 }
 
 .L.mino {
-    background-color: #F38927;
-    border-color: #FFBA59;
+    background-color: #f38927;
+    border-color: #ffba59;
 }
 
 .O.mino {
-    background-color: #F6D03C;
-    border-color: #FFFF7F;
+    background-color: #f6d03c;
+    border-color: #ffff7f;
 }
 
 .S.mino {
     background-color: #32ee3e;
-    border-color: #84F880;
+    border-color: #84f880;
 }
 
 .T.mino {
-    background-color: #9739A2;
-    border-color: #D958E9;
+    background-color: #9739a2;
+    border-color: #d958e9;
 }
 
 .Z.mino {
-    background-color: #EB4F65;
-    border-color: #FF7F79;
+    background-color: #eb4f65;
+    border-color: #ff7f79;
 }
 
 .ghost.mino {

@@ -1,17 +1,17 @@
 :root {
-    --cell-size: 25px;
-    --rX: -15;
-    --rY: 0;
-    --tZ: 25px;
+  --cell-size: 25px;
+  --rX: -15;
+  --rY: 0;
+  --tZ: 25px;
 }
 
 body {
-  background: linear-gradient(#212529, #14171a) fixed;
+    background: linear-gradient(#212529, #14171a) fixed;
 }
 
 @supports (backdrop-filter: blur()) {
     .modal::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         bottom: 0;
@@ -31,7 +31,7 @@ body {
 }
 
 #matrixCard {
-    background-image: radial-gradient(#222, #25292d)
+    background-image: radial-gradient(#222, #25292d);
 }
 
 .card-header {
@@ -49,12 +49,12 @@ body {
 }
 
 td#timeCell {
-  min-width: 10ch;
+    min-width: 10ch;
 }
 
 .minoes-table {
-    --piece-column: 0;
-    --piece-row   : 0;
+  --piece-column: 0;
+  --piece-row: 0;
     table-layout: fixed;
     border-collapse: separate;
     border-spacing: 0;
@@ -71,7 +71,7 @@ td#timeCell {
     }
 }
 .hard-dropped-table-animation {
-    animation: hard-dropped-table-animation ease-in-out .2s;
+    animation: hard-dropped-table-animation ease-in-out 0.2s;
 }
 
 tr.buffer-zone td:not(.mino) {
@@ -79,9 +79,9 @@ tr.buffer-zone td:not(.mino) {
 }
 
 tr.matrix td:not(.mino) {
-    border-left  : 1px solid #333;
-    border-right : 1px solid #333;
-    border-top   : 1px solid #303030;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+    border-top: 1px solid #303030;
     border-bottom: 1px solid #303030;
 }
 
@@ -113,33 +113,39 @@ td {
 }
 
 td.trail-animation {
-    animation: trail-animation ease-out .3s;
+    animation: trail-animation ease-out 0.3s;
 }
 
 @keyframes cleared-line-animation {
     from {
         background-color: white;
         filter: saturate(50%) brightness(300%);
-        box-shadow: 0 0 0 #adb5bd, 0 0 0 #adb5bd;
+        box-shadow:
+            0 0 0 #adb5bd,
+            0 0 0 #adb5bd;
     }
     60% {
-        box-shadow: -60px 0 2px #adb5bd66, 60px 0 2px #adb5bd66;
+        box-shadow:
+            -60px 0 2px #adb5bd66,
+            60px 0 2px #adb5bd66;
     }
     to {
         background-color: transparent;
-        box-shadow: -100px 0 5px transparent, 100px 0 5px transparent;
+        box-shadow:
+            -100px 0 5px transparent,
+            100px 0 5px transparent;
     }
 }
 
 tr.cleared-line-animation {
-    animation: cleared-line-animation ease-out .3s;
+    animation: cleared-line-animation ease-out 0.3s;
 }
 
 #holdTable .J,
 #holdTable .L,
 #holdTable .S,
 #holdTable .T,
-#holdTable .Z, 
+#holdTable .Z,
 #nextTable .J,
 #nextTable .L,
 #nextTable .S,
@@ -193,7 +199,6 @@ tr.cleared-line-animation {
         opacity: 0;
         transform: scale3d(0.3, 0.3, 0.3);
         line-height: var(--bs-body-line-height);
-
     }
     30% {
         opacity: 1;
@@ -213,13 +218,13 @@ tr.cleared-line-animation {
 
 @keyframes rotate-in-animation {
     0% {
-        opacity:0;
-        transform:rotate(200deg);
+        opacity: 0;
+        transform: rotate(200deg);
         line-height: var(--bs-body-line-height);
     }
     30% {
-        opacity:1;
-        transform:translateZ(0);
+        opacity: 1;
+        transform: translateZ(0);
         transform: scale3d(1, 1, 1);
     }
     80% {
@@ -235,15 +240,15 @@ tr.cleared-line-animation {
 }
 
 #messagesSpan div.rotate-in-animation {
-    animation-name:  rotate-in-animation;
-    animation-timing-function: cubic-bezier(.25,.46,.45,.94);
+    animation-name: rotate-in-animation;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     animation-duration: 1s;
 }
 
 #messagesSpan div.zoom-in-animation {
     animation-name: zoom-in-animation;
-    animation-timing-function: cubic-bezier(.25,.46,.45,.94);
-    transform-origin:center;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform-origin: center;
     animation-duration: 1s;
 }
 

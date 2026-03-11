@@ -1,15 +1,15 @@
 :root {
-    --cell-size: 20px;
-    --sprite-size: 40px;
+  --cell-size: 20px;
+  --sprite-size: 40px;
 }
 
 @font-face {
-    font-family: "Early GameBoy";
-    src: url("old-school/Early GameBoy.ttf");
+    font-family: 'Early GameBoy';
+    src: url('old-school/Early GameBoy.ttf');
 }
 
 #screenRow {
-    background-image: url("old-school/bg.png");
+    background-image: url('old-school/bg.png');
     background-size: 10px;
     padding: 40px 20px;
     border: 3px inset black;
@@ -21,9 +21,9 @@
 }
 
 .card {
-    background: #8D8E04;
+    background: #8d8e04;
     border-radius: 0;
-    border-image-source: url("old-school/border-sm.png");
+    border-image-source: url('old-school/border-sm.png');
     border-image-slice: 25;
     border-image-width: 13px;
     border-image-repeat: repeat;
@@ -33,12 +33,12 @@
 }
 
 .card-header {
-    background: #8D8E04;
+    background: #8d8e04;
 }
 
 #matrixCard {
     background: #808302;
-    border-image-source: url("old-school/border-lg.png");
+    border-image-source: url('old-school/border-lg.png');
     border-image-slice: 30;
     border-image-width: 15px;
     border-image-outset: 15px;
@@ -48,16 +48,18 @@
 .card,
 .card-header,
 #messagesSpan div {
-    font-family: "Early GameBoy", monospace;
+    font-family: 'Early GameBoy', monospace;
     font-smooth: never;
     -webkit-font-smoothing: none;
     color: #254806;
-    text-shadow: -1px -1px 3px rgba(0, 0, 0, 40%), 1px 1px 1px rgba(0, 0, 0, 40%);
+    text-shadow:
+        -1px -1px 3px rgba(0, 0, 0, 40%),
+        1px 1px 1px rgba(0, 0, 0, 40%);
 }
 
 #statsTable {
-    font-size: .7em;
-    letter-spacing: -.1em;
+    font-size: 0.7em;
+    letter-spacing: -0.1em;
 }
 
 #statsTable tr {
@@ -68,7 +70,7 @@
 #statsTable th,
 #statsTable td {
     border: 0;
-    padding: 0 .2rem;
+    padding: 0 0.2rem;
 }
 
 #statsTable td {
@@ -77,7 +79,11 @@
 }
 
 #messagesSpan {
-    text-shadow: -2px -2px #808302, -2px 2px #808302, 2px -2px #808302, 2px 2px #808302;
+    text-shadow:
+        -2px -2px #808302,
+        -2px 2px #808302,
+        2px -2px #808302,
+        2px 2px #808302;
 }
 
 .minoes-table td {
@@ -85,38 +91,40 @@
 }
 
 .mino {
-    box-shadow: -2px -2px 5px rgba(0, 0, 0, 40%), 1px 1px 2px rgba(0, 0, 0, 40%);
+    box-shadow:
+        -2px -2px 5px rgba(0, 0, 0, 40%),
+        1px 1px 2px rgba(0, 0, 0, 40%);
     background-size: cover;
-    background-image: url("old-school/sprites.png");
+    background-image: url('old-school/sprites.png');
     background-position: calc(var(--sprite-pos) * var(--sprite-size)) 0px;
 }
 
 .I.mino {
-    --sprite-pos: 0;
+  --sprite-pos: 0;
 }
 
 .J.mino {
-    --sprite-pos: 1;
+  --sprite-pos: 1;
 }
 
 .L.mino {
-    --sprite-pos: 2;
+  --sprite-pos: 2;
 }
 
 .O.mino {
-    --sprite-pos: 3;
+  --sprite-pos: 3;
 }
 
 .S.mino {
-    --sprite-pos: 4;
+  --sprite-pos: 4;
 }
 
 .T.mino {
-    --sprite-pos: 5;
+  --sprite-pos: 5;
 }
 
 .Z.mino {
-    --sprite-pos: 6;
+  --sprite-pos: 6;
 }
 
 @keyframes blinker {
@@ -139,18 +147,25 @@
 }
 
 .hard-dropped-table-animation {
-    animation: hard-dropped-table-animation steps(1) .2s;
+    animation: hard-dropped-table-animation steps(1) 0.2s;
 }
 
 @keyframes cleared-line-animation {
-    10%, 30%, 50%, 70%, 90% {
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
         opacity: 0;
     }
-    20%, 40%, 60%, 80% {
+    20%,
+    40%,
+    60%,
+    80% {
         opacity: 100%;
     }
 }
 
 tr.cleared-line-animation {
-    animation: cleared-line-animation ease-out .4s;
+    animation: cleared-line-animation ease-out 0.4s;
 }

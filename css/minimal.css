@@ -5,12 +5,8 @@
 .minoes-table {
     display: flex;
     flex-direction: column;
-    filter: 
-        drop-shadow(-2px 0 0 white)
-        drop-shadow(2px 0 0 white)
-        drop-shadow(0 -2px 0 white)
-        drop-shadow(0 2px 0 white)
-        drop-shadow(5px 8px 0 rgba(9, 9, 9, 22%));
+    filter: drop-shadow(-2px 0 0 white) drop-shadow(2px 0 0 white) drop-shadow(0 -2px 0 white)
+        drop-shadow(0 2px 0 white) drop-shadow(5px 8px 0 rgba(9, 9, 9, 22%));
 }
 
 .minoes-table tr {
@@ -41,38 +37,38 @@ tr.matrix td:not(.mino) {
 }
 
 .I.mino {
-    --background-color: #42AFE1;
-    --box-shadow-color: #6CEAFF;
+  --background-color: #42afe1;
+  --box-shadow-color: #6ceaff;
 }
 
 .J.mino {
-    --background-color: #1165B5;
-    --box-shadow-color: #339BFF;
+  --background-color: #1165b5;
+  --box-shadow-color: #339bff;
 }
 
 .L.mino {
-    --background-color: #F38927;
-    --box-shadow-color: #FFBA59;
+  --background-color: #f38927;
+  --box-shadow-color: #ffba59;
 }
 
 .O.mino {
-    --background-color: #F6D03C;
-    --box-shadow-color: #FFFF7F;
+  --background-color: #f6d03c;
+  --box-shadow-color: #ffff7f;
 }
 
 .S.mino {
-    --background-color: #51B84D;
-    --box-shadow-color: #84F880;
+  --background-color: #51b84d;
+  --box-shadow-color: #84f880;
 }
 
 .T.mino {
-    --background-color: #9739A2;
-    --box-shadow-color: #D958E9;
+  --background-color: #9739a2;
+  --box-shadow-color: #d958e9;
 }
 
 .Z.mino {
-    --background-color: #EB4F65;
-    --box-shadow-color: #FF7F79;
+  --background-color: #eb4f65;
+  --box-shadow-color: #ff7f79;
 }
 
 .ghost.mino {
@@ -86,8 +82,8 @@ tr.matrix td:not(.mino) {
 }
 
 .locking.mino {
-    --background-color: white;
-    --box-shadow-color: #DDD;
+  --background-color: white;
+  --box-shadow-color: #ddd;
 }
 
 .locked.mino {
