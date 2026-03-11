@@ -1,11 +1,12 @@
 :root {
     --cell-size: 30px;
-    --sprite-size: calc(100% / 11);
+    --sprite-size: round(100% / 11, 1px);
     --skin-url: url(https://you.have.fail/ed/at/tetrioplus/data/content/skin/Haley%20Halcyon/tetrio_gameboy_plus.svg);
 }
 
-.minoes-table {
-    border-collapse: collapse;
+tr.matrix td:not(.mino) {
+    border-left: none;
+    border-bottom: none;
 }
 
 .mino {
@@ -62,6 +63,7 @@
 }
 
 .option {
+    --cell-size: 24px;
     display: inline-block;
     height: var(--cell-size);
 }
@@ -71,7 +73,6 @@
 }
 
 .select2-container:not(.select2-container--disabled) .selection {
-    --cell-size: 24px;
     --padded-cell-size: calc(var(--cell-size) + 1px);
     --nb-sprites: 4;
     --sprite-pos: 2;

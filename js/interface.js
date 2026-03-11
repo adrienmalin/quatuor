@@ -36,6 +36,7 @@ class Settings {
         this.form.querySelectorAll('[name]').forEach(element => {
             if (element.name in localStorage) element.value = localStorage[element.name];
         });
+        stylesheetSelect.oninput();
         if (localStorage['skinURL']) {
             if ($('#skinURLSelect').find("option[value='" + localStorage['skinURL'] + "']").length) {
                 $('#skinURLSelect').val(localStorage['skinURL']).trigger('change');
@@ -48,12 +49,8 @@ class Settings {
                 );
                 $('#skinURLSelect').append(option).trigger('change');
             }
-            document.documentElement.style.setProperty(
-                '--skin-url',
-                `url(${localStorage['skinURL']})`,
-            );
+            skinURLSelect.oninput();
         }
-        stylesheetSelect.oninput();
     }
 
     save() {

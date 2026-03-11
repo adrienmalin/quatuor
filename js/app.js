@@ -318,7 +318,33 @@ sceneDiv.onwheel = function (event) {
     screenRow.style.setProperty('--tZ', tZ + 'px');
 };
 
-const ImageURLPattern = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|webp|svg))$/i;
+$.fn.select2.defaults.set("templateResult", (state) =>
+    state.id
+    ? $(`<img class="option result" src="${state.id}" title="${state.text}" loading="lazy"/>`)
+    : state.text
+)
+$.fn.select2.defaults.set("templateSelection", (state) =>
+    state.id
+        ? $(`<span class="option selection" style="--skin-url: url(${state.id})" title="${state.text}" alt="${state.id}" loading="lazy"></span>`)
+        : state.text
+)
+$.fn.select2.defaults.set("theme", "bootstrap-5")
+$.fn.select2.defaults.set("selectionCssClass", 'form-select')
+$.fn.select2.defaults.set("dropdownParent", $('#settingsModal'))
+$.fn.select2.defaults.set("dropdownAutoWidth", true)
+$.fn.select2.defaults.set("placeholder", "URL de l'image")
+$.fn.select2.defaults.set("tags", true)
+$.fn.select2.defaults.set("createTag", function (params) {
+    const url = encodeURI(params.term);
+    if (/^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|webp|svg))$/i.test(url)) {
+        return {
+            id: url,
+            text: 'Source externe',
+            newTag: true,
+        };
+    }
+});
+
 stylesheetSelect.oninput = function (event) {
     selectedStyleSheet.href = this.value;
 
@@ -342,33 +368,7 @@ stylesheetSelect.oninput = function (event) {
                         data.push(groupData);
                     }
 
-                    $('#skinURLSelect').select2({
-                        data: data,
-                        templateResult: state =>
-                            state.id
-                                ? $(`<img class="option result" src="${state.id}" title="${state.text}" loading="lazy"/>`)
-                                : state.text,
-                        templateSelection: state =>
-                            state.id
-                                ? $(`<span class="option selection" style="--skin-url: url(${state.id})" title="${state.text}" alt="${state.id}" loading="lazy"></span>`)
-                                : state.text,
-                        theme: 'bootstrap-5',
-                        selectionCssClass: 'form-select',
-                        dropdownParent: $('#settingsModal'),
-                        dropdownAutoWidth: true,
-                        placeholder: "URL de l'image",
-                        tags: true,
-                        createTag: function (params) {
-                            const url = encodeURI(params.term);
-                            if (ImageURLPattern.test(url)) {
-                                return {
-                                    id: url,
-                                    text: 'Source externe',
-                                    newTag: true,
-                                };
-                            }
-                        },
-                    });
+                    $('#skinURLSelect').select2({data: data});
                 });
             break;
         case 'css/tetrio-skin.css':
@@ -385,33 +385,7 @@ stylesheetSelect.oninput = function (event) {
                                 text:`${skin.name} (${skin.author})`
                             }
                         })
-                    $('#skinURLSelect').select2({
-                        data: data,
-                        templateResult: state =>
-                            state.id
-                                ? $(`<img class="option result" src="${state.id}" title="${state.text}" loading="lazy"/>`)
-                                : state.text,
-                        templateSelection: state =>
-                            state.id
-                                ? $(`<span class="option selection" style="--skin-url: url(${state.id})" title="${state.text}" alt="${state.id}" loading="lazy"></span>`)
-                                : state.text,
-                        theme: 'bootstrap-5',
-                        selectionCssClass: 'form-select',
-                        dropdownParent: $('#settingsModal'),
-                        dropdownAutoWidth: true,
-                        placeholder: "URL de l'image",
-                        tags: true,
-                        createTag: function (params) {
-                            const url = encodeURI(params.term);
-                            if (ImageURLPattern.test(url)) {
-                                return {
-                                    id: url,
-                                    text: 'Source externe',
-                                    newTag: true,
-                                };
-                            }
-                        },
-                    });
+                    $('#skinURLSelect').select2({data: data});
                 })
             break;
 

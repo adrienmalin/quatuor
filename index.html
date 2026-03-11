@@ -93,7 +93,7 @@
                 </div>
                 <div class="col-4">
                   <select name="skinURL" id="skinURLSelect" class="form-select"
-                  oninput="document.documentElement.style.setProperty('--skin-url', `url('${this.value}')`)">
+                  oninput="document.documentElement.style.setProperty('--skin-url', `url(${encodeURI(this.value)})`)">
                   </select>
                 </div>
                 <label for="skinURLSelect" class="col-2 col-form-label">Sample</label>

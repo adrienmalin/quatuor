@@ -66,12 +66,12 @@ td#timeCell {
 }
 
 @keyframes hard-dropped-table-animation {
-    25% {
-        transform: translateY(3px);
+    50% {
+        transform: translate(0, 5px);
     }
 }
 .hard-dropped-table-animation {
-    animation: hard-dropped-table-animation .2s;
+    animation: hard-dropped-table-animation ease-in-out .2s;
 }
 
 tr.buffer-zone td:not(.mino) {
