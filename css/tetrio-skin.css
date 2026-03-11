@@ -9,8 +9,6 @@
 }
 
 .mino {
-    width: var(--cell-size);
-    height: var(--cell-size);
     background-image: var(--skin-url);
     background-size: cover;
     background-repeat: no-repeat;
@@ -73,11 +71,12 @@
 }
 
 .select2-container:not(.select2-container--disabled) .selection {
+    --cell-size: 24px;
     --padded-cell-size: calc(var(--cell-size) + 1px);
-    width: calc(var(--nb-sprites) * var(--padded-cell-size));
+    --nb-sprites: 4;
+    --sprite-pos: 2;
+    width: calc(var(--nb-sprites) * var(--padded-cell-size) - 1px);
     background-position-x: calc(-1 * var(--sprite-pos) * var(--padded-cell-size));
-    --nb-sprites: 3;
-    --sprite-pos: 4;
     background-image: var(--skin-url);
     background-size: cover;
     background-repeat: no-repeat;

@@ -23,8 +23,6 @@ tr.matrix td:not(.mino) {
 }
 
 .mino {
-    width: var(--cell-size);
-    height: var(--cell-size);
     background-image: var(--skin-url);
     background-size: cover;
     background-repeat: no-repeat;
@@ -87,10 +85,10 @@ tr.matrix td:not(.mino) {
 }
 
 .select2-container:not(.select2-container--disabled) .selection {
-    width: calc(var(--nb-sprites) * var(--cell-size));
-    background-position-x: calc(-1 * var(--sprite-pos) * var(--cell-size));
     --nb-sprites: 4;
     --sprite-pos: 4;
+    width: calc(var(--nb-sprites) * var(--cell-size));
+    background-position-x: calc(-1 * var(--sprite-pos) * var(--cell-size));
     background-image: var(--skin-url);
     background-size: cover;
     background-repeat: no-repeat;

@@ -336,7 +336,7 @@ stylesheetSelect.oninput = function (event) {
                             text: group,
                             children: json[group].map(skin => ({
                                 id: skin.link,
-                                text: `${skin.name} (${skin.author})`,
+                                text: `${skin.name} (${skin.author})\n${skin.description}`,
                             })),
                         };
                         data.push(groupData);
