@@ -254,6 +254,7 @@ function gameOver() {
     playing = false;
 
     stats.show();
+    playSound(gameover)
 }
 
 window.onbeforeunload = function (event) {
