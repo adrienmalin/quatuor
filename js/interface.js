@@ -316,51 +316,53 @@ class Stats {
         }
 
         // Sounds
-        if (clearedLines == 4 || (tSpin && clearedLines)) {
-            if (this.b2b >= 1) switch(this.b2b) {
-                case 1: playSound(btb_1); break
-                case 2: playSound(btb_2); break
-                default: playSound(btb_3)
+        if (sfxVolumeRange.value) {
+            if (clearedLines == 4 || (tSpin && clearedLines)) {
+                if (this.b2b >= 1) switch(this.b2b) {
+                    case 1: playSound(btb_1); break
+                    case 2: playSound(btb_2); break
+                    default: playSound(btb_3)
+                } else if (this.combo >= 1) switch(this.combo) {
+                    case 1: playSound(combo_1_power); break
+                    case 2: playSound(combo_2_power); break
+                    case 3: playSound(combo_3_power); break
+                    case 4: playSound(combo_4_power); break
+                    case 5: playSound(combo_5_power); break
+                    case 6: playSound(combo_6_power); break
+                    case 7: playSound(combo_7_power); break
+                    case 8: playSound(combo_8_power); break
+                    case 9: playSound(combo_9_power); break
+                    case 10: playSound(combo_10_power); break
+                    case 11: playSound(combo_11_power); break
+                    case 12: playSound(combo_12_power); break
+                    case 13: playSound(combo_13_power); break
+                    case 14: playSound(combo_14_power); break
+                    case 15: playSound(combo_15_power); break
+                    default: playSound(combo_16_power)
+                } else if (clearedLines == 4) playSound(clearbtb);
+                else playSound(clearspin);
             } else if (this.combo >= 1) switch(this.combo) {
-                case 1: playSound(combo_1_power); break
-                case 2: playSound(combo_2_power); break
-                case 3: playSound(combo_3_power); break
-                case 4: playSound(combo_4_power); break
-                case 5: playSound(combo_5_power); break
-                case 6: playSound(combo_6_power); break
-                case 7: playSound(combo_7_power); break
-                case 8: playSound(combo_8_power); break
-                case 9: playSound(combo_9_power); break
-                case 10: playSound(combo_10_power); break
-                case 11: playSound(combo_11_power); break
-                case 12: playSound(combo_12_power); break
-                case 13: playSound(combo_13_power); break
-                case 14: playSound(combo_14_power); break
-                case 15: playSound(combo_15_power); break
-                default: playSound(combo_16_power)
-            } else if (clearedLines == 4) playSound(clearbtb);
-            else playSound(clearspin);
-        } else if (this.combo >= 1) switch(this.combo) {
-            case 1: playSound(combo_1); break
-            case 2: playSound(combo_2); break
-            case 3: playSound(combo_3); break
-            case 4: playSound(combo_4); break
-            case 5: playSound(combo_5); break
-            case 6: playSound(combo_6); break
-            case 7: playSound(combo_7); break
-            case 8: playSound(combo_8); break
-            case 9: playSound(combo_9); break
-            case 10: playSound(combo_10); break
-            case 11: playSound(combo_11); break
-            case 12: playSound(combo_12); break
-            case 13: playSound(combo_13); break
-            case 14: playSound(combo_14); break
-            case 15: playSound(combo_15); break
-            default: playSound(combo_16)
-        } else if (tSpin) {
-            if (clearedLines) playSound(clearspin);
-            else playSound(spin);
-        } else if (clearedLines) playSound(clearline);
+                case 1: playSound(combo_1); break
+                case 2: playSound(combo_2); break
+                case 3: playSound(combo_3); break
+                case 4: playSound(combo_4); break
+                case 5: playSound(combo_5); break
+                case 6: playSound(combo_6); break
+                case 7: playSound(combo_7); break
+                case 8: playSound(combo_8); break
+                case 9: playSound(combo_9); break
+                case 10: playSound(combo_10); break
+                case 11: playSound(combo_11); break
+                case 12: playSound(combo_12); break
+                case 13: playSound(combo_13); break
+                case 14: playSound(combo_14); break
+                case 15: playSound(combo_15); break
+                default: playSound(combo_16)
+            } else if (tSpin) {
+                if (clearedLines) playSound(clearspin);
+                else playSound(spin);
+            } else if (clearedLines) playSound(clearline);
+        }
 
         this.goal -= awardedLineClears;
         if (this.goal <= 0) this.level++;
