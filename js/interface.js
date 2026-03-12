@@ -144,8 +144,8 @@ class Stats {
         levelInput.value = localStorage['startLevel'] || 1;
         this.score = 0;
         this.goal = 0;
-        this.combo = 0;
-        this.b2b = 0;
+        this.combo = -1;
+        this.b2b = -1;
         this.startTime = new Date();
         this.lockDelay = DELAY.LOCK;
         this.totalClearedLines = 0;
@@ -231,23 +231,23 @@ class Stats {
         return new Date() - this.startTime;
     }
 
-    lockDown(tSpin, nbClearedLines) {
-        this.totalClearedLines += nbClearedLines;
-        if (nbClearedLines == 4) this.nbQuatuors++;
+    lockDown(tSpin, clearedLines) {
+        this.totalClearedLines += clearedLines;
+        if (clearedLines == 4) this.nbQuatuors++;
         if (tSpin == T_SPIN.T_SPIN) this.nbTSpin++;
 
         // Cleared lines & T-Spin
-        let awardedLineClears = AWARDED_LINE_CLEARS[tSpin][nbClearedLines];
+        let awardedLineClears = AWARDED_LINE_CLEARS[tSpin][clearedLines];
         let patternScore = 100 * this.level * awardedLineClears;
         if (tSpin)
             messagesSpan.addNewChild('div', {
                 className: 'rotate-in-animation',
                 innerHTML: tSpin,
             });
-        if (nbClearedLines)
+        if (clearedLines)
             messagesSpan.addNewChild('div', {
                 className: 'zoom-in-animation',
-                innerHTML: CLEARED_LINES_NAMES[nbClearedLines],
+                innerHTML: CLEARED_LINES_NAMES[clearedLines],
             });
         if (patternScore) {
             messagesSpan.addNewChild('div', {
@@ -259,10 +259,10 @@ class Stats {
         }
 
         // Combo
-        if (nbClearedLines) {
+        if (clearedLines) {
             this.combo++;
             if (this.combo >= 1) {
-                let comboScore = (nbClearedLines == 1 ? 20 : 50) * this.combo * this.level;
+                let comboScore = (clearedLines == 1 ? 20 : 50) * this.combo * this.level;
                 if (this.combo == 1) {
                     messagesSpan.addNewChild('div', {
                         className: 'zoom-in-animation',
@@ -279,11 +279,12 @@ class Stats {
                 this.score += comboScore;
             }
         } else {
+            if (this.combo >= 1) playSound(combobreak)
             this.combo = -1;
         }
 
         // Back to back sequence
-        if (nbClearedLines == 4 || (tSpin && nbClearedLines)) {
+        if (clearedLines == 4 || (tSpin && clearedLines)) {
             this.b2b++;
             if (this.b2b >= 1) {
                 let b2bScore = patternScore / 2;
@@ -302,23 +303,64 @@ class Stats {
                 }
                 this.score += b2bScore;
             }
-        } else if (nbClearedLines && !tSpin) {
+        } else if (clearedLines && !tSpin) {
             if (this.b2b >= 1) {
                 messagesSpan.addNewChild('div', {
                     className: 'zoom-in-animation',
                     style: 'animation-delay: .4s',
                     innerHTML: `FIN DU BOUT À BOUT`,
                 });
+                playSound(btb_break)
             }
             this.b2b = -1;
         }
 
-        // Sound
-        if (sfxVolumeRange.value) {
-            if (nbClearedLines == 4) playSound(quatuorSound, this.combo);
-            else if (nbClearedLines) playSound(lineClearSound, this.combo);
-            if (tSpin) playSound(tSpinSound, this.combo);
-        }
+        // Sounds
+        if (clearedLines == 4 || (tSpin && clearedLines)) {
+            if (this.b2b >= 1) switch(this.b2b) {
+                case 1: playSound(btb_1); break
+                case 2: playSound(btb_2); break
+                default: playSound(btb_3)
+            } else if (this.combo >= 1) switch(this.combo) {
+                case 1: playSound(combo_1_power); break
+                case 2: playSound(combo_2_power); break
+                case 3: playSound(combo_3_power); break
+                case 4: playSound(combo_4_power); break
+                case 5: playSound(combo_5_power); break
+                case 6: playSound(combo_6_power); break
+                case 7: playSound(combo_7_power); break
+                case 8: playSound(combo_8_power); break
+                case 9: playSound(combo_9_power); break
+                case 10: playSound(combo_10_power); break
+                case 11: playSound(combo_11_power); break
+                case 12: playSound(combo_12_power); break
+                case 13: playSound(combo_13_power); break
+                case 14: playSound(combo_14_power); break
+                case 15: playSound(combo_15_power); break
+                default: playSound(combo_16_power)
+            } else if (clearedLines == 4) playSound(clearbtb);
+            else playSound(clearspin);
+        } else if (this.combo >= 1) switch(this.combo) {
+            case 1: playSound(combo_1); break
+            case 2: playSound(combo_2); break
+            case 3: playSound(combo_3); break
+            case 4: playSound(combo_4); break
+            case 5: playSound(combo_5); break
+            case 6: playSound(combo_6); break
+            case 7: playSound(combo_7); break
+            case 8: playSound(combo_8); break
+            case 9: playSound(combo_9); break
+            case 10: playSound(combo_10); break
+            case 11: playSound(combo_11); break
+            case 12: playSound(combo_12); break
+            case 13: playSound(combo_13); break
+            case 14: playSound(combo_14); break
+            case 15: playSound(combo_15); break
+            default: playSound(combo_16)
+        } else if (tSpin) {
+            if (clearedLines) playSound(clearspin);
+            else playSound(spin);
+        } else if (clearedLines) playSound(clearline);
 
         this.goal -= awardedLineClears;
         if (this.goal <= 0) this.level++;

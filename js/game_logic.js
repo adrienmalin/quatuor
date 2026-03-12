@@ -17,7 +17,7 @@ const T_SPIN = {
     T_SPIN: "PIROUETTE"
 }
 
-// score = AWARDED_LINE_CLEARS[tSpin][nbClearedLines]
+// score = AWARDED_LINE_CLEARS[tSpin][clearedLines]
 const AWARDED_LINE_CLEARS = {
     [T_SPIN.NONE]:   [0, 1, 3, 5, 8],
     [T_SPIN.MINI]:   [1, 2],
@@ -282,18 +282,18 @@ class Matrix extends MinoesTable {
     }
 
     clearLines() {
-        let nbClearedLines = 0
+        let clearedLines = 0
         for (let y=0; y<this.rows; y++) {
             let row = this.blocks[y]
             if (row.filter(lockedMino => lockedMino).length == this.columns) {
-                nbClearedLines++
+                clearedLines++
                 this.blocks.splice(y, 1)
                 this.blocks.unshift(Array(matrix.columns))
                 this.table.rows[y].classList.add("cleared-line-animation")
             }
         }
         this.redraw()
-        return nbClearedLines
+        return clearedLines
     }
 }
 Matrix.prototype.init_center = [4, 4]

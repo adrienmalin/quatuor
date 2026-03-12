@@ -32,6 +32,7 @@ function pauseSettings() {
     document.onkeydown = null;
 
     settings.show();
+    playSound(menuhover)
 }
 
 function newGame(event) {
@@ -82,6 +83,8 @@ function resume(event) {
 
         if (matrix.piece) scheduler.setInterval(fall, stats.fallPeriod);
         else generate();
+
+        playSound(menuconfirm)
     }
 }
 
@@ -103,19 +106,19 @@ function generate(piece) {
 }
 
 let playerActions = {
-    moveLeft: () => matrix.piece.move(TRANSLATION.LEFT),
+    moveLeft: () => matrix.piece.move(TRANSLATION.LEFT)? playSound(move) : playSound(hit),
 
-    moveRight: () => matrix.piece.move(TRANSLATION.RIGHT),
+    moveRight: () => matrix.piece.move(TRANSLATION.RIGHT)? playSound(move) : playSound(hit),
 
-    rotateClockwise: () => matrix.piece.rotate(ROTATION.CW),
+    rotateClockwise: () => matrix.piece.rotate(ROTATION.CW)? playSound(rotate) : playSound(hit),
 
-    rotateCounterclockwise: () => matrix.piece.rotate(ROTATION.CCW),
+    rotateCounterclockwise: () => matrix.piece.rotate(ROTATION.CCW)? playSound(rotate) : playSound(hit),
 
-    softDrop: () => matrix.piece.move(TRANSLATION.DOWN) && ++stats.score,
+    softDrop: () => (matrix.piece.move(TRANSLATION.DOWN) && ++stats.score)? playSound(move) : playSound(floor),
 
     hardDrop: function () {
         scheduler.clearTimeout(lockDown);
-        playSound(hardDropSound);
+        playSound(harddrop);
         while (matrix.piece.move(TRANSLATION.DOWN, ROTATION.NONE, true)) stats.score += 2;
         matrixCard.classList.remove('hard-dropped-table-animation');
         matrixCard.offsetHeight;
@@ -128,6 +131,7 @@ let playerActions = {
         if (matrix.piece.holdEnabled) {
             scheduler.clearInterval(fall);
             scheduler.clearTimeout(lockDown);
+            playSound(hold)
 
             let piece = matrix.piece;
             piece.facing = FACING.NORTH;
