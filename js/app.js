@@ -361,6 +361,37 @@ stylesheetSelect.oninput = function (event) {
     $("#skinURLSelect").empty();
 
     switch (this.value) {
+        case 'css/tetrio-skin.css':
+            skinURLSelect.disabled = false;
+
+            const baseURL = "https://you.have.fail/tetrioplus/data"
+            fetch(`${baseURL}/data.json`)
+                .then((resp) => resp.json())
+                .then((json) => {
+                    json = json.filter((item) => (item.type == "skin" && item.format == "tetrioraster" && /\.(?:png|jpg|jpeg|gif|bmp|webp|svg)$/i.test(item.path)))
+                    const groups = Map.groupBy(json, (skin) => skin.author)
+                    const data = groups.entries().map(([author, skins]) => {
+                        return {
+                            text: author,
+                            children: skins.map((skin) => {
+                                return {
+                                    id: `${baseURL}/${encodeURI(skin.path)}`,
+                                    text:`${skin.name}\n${skin.description}`
+                                }
+                            })
+                        }
+                    }).toArray()
+                    data.push({
+                        text: "AdrienMalin",
+                        children: [{
+                            id: `${document.location.href}/css/tetrio-skin/a_forest.png`,
+                            text: "A forest"
+                        }]
+                    })
+                    $('#skinURLSelect').select2({data: data});
+                })
+            break;
+
         case 'css/jstris-skin.css':
             skinURLSelect.disabled = false;
 
@@ -373,33 +404,13 @@ stylesheetSelect.oninput = function (event) {
                             text: group,
                             children: json[group].map(skin => ({
                                 id: skin.link,
-                                text: `${skin.name} (${skin.author})`,
+                                text: `${skin.name} by ${skin.author}`,
                             })),
                         };
                         data.push(groupData);
                     }
-
                     $('#skinURLSelect').select2({data: data});
                 });
-            break;
-
-        case 'css/tetrio-skin.css':
-            skinURLSelect.disabled = false;
-
-            fetch("https://you.have.fail/tetrioplus/data/data.json")
-                .then((resp) => resp.json())
-                .then((json) => {
-                    const data = json
-                        .filter((item) => (item.type == "skin" && item.format == "tetrioraster"))
-                        .map((skin) => {
-                            return {
-                                id: encodeURI(`https://you.have.fail/tetrioplus/data/${skin.path}`),
-                                text:`${skin.name} (${skin.author})\n${skin.description}`
-                            }
-                        })
-                        .filter((option) => ImageURLPattern.test(option.id))
-                    $('#skinURLSelect').select2({data: data});
-                })
             break;
 
         default:

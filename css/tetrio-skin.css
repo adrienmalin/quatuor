@@ -1,7 +1,7 @@
 :root {
   --cell-size: 30px;
   --sprite-size: round(100% / 11, 1px);
-  --skin-url: url(https://you.have.fail/ed/at/tetrioplus/data/content/skin/Haley%20Halcyon/tetrio_gameboy_plus.svg);
+  --skin-url: url(tetrio-skin/a_forest.png);
 }
 
 tr.matrix td:not(.mino) {

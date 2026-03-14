@@ -41,12 +41,7 @@ class Settings {
             if ($('#skinURLSelect').find("option[value='" + localStorage['skinURL'] + "']").length) {
                 $('#skinURLSelect').val(localStorage['skinURL']).trigger('change');
             } else {
-                var option = new Option(
-                    'Source externe',
-                    localStorage['skinURL'],
-                    true,
-                    true,
-                );
+                var option = new Option('Sample sauvegardé', localStorage['skinURL']);
                 $('#skinURLSelect').append(option).trigger('change');
             }
             skinURLSelect.oninput();
@@ -399,6 +394,6 @@ Stats.prototype.timeFormat = new Intl.DateTimeFormat('fr-FR', {
 
 function playSound(sound, note = 0) {
     sound.currentTime = 0;
-    sound.playbackRate = Math.pow(5 / 4, note);
+    sound.playbackRate = note? Math.pow(5 / 4, note): 1;
     sound.play();
 }
