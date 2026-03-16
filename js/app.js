@@ -370,7 +370,7 @@ stylesheetSelect.oninput = function (event) {
                 .then((json) => {
                     json = json.filter((item) => (item.type == "skin" && item.format == "tetrioraster" && /\.(?:png|jpg|jpeg|gif|bmp|webp|svg)$/i.test(item.path)))
                     const groups = Map.groupBy(json, (skin) => skin.author)
-                    const data = groups.entries().map(([author, skins]) => {
+                    var data = groups.entries().map(([author, skins]) => {
                         return {
                             text: author,
                             children: skins.map((skin) => {
@@ -388,6 +388,7 @@ stylesheetSelect.oninput = function (event) {
                             text: "A forest"
                         }]
                     })
+                    data.sort((group1, group2) => group1.text > group2.text) 
                     $('#skinURLSelect').select2({data: data});
                 })
             break;

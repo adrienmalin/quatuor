@@ -70,6 +70,7 @@ body {
 
 #matrixCard {
     background-image: none;
+    transform-origin: bottom;
 }
 
 #screenRow .card > * {
@@ -324,6 +325,12 @@ tr.cleared-line-animation td::after {
 td.trail-animation::before,
 td.trail-animation::after {
     animation: trail-animation ease-out 0.3s;
+}
+
+@keyframes hard-dropped-table-animation {
+    50% {
+        transform: translateY(10px) rotateX(-3deg);
+    }
 }
 
 @keyframes locked-animation {
