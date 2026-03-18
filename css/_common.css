@@ -30,6 +30,10 @@ body {
     background-color: #25292d;
 }
 
+#statsTable th {
+    text-align: right;
+}
+
 #matrixCard {
     background-image: radial-gradient(#222, #25292d);
 }
@@ -41,11 +45,6 @@ body {
 .modal-title {
     text-shadow: 0 0 8px var(--bs-light);
     font-weight: 600;
-}
-
-#statsTable td,
-#statsModal td {
-    text-align: right;
 }
 
 td#timeCell {
@@ -274,20 +273,22 @@ tr.cleared-line-animation {
     border-collapse: collapse;
 }
 
-#statsModal th {
+#statsModal td {
     padding-left: 0;
     padding-right: 0.5rem;
     padding-bottom: 0.2rem;
     border-left: 0.5rem solid transparent;
     border-right: 0;
+    width: max-content;
 }
 
-#statsModal td {
+#statsModal th {
     padding-left: 0.5rem;
     padding-right: 0;
     padding-bottom: 0.2rem;
     border-left: 0;
     border-right: 0.5rem solid transparent;
+    text-align: right;
 }
 
 #statsModal tr:last-child th,

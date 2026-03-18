@@ -143,11 +143,11 @@
         </div>
           <div class="card shadow">
             <table id="statsTable" class="table mb-0">
-              <tr class="card-header fw-bold text-uppercase"><th>Score</th><td id="scoreCell">0</td>                                                                          </tr>
-              <tr><th>Meilleur<br/>score</th><td id="highScoreCell"><script>document.write(Number(localStorage["highScore"]) || 0)</script></td></tr>
-              <tr><th>Niveau</th><td id="levelCell">0</td>      </tr>
-              <tr><th>But</th>   <td id="goalCell">0</td>       </tr>
-              <tr><th>Temps</th> <td id="timeCell">00:00:00</td></tr>
+              <tr class="card-header fw-bold text-uppercase"><td>Score</td><th id="scoreCell">0</th>                                                                          </tr>
+              <tr><td>Meilleur<br/>score</td><th id="highScoreCell"><script>document.write(Number(localStorage["highScore"]) || 0)</script></th></tr>
+              <tr><td>Niveau</td><th id="levelCell">0</th>      </tr>
+              <tr><td>But</td>   <th id="goalCell">0</th>       </tr>
+              <tr><td>Temps</td> <th id="timeCell">00:00:00</th></tr>
             </table>
           </div>
         </div>
@@ -226,11 +226,16 @@
             </div>
             <div class="modal-body p-0">
               <table class="table mb-0">
-                <tr><th>Score</th>         <td id="statsModalScoreCell"></td>        <th>Quatuors</th>             <td id="statsModalNbQuatuors"></td>         </tr>
-                <tr><th>Meilleur score</th><td id="statsModalHighScoreCell"></td>    <th>Pirouettes</th>           <td id="statsModalNbTSpin"></td>            </tr>
-                <tr><th>Temps</th>         <td id="statsModalTimeCell"></td>         <th>Plus long combo</th>      <td id="statsModalMaxCombo"></td>           </tr>
-                <tr><th>Niveau</th>        <td id="statsModalLevelCell"></td>        <th>Plus long bout à bout</th><td id="statsModalMaxB2B"></td>             </tr>
-                <tr><th>Lignes</th>        <td id="statsModaltotalClearedLines"></td><th>Lignes par minute</th>    <td id="statsModaltotalClearedLinesPM"></td></tr>
+                <tr><td>Score</td>                <th id="statsModalScoreCell"></th>          </tr>
+                <tr><td>Meilleur score</td>       <th id="statsModalHighScoreCell"></th>      </tr>
+                <tr><td>Niveau</td>               <th id="statsModalLevelCell"></th>          </tr>
+                <tr><td>Temps</td>                <th id="statsModalTimeCell"></th>           </tr>
+                <tr><td>Lignes</td>               <th id="statsModaltotalClearedLines"></th>  </tr>
+                <tr><td>Lignes par minute</td>    <th id="statsModaltotalClearedLinesPM"><htd></tr>
+                <tr><td>Quatuors</td>             <th id="statsModalNbQuatuors"></th>         </tr>
+                <tr><td>Pirouettes</td>           <th id="statsModalNbTSpin"></th>            </tr>
+                <tr><td>Plus long combo</td>      <th id="statsModalMaxCombo"></th>           </tr>
+                <tr><td>Plus long bout à bout</td><th id="statsModalMaxB2B"></th>             </tr>
               </table>
             </div>
             <div class="modal-footer">
