@@ -323,7 +323,6 @@ sceneDiv.onwheel = function (event) {
     screenRow.style.setProperty('--tZ', tZ + 'px');
 };
 
-const ImageURLPattern = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|webp|svg))$/i
 $.fn.select2.defaults.set("templateResult", (state) =>
     state.id
     ? $(`<img class="preview" src="${state.id}" title="${state.text}" loading="lazy"/>`)
@@ -331,12 +330,12 @@ $.fn.select2.defaults.set("templateResult", (state) =>
 )
 $.fn.select2.defaults.set("templateSelection", (state) =>
     state.id
-        ? $(`
+    ? $(`
 <table class="minoes-table preview" style="--skin-url: url(${state.id});">
     <tr><td class="Z mino"></td><td class="O mino"></td><td class="T mino"></td><td class="I mino"></td></tr>
 </table>
 `)
-        : state.text
+    : state.text
 )
 $.fn.select2.defaults.set("theme", "bootstrap-5")
 $.fn.select2.defaults.set("selectionCssClass", 'form-select')
@@ -346,7 +345,7 @@ $.fn.select2.defaults.set("placeholder", "URL de l'image")
 $.fn.select2.defaults.set("tags", true)
 $.fn.select2.defaults.set("createTag", function (params) {
     const url = encodeURI(params.term);
-    if (ImageURLPattern.test(url)) {
+    if (/^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|webp|svg))$/i.test(url)) {
         return {
             id: url,
             text: 'Source externe',
@@ -357,13 +356,13 @@ $.fn.select2.defaults.set("createTag", function (params) {
 
 stylesheetSelect.oninput = function (event) {
     selectedStyleSheet.href = this.value;
-
-    $("#skinURLSelect").empty();
-
+    var skinURL = skinURLSelect.value
+    
     switch (this.value) {
         case 'css/tetrio-skin.css':
-            skinURLSelect.disabled = false;
-
+            localStorage[skinURLSelect.name] = skinURLSelect.value
+            skinURLSelect.name = "tetrioSkinURL"
+            $("#skinURLSelect").empty();
             const baseURL = "https://you.have.fail/tetrioplus/data"
             fetch(`${baseURL}/data.json`)
                 .then((resp) => resp.json())
@@ -376,7 +375,7 @@ stylesheetSelect.oninput = function (event) {
                             children: skins.map((skin) => {
                                 return {
                                     id: `${baseURL}/${encodeURI(skin.path)}`,
-                                    text:`${skin.name}\n${skin.description}`
+                                    text: skin.description? `${skin.name}\n${skin.description}` : `${skin.name}`
                                 }
                             })
                         }
@@ -388,14 +387,26 @@ stylesheetSelect.oninput = function (event) {
                             text: "A forest"
                         }]
                     })
-                    data.sort((group1, group2) => group1.text > group2.text) 
-                    $('#skinURLSelect').select2({data: data});
+                    data.sort((group1, group2) => group1.text > group2.text)
+
+                    skinURLSelect.disabled = false;
+                    $('#skinURLSelect').select2({data: data})
+                    if (skinURL = localStorage['tetrioSkinURL']) {
+                        if ($('#skinURLSelect').find(`option[value='${skinURL}']`).length) {
+                            $('#skinURLSelect').val(skinURL).trigger('change');
+                        } else {
+                            var option = new Option('Sample sauvegardé', skinURL);
+                            $('#skinURLSelect').append(option).trigger('change');
+                        }
+                        skinURLSelect.oninput();
+                    }
                 })
             break;
 
         case 'css/jstris-skin.css':
-            skinURLSelect.disabled = false;
-
+            localStorage[skinURLSelect.name] = skinURLSelect.value
+            skinURLSelect.name = "jstrisSkinURL"
+            $("#skinURLSelect").empty();
             fetch('https://konsola5.github.io/jstris-customization-database/jstrisCustomizationDatabase.json')
                 .then(response => response.json())
                 .then(json => {
@@ -410,7 +421,18 @@ stylesheetSelect.oninput = function (event) {
                         };
                         data.push(groupData);
                     }
-                    $('#skinURLSelect').select2({data: data});
+
+                    skinURLSelect.disabled = false;
+                    $('#skinURLSelect').select2({data: data})
+                    if (skinURL = localStorage['jstrisSkinURL']) {
+                        if ($('#skinURLSelect').find(`option[value='${skinURL}']`).length) {
+                            $('#skinURLSelect').val(skinURL).trigger('change');
+                        } else {
+                            var option = new Option('Sample sauvegardé', skinURL);
+                            $('#skinURLSelect').append(option).trigger('change');
+                        }
+                        skinURLSelect.oninput();
+                    }
                 });
             break;
 

@@ -37,15 +37,6 @@ class Settings {
             if (element.name in localStorage) element.value = localStorage[element.name];
         });
         stylesheetSelect.oninput();
-        if (localStorage['skinURL']) {
-            if ($('#skinURLSelect').find("option[value='" + localStorage['skinURL'] + "']").length) {
-                $('#skinURLSelect').val(localStorage['skinURL']).trigger('change');
-            } else {
-                var option = new Option('Sample sauvegardé', localStorage['skinURL']);
-                $('#skinURLSelect').append(option).trigger('change');
-            }
-            skinURLSelect.oninput();
-        }
     }
 
     save() {
