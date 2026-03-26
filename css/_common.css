@@ -155,9 +155,12 @@ tr.cleared-line-animation {
 
 #messagesSpan {
     position: absolute;
-    top: 5%;
+    top: 0;
     left: 50%;
     transform: translate(-50%, 0);
+    padding-top: 5%;
+    width: 100%;
+    height: 100%;
     color: #fffc;
     text-shadow: 1px 1px #000c;
     font-size: 3vmin;
@@ -168,6 +171,31 @@ tr.cleared-line-animation {
 #messagesSpan div {
     opacity: 0;
     overflow: hidden;
+}
+
+@keyframes countdown-animation {
+    from {
+        opacity: 0;
+    }
+    50% {
+        opacity: 100%;
+    }
+    to {
+        opacity: 0;
+        font-size: 20vmin;
+    }
+}
+
+#messagesSpan div.countdown-animation {
+    animation: countdown-animation;
+    animation-timing-function: ease-in-out;
+    animation-duration: .5s;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: -5%;
+    align-content: center;
 }
 
 @keyframes show-level-animation {
@@ -182,7 +210,7 @@ tr.cleared-line-animation {
     }
     to {
         opacity: 0;
-        transform: translateY(-100%) scaleY(0);
+        transform: translateY(-50%) scaleY(0);
         line-height: 0;
     }
 }

@@ -72,19 +72,40 @@ function resume(event) {
         for (const sound of document.getElementsByTagName('audio'))
             sound.volume = sfxVolumeRange.value;
 
+        playSound(menuconfirm)
         settings.modal.hide();
         settings.getInputs();
 
-        document.onkeydown = onkeydown;
-        document.onkeyup = onkeyup;
+        messagesSpan.addNewChild('div', {
+            className: 'countdown-animation',
+            innerHTML: "3",
+        })
 
-        stats.time = stats.pauseTime;
-        scheduler.setInterval(ticktack, 1000);
+        setTimeout(() => messagesSpan.addNewChild('div', {
+            className: 'countdown-animation',
+            innerHTML: "2",
+        }), 1000);
 
-        if (matrix.piece) scheduler.setInterval(fall, stats.fallPeriod);
-        else generate();
+        setTimeout(() => messagesSpan.addNewChild('div', {
+            className: 'countdown-animation',
+            innerHTML: "1",
+        }), 2000);
 
-        playSound(menuconfirm)
+        setTimeout(() => {
+            messagesSpan.addNewChild('div', {
+                className: 'countdown-animation',
+                innerHTML: "GO",
+            })
+            
+            document.onkeydown = onkeydown;
+            document.onkeyup = onkeyup;
+
+            stats.time = stats.pauseTime;
+            scheduler.setInterval(ticktack, 1000);
+
+            if (matrix.piece) scheduler.setInterval(fall, stats.fallPeriod);
+            else generate();
+        }, 3000);
     }
 }
 
@@ -398,8 +419,8 @@ stylesheetSelect.oninput = function (event) {
                             var option = new Option('Sample sauvegardé', skinURL);
                             $('#skinURLSelect').append(option).trigger('change');
                         }
-                        skinURLSelect.oninput();
                     }
+                    skinURLSelect.oninput();
                 })
             break;
 
@@ -431,8 +452,8 @@ stylesheetSelect.oninput = function (event) {
                             var option = new Option('Sample sauvegardé', skinURL);
                             $('#skinURLSelect').append(option).trigger('change');
                         }
-                        skinURLSelect.oninput();
                     }
+                    skinURLSelect.oninput();
                 });
             break;
 

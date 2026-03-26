@@ -40,8 +40,7 @@ body {
 .minoes-table {
     display: flex;
     flex-direction: column;
-    filter: drop-shadow(-2px 0 0 white) drop-shadow(2px 0 0 white) drop-shadow(0 -2px 0 white)
-        drop-shadow(0 2px 0 white) drop-shadow(5px 8px 0 rgba(9, 9, 9, 22%));
+    filter: drop-shadow(5px 8px 0 rgba(9, 9, 9, 22%));
 }
 
 .minoes-table tr {
@@ -100,16 +99,13 @@ td#timeCell {
     border-bottom: 3px solid white;
 }
 
-tr.matrix td:not(.mino) {
-    border: 0;
-}
-
 .minoes-table td {
     display: inline-block;
     width: var(--cell-size);
     height: var(--cell-size);
     padding: 0 !important;
     z-index: calc(200 - var(--row));
+    border: none !important;
 }
 
 .mino {
@@ -118,59 +114,47 @@ tr.matrix td:not(.mino) {
     display: block;
     padding: 0;
     opacity: 100%;
-    border-width: 1px;
-    border-style: solid;
     box-shadow: 0 -6px 0 var(--box-shadow-color);
 }
 
 .I.mino {
     background-color: #42afe1;
-    border-color: #6ceaff;
   --box-shadow-color: #6ceaff;
 }
 
 .J.mino {
     background-color: #1165b5;
-    border-color: #339bff;
   --box-shadow-color: #339bff;
 }
 
 .L.mino {
     background-color: #f38927;
-    border-color: #ffba59;
   --box-shadow-color: #ffba59;
 }
 
 .O.mino {
     background-color: #f6d03c;
-    border-color: #ffff7f;
   --box-shadow-color: #ffff7f;
 }
 
 .S.mino {
     background-color: #32ee3e;
-    border-color: #84f880;
   --box-shadow-color: #84f880;
 }
 
 .T.mino {
     background-color: #9739a2;
-    border-color: #d958e9;
   --box-shadow-color: #d958e9;
 }
 
 .Z.mino {
     background-color: #eb4f65;
-    border-color: #ff7f79;
   --box-shadow-color: #ff7f79;
 }
 
 .ghost.mino {
     background-color: #fff4;
-    border: none;
-    opacity: 5%;
     box-shadow: none;
-    transform: translateY(-3px);
 }
 
 .moving.mino {
@@ -188,30 +172,10 @@ tr.matrix td:not(.mino) {
 
 .disabled.mino {
     filter: brightness(50%) contrast(65%);
-    opacity: 70%;
 }
 
 @keyframes locked-animation {
     from {
         filter: saturate(50%) brightness(300%);
-    }
-}
-
-@keyframes cleared-line-animation {
-    from {
-        background-color: #eeeeee;
-    }
-    to {
-        background-color: transparent;
-    }
-}
-
-@keyframes trail-animation {
-    from {
-        background-color: #ceffff05;
-        filter: saturate(50%) brightness(110%);
-    }
-    to {
-        background-color: transparent;
     }
 }
