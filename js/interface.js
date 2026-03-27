@@ -163,6 +163,7 @@ class Stats {
     }
 
     set level(level) {
+        speak(`Niveau ${level}`)
         this._level = level;
         this.goal += level * 5;
         if (level <= 20) {

@@ -276,6 +276,16 @@ function gameOver() {
 
     stats.show();
     playSound(gameover)
+    speak("Game over")
+}
+
+function speak(text) {
+    if (!window.speechSynthesis) return;
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'fr-FR';
+    utterance.volume = sfxVolumeRange.value;
+    speechSynthesis.speak(utterance);
 }
 
 window.onbeforeunload = function (event) {
@@ -343,6 +353,8 @@ sceneDiv.onwheel = function (event) {
     tZ -= event.deltaY;
     screenRow.style.setProperty('--tZ', tZ + 'px');
 };
+
+// Skins
 
 $.fn.select2.defaults.set("templateResult", (state) =>
     state.id
