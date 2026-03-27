@@ -131,9 +131,9 @@ let playerActions = {
 
     moveRight: () => matrix.piece.move(TRANSLATION.RIGHT)? playSound(move) : playSound(hit),
 
-    rotateClockwise: () => matrix.piece.rotate(ROTATION.CW)? playSound(rotate) : playSound(hit),
+    rotateClockwise: () => matrix.piece.rotate(ROTATION.CW)? playSound(rotate) : playSound(spinend),
 
-    rotateCounterclockwise: () => matrix.piece.rotate(ROTATION.CCW)? playSound(rotate) : playSound(hit),
+    rotateCounterclockwise: () => matrix.piece.rotate(ROTATION.CCW)? playSound(rotate) : playSound(spinend),
 
     softDrop: () => (matrix.piece.move(TRANSLATION.DOWN) && ++stats.score)? playSound(move) : playSound(floor),
 
