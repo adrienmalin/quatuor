@@ -42,6 +42,7 @@ body {
     display: block;
     transform: translateZ(var(--tZ)) rotateX(calc((var(--rX)) * 1deg))
         rotateY(calc((var(--rY)) * 1deg));
+    transition: transform ease-in-out .3s;
 }
 
 #sceneDiv,
@@ -85,6 +86,7 @@ body {
 .card,
 .card-header {
     text-shadow: calc(-0.3px * var(--rY)) calc(0.4px * var(--rX)) 5px #0008;
+    transition: text-shadow ease-in-out .3s;
 }
 
 #holdTable .mino {
